@@ -124,6 +124,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   jqconsoleHandler: (command)=>
     if command
       try
+        @userCodeEditor.runCode()
         result = @evaluateCode command 
         output = switch typeof result
           when 'function'

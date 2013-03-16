@@ -2,8 +2,26 @@ class EssenceOfCoffeeScript.JavaScriptEditor extends EssenceOfCoffeeScript.Edito
 
   initialize: (attributes) =>
     super attributes
-    @evaluated = false
+    { @onParse, @onParseException } = attributes
 
-  runCode: => 
-    eval.call window, @compile()
+    @evaluated = false
+    @parseException = null
+
+    if @onParse?
+      @aceEditor.on 'change', (event)=> @parseCode()
+
+  parseCode: =>
+    @evaluated = false
+    @parseException = null
+    try
+      Function @javascriptSourceCode()
+      @onParse?()
+    catch e
+      @parseException = e
+      @onParseException?(e.message)
+
+  runCode: =>
+    eval.call window, @javascriptSourceCode()
     @evaluated = true
+
+  javascriptSourceCode: => @aceEditor.getValue()
