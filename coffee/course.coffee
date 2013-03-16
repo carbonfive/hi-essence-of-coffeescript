@@ -113,10 +113,11 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   launchUserCodeEditor: ()=>
     evalUserCode = (event)=> @evaluateUserCode()
-    @userCodeEditor = new EssenceOfCoffeeScript.Editor 
+    @userCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: '#user-code-editor'
       displaySettings: minHeight: 100
-    @userCodeEditor.aceEditor.on 'change', (event)=> @evaluateUserCode()
+      onParse: @hideUserCodeCompilationError
+      onParseException: @showUserCodeCompilationError
 
   launchEditor: ({id, theme, readOnlyMode}, displayOptions)->
     readOnlyMode = readOnlyMode?
@@ -207,29 +208,10 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
         return 0
       return false
 
-  evaluateUserCode: ()=>
-    sourceCode = @userCodeEditor.aceEditor.getValue()
-    return unless sourceCode?.length > 0
-    try
-      compiledJS = '' + CoffeeScript.compile sourceCode, bare: on
-      Function compiledJS 
-      @hideUserCodeCompilationError()
-    catch e
-      @userCodeCompilationError = e.message
-      @showUserCodeCompilationError(e.message)
-    # try
-    #   # compiledJS = '' + CoffeeScript.compile sourceCode, bare: on
-    #   # compiledJS = '' + CoffeeScript.eval sourceCode, bare: on#, sandbox: true
-    #   result = @evaluateCode sourceCode
-    #   console.log compiledJS
-    # catch e
-    #   console.log e.message
-
-
   hideUserCodeCompilationError: ()=>
     @$('#user-code-error').fadeOut => @$('#user-code-error').html('')
 
-  showUserCodeCompilationError: (@userCodeCompilationErrorMessage)->
+  showUserCodeCompilationError: (@userCodeCompilationErrorMessage)=>
     @$('#user-code-error').html(@userCodeCompilationErrorMessage).fadeIn()
 
   evaluateCode: (sourceCode) =>
