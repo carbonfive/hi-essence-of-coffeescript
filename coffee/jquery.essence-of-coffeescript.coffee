@@ -1,5 +1,7 @@
 $ = $ || jQuery
 
+$.fn.exists = ()-> this.length>0
+
 $.fn.getAttributes = ()->
   atts = {}
   return atts unless @length

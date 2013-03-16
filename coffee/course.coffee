@@ -112,9 +112,11 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @givenCodeEditor = @launchEditor {id, theme, readOnlyMode}
 
   launchUserCodeEditor: ()=>
-    id = 'user-code-editor'
-    @userCodeEditor = @launchEditor {id}, {minHeight: 400}
-    @userCodeEditor.on 'change', (event)=> @evaluateUserCode()
+    evalUserCode = (event)=> @evaluateUserCode()
+    @userCodeEditor = new EssenceOfCoffeeScript.Editor 
+      el: '#user-code-editor'
+      displaySettings: minHeight: 100
+    @userCodeEditor.aceEditor.on 'change', (event)=> @evaluateUserCode()
 
   launchEditor: ({id, theme, readOnlyMode}, displayOptions)->
     readOnlyMode = readOnlyMode?
@@ -162,9 +164,9 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$userCode.fadeOut()
 
   showUserCode: (code)=>
-    @userCodeEditor.setValue('')
-    @userCodeEditor.insert(code)
-    @$userCode.delay(100).fadeIn => @userCodeEditor.autoAdjustHeight()
+    @userCodeEditor.aceEditor.setValue('')
+    @userCodeEditor.aceEditor.insert(code)
+    @$userCode.delay(100).fadeIn => @userCodeEditor.aceEditor.autoAdjustHeight()
 
   launchUserConsole: ()->
     header = 'CoffeeScript Console\n'
@@ -206,7 +208,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
       return false
 
   evaluateUserCode: ()=>
-    sourceCode = @userCodeEditor.getValue()
+    sourceCode = @userCodeEditor.aceEditor.getValue()
     return unless sourceCode?.length > 0
     try
       compiledJS = '' + CoffeeScript.compile sourceCode, bare: on
