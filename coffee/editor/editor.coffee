@@ -18,7 +18,11 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
   initialize: (attributes) =>
     super attributes
     return console.error attributes, 'Element Not Found', attributes.el unless @$el.exists()
-    {options, events, displaySettings} = attributes
+    {widgetEl, options, events, displaySettings} = attributes
+    widgetEl = widgetEl || @el
+
+    @$widgetEl = $(widgetEl)
+    widgetEl = @$widgetEl[0]
 
     @aceEditor = @launch options, displaySettings
 
@@ -32,3 +36,11 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     @aceEditor.setTheme 'ace/theme/' + theme
     @aceEditor.setReadOnly readOnlyMode
     @aceEditor
+
+  hide: ()=>
+    @$widgetEl.fadeOut()
+
+  show: (code)=>
+    @aceEditor.setValue('')
+    @aceEditor.insert(code)
+    @$widgetEl.delay(100).fadeIn => @aceEditor.autoAdjustHeight()

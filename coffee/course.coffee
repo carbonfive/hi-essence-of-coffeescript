@@ -1,13 +1,4 @@
-$ = $ || jQuery
-window.EssenceOfCoffeeScript = window.EssenceOfCoffeeScript || {}
-
-EssenceOfCoffeeScript.options = 
-  fadeOutDuration: 200
-  fadeInDuration: 400
-
-log = (args...)->
-  return console.log args... unless console._log
-  console._log args...
+$ = jQuery
 
 class EssenceOfCoffeeScript.Course extends Backbone.View
   defaultSpot: '#course'
@@ -34,16 +25,6 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$title = @$splash.find('.title')
     @$outline = @$('.outline ol')
     @$factoid = @$('.factoid')
-    @$givenCode = @$('#given-code')
-    @$givenCodeEditor = @$('#given-code-editor')
-    @$userCode = @$('#user-code')
-    @$userCodeEditor = @$('#user-code-editor')
-    @$javaScriptSyntax = @$('#js-syntax')
-    @$javaScriptSyntaxEditor = @$('#js-syntax-editor')
-    @$coffeeScriptSyntax = @$('#coffee-syntax')
-    @$coffeeScriptSyntaxEditor = @$('#coffee-syntax-editor')
-    @$exampleCode = @$('#example-code')
-    @$exampleCodeEditor = @$('#example-code-editor')
 
     @jqconsoleSession = []
 
@@ -89,85 +70,43 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @
 
   launchJavaScriptSyntaxEditor: ()=>
-    id = 'js-syntax-editor'
-    theme = 'solarized_light'
-    readOnlyMode = true
-    @javaScriptSyntaxEditor = @launchEditor {id, theme, readOnlyMode}
+    @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
+      el: '#js-syntax-editor'
+      widgetEl: '#js-syntax'
+      options:
+        theme: 'solarized_light'
+        readOnlyMode: true
 
   launchCoffeeScriptSyntaxEditor: ()=>
-    id = 'coffee-syntax-editor'
-    theme = 'solarized_light'
-    readOnlyMode = true
-    @coffeeScriptSyntaxEditor = @launchEditor {id, theme, readOnlyMode}
+    @coffeeScriptSyntaxEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: '#coffee-syntax-editor'
+      widgetEl: '#coffee-syntax'
+      options:
+        theme: 'solarized_light'
+        readOnlyMode: true
 
   launchExampleCodeEditor: ()=>
-    id = 'example-code-editor'
-    readOnlyMode = true
-    @exampleCodeEditor = @launchEditor {id, readOnlyMode}
+    @exampleCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: '#example-code-editor'
+      widgetEl: '#example-code'
+      options:
+        readOnlyMode: true
 
   launchGivenCodeEditor: ()=>
-    id = 'given-code-editor'
-    theme = 'solarized_light'
-    readOnlyMode = true
-    @givenCodeEditor = @launchEditor {id, theme, readOnlyMode}
+    @givenCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: '#given-code-editor'
+      widgetEl: '#given-code'
+      options:
+        readOnlyMode: true
 
   launchUserCodeEditor: ()=>
-    evalUserCode = (event)=> @evaluateUserCode()
     @userCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: '#user-code-editor'
+      widgetEl: '#user-code'
       displaySettings: minHeight: 100
-      onParse: @hideUserCodeCompilationError
-      onParseException: @showUserCodeCompilationError
+      onParse: @hideUserCodeParseError
+      onParseException: @showUserCodeParseError
 
-  launchEditor: ({id, theme, readOnlyMode}, displayOptions)->
-    readOnlyMode = readOnlyMode?
-    theme = theme || 'solarized_dark'
-    editor = ace.edit id
-    editor.getSession().setMode('ace/mode/coffee')
-    editor.setTheme 'ace/theme/' + theme
-    editor.setReadOnly readOnlyMode
-    $("##{id}").autoAdjustAceEditorHeight(editor, displayOptions)
-    editor
-
-  hideJavaScriptSyntax: ()=>
-    @$javaScriptSyntax.fadeOut()
-
-  showJavaScriptSyntax: (code)=>
-    @javaScriptSyntaxEditor.setValue('')
-    @javaScriptSyntaxEditor.insert(code)
-    @$javaScriptSyntax.delay(100).fadeIn => @javaScriptSyntaxEditor.autoAdjustHeight()
-
-  hideCoffeeScriptSyntax: ()=>
-    @$coffeeScriptSyntax.fadeOut()
-
-  showCoffeeScriptSyntax: (code)=>
-    @coffeeScriptSyntaxEditor.setValue('')
-    @coffeeScriptSyntaxEditor.insert(code)
-    @$coffeeScriptSyntax.delay(100).fadeIn => @coffeeScriptSyntaxEditor.autoAdjustHeight()
-
-  hideExampleCode: ()=>
-    @$exampleCode.fadeOut()
-
-  showExampleCode: (code)=>
-    @exampleCodeEditor.setValue('')
-    @exampleCodeEditor.insert(code)
-    @$exampleCode.delay(100).fadeIn => @exampleCodeEditor.autoAdjustHeight()
-
-  hideGivenCode: ()=>
-    @$givenCode.fadeOut()
-
-  showGivenCode: (code)=>
-    @givenCodeEditor.setValue('')
-    @givenCodeEditor.insert(code)
-    @$givenCode.delay(100).fadeIn => @givenCodeEditor.autoAdjustHeight()
-
-  hideUserCode: ()=>
-    @$userCode.fadeOut()
-
-  showUserCode: (code)=>
-    @userCodeEditor.aceEditor.setValue('')
-    @userCodeEditor.aceEditor.insert(code)
-    @$userCode.delay(100).fadeIn => @userCodeEditor.aceEditor.autoAdjustHeight()
 
   launchUserConsole: ()->
     header = 'CoffeeScript Console\n'
@@ -208,16 +147,14 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
         return 0
       return false
 
-  hideUserCodeCompilationError: ()=>
+  hideUserCodeParseError: ()=>
     @$('#user-code-error').fadeOut => @$('#user-code-error').html('')
 
-  showUserCodeCompilationError: (@userCodeCompilationErrorMessage)=>
+  showUserCodeParseError: (@userCodeCompilationErrorMessage)=>
     @$('#user-code-error').html(@userCodeCompilationErrorMessage).fadeIn()
 
   evaluateCode: (sourceCode) =>
     compiledJS = '' + CoffeeScript.compile sourceCode, bare: on
-    # compiledJS = '' + CoffeeScript.eval sourceCode, bare: on #, sandbox: true
-    # compiledJS = '' + CoffeeScript.eval @userCodeEditor.getValue() + "\n" + sourceCode, bare: on #, sandbox: true
     @currentExercise.scope.run compiledJS
 
   findExercise: (idx) =>
@@ -252,13 +189,10 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     exercise = @findExercise idx
     return unless exercise?
     @start() unless @started?
-
-#     @clearEditor()
-#     @$coder.fadeIn(fadeInDuration) unless @$coder.is ':visible'
-
+ 
     @currentExercise?.undisplay()
     @currentExercise = exercise
-    @currentExercise?.display()
+    @currentExercise.display()
 
   hiStart:  (event) => @start(); @next()
   hiNext:   (event) => @next()

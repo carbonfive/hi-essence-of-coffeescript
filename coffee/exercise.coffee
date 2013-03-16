@@ -69,16 +69,19 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @$lesson.fadeOut() unless @model.get('lesson')?
     @$description.fadeOut() unless @model.get('description')?
     @$instructions.fadeOut() unless @model.get('instruction')?.length > 0
-    @course.hideJavaScriptSyntax()
-    @course.hideCoffeeScriptSyntax()
-    @course.hideExampleCode()
-    @course.hideGivenCode()
-    @course.hideUserCode()
-    @course.showJavaScriptSyntax @model.get 'js-syntax' if @model.get('js-syntax')?
-    @course.showCoffeeScriptSyntax @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
-    @course.showExampleCode @model.get 'example-code' if @model.get('example-code')?
-    @course.showGivenCode @model.get 'given-code' if @model.get('given-code')?.length > 0
-    @course.showUserCode '' if @model.get('user-code')?
+
+    @course.javaScriptSyntaxEditor.hide()
+    @course.coffeeScriptSyntaxEditor.hide()
+    @course.exampleCodeEditor.hide()
+    @course.givenCodeEditor.hide()
+    @course.userCodeEditor.hide()
+
+    @course.javaScriptSyntaxEditor.show @model.get 'js-syntax' if @model.get('js-syntax')?
+    @course.coffeeScriptSyntaxEditor.show @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
+    @course.exampleCodeEditor.show @model.get 'example-code' if @model.get('example-code')?
+    @course.givenCodeEditor.show @model.get 'given-code' if @model.get('given-code')?.length > 0
+    @course.userCodeEditor.show('') if @model.get('user-code')?
+    
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
     @$outline.addClass('active')
 

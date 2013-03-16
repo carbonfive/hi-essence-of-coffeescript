@@ -1,4 +1,4 @@
-class EssenceOfCoffeeScript.CoffeeScriptEditor extends EssenceOfCoffeeScript.Editor
+class EssenceOfCoffeeScript.CoffeeScriptEditor extends EssenceOfCoffeeScript.JavaScriptEditor
 
   initialize: (attributes) =>
     super attributes
@@ -8,7 +8,6 @@ class EssenceOfCoffeeScript.CoffeeScriptEditor extends EssenceOfCoffeeScript.Edi
 
     @compiledJavaScript = null
     @parseException = null
-    @evaluated = false
 
     if @onParse?
       @aceEditor.on 'change', (event)=> @parseCode()
@@ -24,5 +23,3 @@ class EssenceOfCoffeeScript.CoffeeScriptEditor extends EssenceOfCoffeeScript.Edi
     catch e
       @parseException = e
       @onParseException?(e.message)
-
-  runCode: => eval.call window, @compile()

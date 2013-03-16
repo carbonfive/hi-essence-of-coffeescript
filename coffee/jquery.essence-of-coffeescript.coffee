@@ -1,4 +1,4 @@
-$ = $ || jQuery
+$ = jQuery
 
 $.fn.exists = ()-> this.length>0
 
