@@ -1,165 +1,15 @@
 $ = $ || jQuery
+window.EssenceOfCoffeeScript = window.EssenceOfCoffeeScript || {}
 
-$.fn.getAttributes = ()->
-  atts = {}
-  return atts unless @length
-  $.each @[0].attributes, (index, att)-> atts[att.name] = att.value
-  atts
-
-$.fn.textValue = (attName)->
-  return undefined unless @length
-  $e = @find(attName)
-  return undefined unless $e
-  switch $e.length
-    when 0 then null
-    when 1 then $e.text().trim()
-    else $(item).text().trim() for item in $e # return an array
-
-$.fn.htmlValue = (attName)->
-  return undefined unless @length
-  $e = @find(attName)
-  return undefined unless $e
-  switch $e.length
-    when 0 then null
-    when 1 then $e.html().trim()
-    else $(item).html().trim() for item in $e # return an array
-
-
-$.fn.pickTextValues = (attNames...)->
-  return undefined unless @length
-  textValues = {}
-  textValues[name] = @.textValue(name) for name in attNames
-  textValues
-
-$.fn.pickHTMLValues = (attNames...)->
-  return undefined unless @length
-  textValues = {}
-  textValues[name] = @.htmlValue(name) for name in attNames
-  textValues
-
-
-
-$.fn.htmlElement= ()->
-  return null unless @length
-  stringHTML = @html()
-  $(stringHTML)[0]
-
-$.fn.autoAdjustAceEditorHeight = (aceEditor, options)->
-  $editor = @
-  $parent = @parent()
-  options = {} unless options?
-  options.minHeight = 24 unless options.minHeight?
-  options.maxHeight = null unless options.maxHeight?
-  options.adjustParent = true unless adjustParent?
-  parentOverSize = $parent.height() - $editor.height()
-  parentOverSize = 0 if parentOverSize < 0
-
-  aceEditorHeight = ()=>
-    screenLength = aceEditor.getSession().getScreenLength()
-    lineHeight = aceEditor.renderer.lineHeight
-    lineHeight = 12 if lineHeight < 8
-    scrollBarWidth = aceEditor.renderer.scrollBar.getWidth()
-    h = screenLength * lineHeight + scrollBarWidth
-    h = options.minHeight if h < options.minHeight
-    h = maxHeight if options.maxHeight? and h > options.maxHeight
-    h
-
-  autoAdjustHeightFunctor = (e)=>
-    return if e? and e.data.text isnt '\n' # auto adjust only on enter key or if there is no event
-    h = aceEditorHeight()
-    @height(h)
-    @parent().height(h + parentOverSize) if options.adjustParent
-    aceEditor.resize()
-
-  aceEditor.on 'change', autoAdjustHeightFunctor
-  aceEditor.onChangeFold autoAdjustHeightFunctor
-
-  aceEditor.autoAdjustHeight = -> autoAdjustHeightFunctor(null)
+EssenceOfCoffeeScript.options = 
+  fadeOutDuration: 200
+  fadeInDuration: 400
 
 log = (args...)->
   return console.log args... unless console._log
   console._log args...
 
-fadeOutDuration = 200
-fadeInDuration = 400
-
-class SourceCodeScope
-  run: (jsCode)=> eval.call window, jsCode 
-
-class Exercise extends Backbone.View
-  initialize: ({ $elModel, @course, @idx })->
-    @materializeModel $elModel
-    @resetScope()
-
-    @$title = @$('.title')
-    @$headline = @$('.headline')
-    @$lesson = @$('.lesson')
-    @$description = @$('.description')
-    @$instructions= @$('.instructions')
-    @$instructionList= @$('.instructions ol')
-
-    @quote = @$('quote').text().trim()
-    @course.$outline.append("<li><input type='submit' value='#{@model.get 'title' }' data-idx='#{@idx}'/></li>")
-    @$outline = @course.$outline.find("li input[data-idx=#{@idx}]")
-
-    @undisplay()
-
-  resetScope: -> 
-    delete @scope 
-    @scope = new SourceCodeScope
-    @scope.z =88
-    @scope.title = @model.get 'title'
-
-  materializeModel: ($elModel)->
-    atts = $elModel.pickHTMLValues 'title',
-      'headline',
-      'description',
-      'lesson',
-      'js-syntax',
-      'coffee-syntax',
-      'example-code',
-      'instruction',
-      'given-code',
-      'user-code',
-      'user-console',
-      'factoid'
-    atts.instruction = [atts.instruction] if 'string' is typeof atts.instruction
-    @model = new Backbone.Model atts
-
-  
-  display: () =>
-    @$title.html @model.get 'title'
-    @$headline.html @model.get 'headline'
-    @$lesson.html @model.get 'lesson'
-    @$description.html @model.get 'description'
-    @$instructionList.html ''
-    log 'instruction: ', @model.get 'instruction'
-    if @model.get('instruction')?.length > 0
-      for instruction in @model.get 'instruction' 
-        @$instructionList.append "<li class='instruction'>#{instruction}</li>"
-      @$instructions.fadeIn()
-
-    @$lesson.fadeOut() unless @model.get('lesson')?
-    @$description.fadeOut() unless @model.get('description')?
-    @$instructions.fadeOut() unless @model.get('instruction')?.length > 0
-    @course.hideJavaScriptSyntax()
-    @course.hideCoffeeScriptSyntax()
-    @course.hideExampleCode()
-    @course.hideGivenCode()
-    @course.hideUserCode()
-    @course.showJavaScriptSyntax @model.get 'js-syntax' if @model.get('js-syntax')?
-    @course.showCoffeeScriptSyntax @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
-    @course.showExampleCode @model.get 'example-code' if @model.get('example-code')?
-    @course.showGivenCode @model.get 'given-code' if @model.get('given-code')?.length > 0
-    @course.showUserCode '' if @model.get('user-code')?
-    @$el.delay(fadeOutDuration + 10).fadeIn(fadeInDuration)
-    @$outline.addClass('active')
-
-  undisplay: (duration) =>
-    @$el.fadeOut(fadeOutDuration)
-    @$outline.removeClass('active')
-
-class Course extends Backbone.View
+class EssenceOfCoffeeScript.Course extends Backbone.View
   defaultSpot: '#course'
   elTemplate: '#course-template'
 
@@ -174,6 +24,7 @@ class Course extends Backbone.View
 
   initialize: (attributes) =>
     super attributes
+    _.extend @options, EssenceOfCoffeeScript.options
     @model = @materializeModel $('markup course')
     @el = $(@elTemplate).htmlElement()
     @$el = $(@el)
@@ -394,7 +245,7 @@ class Course extends Backbone.View
     return if @started?
     @started = true
     @startTimer = null
-    @$splash.fadeOut fadeOutDuration
+    @$splash.fadeOut @options.fadeOutDuration
     # @$teaser.slideUp 2000 if @$teaser.is ':visible'
 
   next: =>
@@ -410,7 +261,7 @@ class Course extends Backbone.View
     elExercise = @$('.exercise')
     for elModel, idx in $('markup exercise')
       $elModel = $(elModel)
-      exerciseView = new Exercise { idx, $elModel, el: elExercise, course: @ }
+      exerciseView = new EssenceOfCoffeeScript.Exercise { idx, $elModel, el: elExercise, course: @ }
       @exercises.push exerciseView
 
   displayExercise: (idx)=>
@@ -429,6 +280,3 @@ class Course extends Backbone.View
   hiNext:   (event) => @next()
   hiBack:   (event) => @back()
   hiGoto:   (event) => @displayExercise( parseInt $(event.target).data('idx') ); event.preventDefault()
-
-# export the Course
-window.Course = Course

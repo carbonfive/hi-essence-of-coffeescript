@@ -31,6 +31,8 @@
 <script src="./js/vendor/jqconsole.min.js"></script>
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
+<script src='./coffee/jquery.essence-of-coffeescript.coffee' type='text/coffeescript'></script>
+<script src='./coffee/exercise.coffee' type='text/coffeescript'></script>
 <script src='./coffee/course.coffee' type='text/coffeescript'></script>
 
 <script id='course-template' type='text/template'>
@@ -91,7 +93,7 @@
 <div id='course-spot'></div>
 
 <script type='text/coffeescript'>
-  course = new Course
+  course = new EssenceOfCoffeeScript.Course
   course.renderInto '#course-spot'
 </script>
 
