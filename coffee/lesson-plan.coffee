@@ -10,7 +10,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
     @model = @materializeModel()
 
-    @course.$outline.append("<li><input type='submit' value='#{@model.get 'title' }' data-idx='#{@idx}'/></li>")
+    @course.$lessonPlansNavbar.find('ol').append("<li><input class='show-lesson' type='submit' value='#{@model.get 'title' }' data-idx='#{@idx}'/></li>")
 
     @$title = @course.$('.title')
     @$navbar = $('<ol>')
@@ -55,7 +55,9 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
     @display()
 
   display: (callback) =>
-    @course.$lessonPlanNavbar.html @$navbar 
+    console.log '@course exe navbar', @course.$exercisesNavbar
+
+    @course.$exercisesNavbar.html @$navbar 
     @course.$title.html @model.get 'title'
     @currentExercise.display(callback)
 

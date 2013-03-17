@@ -6,8 +6,8 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   events: # human interaction event
     'click .splash'            : 'hiStart'
-    'click .outline li input'  : 'hiGotoLesson'
-    'click .lessonplan-navbar li input'  : 'hiGotoExercise'
+    'click .navbar .show-lesson'  : 'hiGotoLesson'
+    'click .navbar .show-exercise'  : 'hiGotoExercise'
 #     'click .next'              : 'hiNext'
 #     'click .back'              : 'hiBack'
 
@@ -21,10 +21,11 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$teaser = $('.teaser')
     @$splash = @$('.splash')
     @$title = @$splash.find('.title')
-    @$outline = @$('.outline ol')
+    @$lessonPlansNavbar = @$('.navbar .lessonplans')
+    console.log 'less nav', @$lessonPlansNavbar
     @$factoid = @$('.factoid')
 
-    @$lessonPlanNavbar = @$('.lessonplan-navbar')
+    @$exercisesNavbar = @$('.navbar .lessonplans .exercises')
     @lessonPlans = []
     @currentLesson = null
     @loadLessonPlans()
