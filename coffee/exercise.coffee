@@ -1,21 +1,12 @@
 $ = $ || jQuery
 
-log = (args...)->
-  return console.log args... unless console._log
-  console._log args...
-
-class EssenceOfCoffeeScript.SourceCodeScope
-  run: (jsCode)=> eval.call window, jsCode 
-
 class EssenceOfCoffeeScript.Exercise extends Backbone.View
   initialize: (attributes)->
     super attributes
     _.extend @options, EssenceOfCoffeeScript.options
 
-    { $elModel, @course, @idx } = attributes
-    @materializeModel $elModel
-    @resetScope()
-
+    { @$elExerciseModel, @course, @lessonPlan, @idx } = attributes
+    @materializeModel @$elExerciseModel
     @$title = @$('.title')
     @$headline = @$('.headline')
     @$lesson = @$('.lesson')
@@ -24,41 +15,35 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @$instructionList= @$('.instructions ol')
 
     @quote = @$('quote').text().trim()
-    @course.$outline.append("<li><input type='submit' value='#{@model.get 'title' }' data-idx='#{@idx}'/></li>")
-    @$outline = @course.$outline.find("li input[data-idx=#{@idx}]")
+
+    @lessonPlan.$navbar.append("<li><input type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
+    @$navbar = @lessonPlan.$navbar.find("li input[data-idx=#{@idx}]")
 
     @undisplay()
 
-  resetScope: -> 
-    delete @scope 
-    @scope = new EssenceOfCoffeeScript.SourceCodeScope
-    @scope.z =88
-    @scope.title = @model.get 'title'
-
-  materializeModel: ($elModel)->
-    atts = $elModel.pickHTMLValues 'title',
+  materializeModel: (@$elExerciseModel)->
+    atts = @$elExerciseModel.pickHTMLValues 'title',
       'headline',
       'description',
       'lesson',
-      'js-syntax',
+      'instruction',
+      'user-console',
+      'factoid'
+    codeAtts = @$elExerciseModel.pickTextValues 'js-syntax',
       'coffee-syntax',
       'example-code',
-      'instruction',
       'given-code',
       'user-code',
       'user-console',
-      'factoid'
+    atts = _.extend atts, codeAtts
     atts.instruction = [atts.instruction] if 'string' is typeof atts.instruction
     @model = new Backbone.Model atts
 
-  
   display: () =>
-    @$title.html @model.get 'title'
     @$headline.html @model.get 'headline'
     @$lesson.html @model.get 'lesson'
     @$description.html @model.get 'description'
     @$instructionList.html ''
-    log 'instruction: ', @model.get 'instruction'
     if @model.get('instruction')?.length > 0
       for instruction in @model.get 'instruction' 
         @$instructionList.append "<li class='instruction'>#{instruction}</li>"
@@ -81,8 +66,8 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @course.userCodeEditor.show('') if @model.get('user-code')?
     
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
-    @$outline.addClass('active')
+    @$navbar.addClass('active')
 
-  undisplay: (duration) =>
-    @$el.fadeOut(@options.fadeOutDuration)
-    @$outline.removeClass('active')
+  undisplay: (duration, callback) =>
+    @$el.fadeOut @options.fadeOutDuration, callback
+    @$navbar.removeClass('active')
