@@ -26,8 +26,6 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$outline = @$('.outline ol')
     @$factoid = @$('.factoid')
 
-    @jqconsoleSession = []
-
     @exercises = []
     @currentExercise = null
     @loadExercises()
@@ -107,56 +105,16 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
       onParse: @hideUserCodeParseError
       onParseException: @showUserCodeParseError
 
-
   launchUserConsole: ()->
-    header = 'CoffeeScript Console\n'
-    @jqconsole = $('#user-console').jqconsole(header, '>> ', '.. ');
-
-    @jqconsole.RegisterShortcut 'A', => @jqconsole.MoveToStart(); @jqconsoleHandler()
-    @jqconsole.RegisterShortcut 'E', => @jqconsole.MoveToEnd();@jqconsoleHandler()
-
-    @jqconsole.RegisterMatching '{', '}', 'brace'
-    @jqconsole.RegisterMatching '(', ')', 'paran'
-    @jqconsole.RegisterMatching '[', ']', 'bracket'
-
-    @jqconsoleHandler()
-
-  jqconsoleHandler: (command)=>
-    if command
-      try
-        @userCodeEditor.runCode()
-        result = @evaluateCode command 
-        output = switch typeof result
-          when 'function'
-            '[Function]'
-          when 'object'
-            JSON.stringify result, null, 0
-          when 'undefined'
-            ''
-          else 
-            JSON.stringify result, null, 1
-        @jqconsole.Write '' + output + '\n'
-      catch e
-        @jqconsole.Write 'ERROR: ' + e.message + '\n'
-    @jqconsole.Prompt true, @jqconsoleHandler, (command)->
-      # Continue line if can't compile the command.
-      try
-        compiledJS = '' + CoffeeScript.compile command, bare: on
-        Function compiledJS 
-      catch e
-        return 1 if /[\[\{\(]$/.test command
-        return 0
-      return false
+    @jqconsole = new EssenceOfCoffeeScript.Console
+      el: '#user-console'
+    @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
 
   hideUserCodeParseError: ()=>
     @$('#user-code-error').fadeOut => @$('#user-code-error').html('')
 
   showUserCodeParseError: (@userCodeCompilationErrorMessage)=>
     @$('#user-code-error').html(@userCodeCompilationErrorMessage).fadeIn()
-
-  evaluateCode: (sourceCode) =>
-    compiledJS = '' + CoffeeScript.compile sourceCode, bare: on
-    @currentExercise.scope.run compiledJS
 
   findExercise: (idx) =>
     return null unless @exercises?

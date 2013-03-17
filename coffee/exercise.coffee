@@ -1,10 +1,8 @@
 $ = $ || jQuery
-window.EssenceOfCoffeeScript = window.EssenceOfCoffeeScript || {}
 
 log = (args...)->
   return console.log args... unless console._log
   console._log args...
-
 
 class EssenceOfCoffeeScript.SourceCodeScope
   run: (jsCode)=> eval.call window, jsCode 

@@ -5,7 +5,6 @@
 ###
 
 $ = $ || jQuery
-window.EssenceOfCoffeeScript = window.EssenceOfCoffeeScript || {}
 
 class EssenceOfCoffeeScript.Editor extends Backbone.View
 
