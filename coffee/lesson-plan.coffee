@@ -10,7 +10,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
     @model = @materializeModel()
 
-    @course.$lessonPlansNavbar.find('ol').append("<li><input class='show-lesson' type='submit' value='#{@model.get 'title' }' data-idx='#{@idx}'/></li>")
+    @course.$lessonPlansNavbar.find('ol').append("<li><input class='show-lesson' type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
 
     @$title = @course.$('.title')
     @$navbar = $('<ol>')
@@ -31,9 +31,17 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
   findExercise: (idx) => @exercises[idx] if 0 <= idx < @exercises?.length    
 
-  next: =>
+  nextExercise: =>
+    scrollTop = @course.$el.offset().top
+    scrollTop = scrollTop - 10 if scrollTop > 10
+    $('html, body').animate { scrollTop } , 1000
+
     idx = if @currentExercise? then 1 + @currentExercise.idx else 0
-    @displayExercise idx
+    if idx >= @exercises.length
+      idx = @exercises.length - 1
+      @course.nextLesson()
+    else
+      @displayExercise idx
 
   back: =>
     idx = @currentExercise?.idx || @exercises.length
@@ -50,21 +58,16 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
   displayExercise: (idx)=>
     exercise = @findExercise idx
     return unless exercise?
-    @currentExercise = exercise
-    # @undisplay()
     @display()
+    @currentExercise = exercise
 
-  display: (callback) =>
-    console.log '@course exe navbar', @course.$exercisesNavbar
-
+  display: () =>
     @course.$exercisesNavbar.html @$navbar 
-    @course.$title.html @model.get 'title'
-    @currentExercise.display(callback)
+    @course.$lessonTitle.html @model.get 'title'
+    @currentExercise.display()
 
-  undisplay: (duration, callback) =>
-    @currentExercise.undisplay(duration, callback)
+  # undisplay: (callback) =>
+  #   console.log 'undisplay lesson plan'
+  #   @currentExercise?.undisplay(callback)
 
-
-  hiNext:   (event) => @next()
-  hiBack:   (event) => @back()
   hiGotoExercise:   (event) => @displayExercise( parseInt $(event.target).data('idx') ); event.preventDefault()

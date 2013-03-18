@@ -5,31 +5,35 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   elTemplate: '#course-template'
 
   events: # human interaction event
-    'click .splash'            : 'hiStart'
-    'click .navbar .show-lesson'  : 'hiGotoLesson'
+    'click .next-exercise'          : 'hiNext'
+    'click .navbar .show-lesson'    : 'hiGotoLesson'
     'click .navbar .show-exercise'  : 'hiGotoExercise'
-#     'click .next'              : 'hiNext'
-#     'click .back'              : 'hiBack'
 
   initialize: (attributes) =>
     super attributes
+    { @elSpot } = attributes
+    @$elSpot = $(@elSpot)
+
     _.extend @options, EssenceOfCoffeeScript.options
     @model = @materializeModel $('markup course')
     @el = $(@elTemplate).htmlElement()
     @$el = $(@el)
+    @$exercise = @$('.course-content .exercise')
 
-    @$teaser = $('.teaser')
-    @$splash = @$('.splash')
-    @$title = @$splash.find('.title')
+    @$lessonTitle = @$('.lesson-title')
+
     @$lessonPlansNavbar = @$('.navbar .lessonplans')
-    console.log 'less nav', @$lessonPlansNavbar
+    @$lessonPlansNavbarTitle = @$('.navbar .lessonplans')
     @$factoid = @$('.factoid')
 
-    @$exercisesNavbar = @$('.navbar .lessonplans .exercises')
+    @$exercisesNavbar = @$('.navbar .exercises')
     @lessonPlans = []
-    @currentLesson = null
     @loadLessonPlans()
+
     setTimeout @hijackConsole, 5000
+
+    @render()
+
 
   hijackConsole: ()=>
     window.console._log = console.log
@@ -48,15 +52,14 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   renderAtt: (name) => 
     @["$#{name}"]?.html?(@model.get name)
+
   render: =>
-    @renderAtt 'title'
+    @$elSpot.append @el
+    @launchEditors()
+    @launchUserConsole()
+    @start() # load the first lesson and exercise
     @
 
-  renderInto: (@spot) =>
-    @$spot = $(@spot)
-    @$spot.append @render().el
-    @launchEditors()
-    @
   launchEditors: ()=>
     # ace.config.set("workerPath", "ace")
     @launchJavaScriptSyntaxEditor()
@@ -64,7 +67,6 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @launchExampleCodeEditor()
     @launchGivenCodeEditor()
     @launchUserCodeEditor()
-    @launchUserConsole()
     @
 
   launchJavaScriptSyntaxEditor: ()=>
@@ -118,21 +120,18 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   findLessonPlan: (idx) => @lessonPlans[idx] if 0 <= idx < @lessonPlans?.length
 
-  start: ()=>
-    return if @started?
-    @started = true
-    @startTimer = null
-    @$splash.fadeOut @options.fadeOutDuration
-    # @$teaser.slideUp 2000 if @$teaser.is ':visible'
+  start: ()=> @next() unless @started
 
-  next: =>
+  next: ()=>
+    if @started
+      @currentLessonPlan?.nextExercise()
+    else 
+      @displayLessonPlan(0)
+
+  nextLesson: ()=>
     idx = if @currentLessonPlan? then 1 + @currentLessonPlan.idx else 0
+    idx = @lessonPlans.length - 1 if idx > @lessonPlans.length
     @displayLessonPlan idx
-
-  back: =>
-    idx = @currentLessonPlan?.idx || @exercises.length
-    idx = -1 + idx
-    @displayExercise idx
 
   loadLessonPlans: () =>
     el = @$('.lessonplan')
@@ -140,18 +139,17 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
       $elLessonPlanModel = $(elLessonPlanModel)
       lessonPlanView = new EssenceOfCoffeeScript.LessonPlan { idx, $elLessonPlanModel, el, course: @ }
       @lessonPlans.push lessonPlanView
+    @currentLessonPlan = @lessonPlans[0]
 
   displayLessonPlan: (idx)=>
+    @started = true
     lesson = @findLessonPlan idx
     return unless lesson?
-    @start() unless @started?
  
-    @currentLessonPlan?.undisplay()
+    # @currentLessonPlan?.undisplay ->lesson.display()
     @currentLessonPlan = lesson
     @currentLessonPlan.display()
 
-  hiStart:  (event) => @start(); @next()
   hiNext:   (event) => @next()
-  hiBack:   (event) => @back()
   hiGotoLesson:   (event) => @displayLessonPlan( parseInt $(event.target).data('idx') ); event.preventDefault()
   hiGotoExercise:   (event) => @currentLessonPlan.hiGotoExercise(event)

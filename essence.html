@@ -43,21 +43,21 @@
 
 <script id='course-template' type='text/template'>
  <div class='course'>
-  <div class='navbar'>
-    <title>Lessons</title>
-    <div class='lessonplans'>
-     <ol></ol>
-     <title>Exercises</title>
-     <div class='exercises'>yo</div>
-    </div>
-  <div class='course-content'>
-   <div class='splash'>
-    <h2 class='title'></h2><br/>
-    <h4><input type='submit' id='start' value='( start ) -&gt;'/></h4>
+  <h2>Essence Of CoffeeScript: Syntax Shortcuts</h2>
+  <div class='navbar-canvas'>
+   <div class='navbar'>
+     <label class='lessonplans-title'>Lessons: </label>
+     <div class='lessonplans'>
+      <ol></ol>
+     </div>
+     <label class='exercises-title'>Exercises: </label>
+     <div class='exercises'/>
    </div>
+  </div>
+  <div class='course-content'>
+   <h2 class='lesson-title'/>
    <div class='exercise'>
-     <div class='title'/>
-     <h2 class='headline'/>
+     <h3 class='headline'/>
      <p class='lesson'/>
      <p class='description'/>
      <div id='coffee-syntax'>
@@ -79,7 +79,7 @@
        </div>
      </div>
      <div class='instructions'>
-       <h3>Exercise Instructions:</h3>
+       <h3>Exercise Steps:</h3>
        <ol/>
      </div>
      <div id='given-code'>
@@ -98,39 +98,27 @@
      <div id='user-console'/>
    </div>
   </div>
+  <div class='next-exercise'>Next</div>
+
  </div>
 </script>
 
 <div id='course-spot'></div>
 
 <script type='text/coffeescript'>
-  course = new EssenceOfCoffeeScript.Course
-  course.renderInto '#course-spot'
+  course = new EssenceOfCoffeeScript.Course elSpot: '#course-spot'
 </script>
 
 <markup>
-
 <course>
  <title>Essence of CoffeeScript</title>
 </course>
-
-<exercise>
- <title>Intro</title>
- <headline></headline>
- <lesson>CoffeeScript compiles into JavaScript</lesson>
- <description>   
- </description>
-</exercise>
-
-
-
 <lessonplan>
-  <title>Invoke a Function</title>
+  <title>Call A Function</title>
   <exercise>
    <headline>Quacks like a duck!</headline>
    <lesson>Functions can be called just like in JavaScript</lesson>
    <description>
-     Function Description
    </description>
    <js-syntax>
   alert('Hi');
@@ -139,8 +127,8 @@
   alert('Hi');
    </coffee-syntax>
    <example-code>
-  nickname = prompt('What is your nickname?');
-  console.log('Hi ' + nickname);
+nickname = prompt('What is your nickname?');
+console.log('Hi ' + nickname);
   </example-code>
    <instruction>
   Run the two lines of example code above by typing it into the console below.
@@ -575,13 +563,217 @@
 
 </lessonplan>
 
+
+
+
+
+
+<lessonplan>
+  <title>Conditional Love</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
+
+
+<lessonplan>
+  <title>is isnt yes</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
+
+
+
+<lessonplan>
+  <title>Loops</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
+
+<lessonplan>
+  <title>Existential ?.</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
+
+
+<lessonplan>
+  <title>OO Design</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
+
+
+<lessonplan>
+  <title>Destructuring</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
+
+<lessonplan>
+  <title>Hash Rocket Science</title>
+
+  <exercise>
+   <headline></headline>
+   <lesson></lesson>
+   <description>
+     Variables Description
+   </description>
+   <example-code>
+  itemCount = 4
+  cost = 77.88
+  summary = "Total cost of #{itemCount} items is $#{cost}"
+   </example-code>
+   <instruction>
+  Type the example code into the console.
+   </instruction>
+   <instruction>
+  Find out what happens if summary is set using single quotes.
+   </instruction>
+   <given-code>
+   </given-code>
+   <user-code></user-code>
+   <user-console>true</user-console>
+  </exercise>
+
+</lessonplan>
 </markup>
 
 
 
 
  <script src='./js/vendor/coffee-script.js'></script>
- </div><!-- course-content-->
 
 </div></div></div></div>
 </body>

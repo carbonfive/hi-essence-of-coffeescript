@@ -71,7 +71,7 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
       catch e
         @jqconsole.Write 'ERROR: ' + e.message + '\n'
     @jqconsole.Prompt true, @jqconsoleHandler, (command)->
-      # Continue line if can't compile the command.
+      # Continue line if cant compile the command.
       try
         compiledJS = '' + CoffeeScript.compile command, bare: on
         Function compiledJS 
