@@ -6,39 +6,60 @@ markup {
  margin: 8px 0 12px 0;
  border-top: 1px dotted #aaa ;
  width: 660px;
- min-height: 500px;
- overflow: hidden;
+}
+.course .course-content {
 }
 .course h1, .course h2, .course h3, .course h4, .course .title{
  text-align: left;
 }
+
 .course .course-content .exercise .title {
-  display: none;
+ display: none;
 }
 .course .course-content h3{
   margin: 40px 0 8px 0;
   text-align: left;
 }
-.course .outline {
+.course .navbar {
  margin-top: 12px;
  padding-top: 8px;
- height: 100%;
- width: 160px;
- background: #FFF;
+ width: 100%;
+ background: #CCC;
  color: #688bab;
- float: left;
 }
-.course .outline ol {
+.course .navbar .lessonplans {
+  outline: 1px solid blue;
+  padding: 3px;
+}
+.course .navbar .exercises {
+ outline: 1px solid red;
+ padding: 3px;
+}
+.course .navbar ol {
  margin: 0px;
 }
-.course .outline ol li {
+.course .navbar ol li {
+ display: inline-block;
  list-style-image: none;
- width: 100%;
 }
-.course .outline ol li input {
- width: 100%;
+
+
+.course .navbar ol li input[type=submit] {
+ height: 32px;
+ line-height: 32px;
+ padding: 0 5px;
+ color: #fff;
+ font-size: 14px;
+ margin-right: 8px;
+ min-width: 32px;
+ -o-border-radius: 50%;
+ -ms-border-radius: 50%;
+ -moz-border-radius: 50%;
+ -webkit-border-radius: 50%;
+ border-radius: 50%;
+
 }
-.course .outline ol li input.active {
+.course .navbar ol li input.active {
  background: #eb8810;
  background: -moz-linear-gradient(top, #eb8810 0%, #eb8810 50%, #df800f 51%, #df800f 100%);
  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eb8810), color-stop(50%,#eb8810), color-stop(51%,#df800f), color-stop(100%,#df800f));
@@ -53,7 +74,7 @@ markup {
  padding: 0px;
  margin-top: 12px;
  float: left;
- width: 500px;
+ width: 650px;
 }
 .course .splash {
  min-height: 300px;
@@ -61,10 +82,6 @@ markup {
 }
 .course .splash h1, #course .splash h2, .course .splash h3, .course .splash h4 {
  text-align: center;
-}
-.course input#start {
- margin: 0 auto;
- min-width: 160px;
 }
 .course .exercise {
  display:none;
@@ -90,12 +107,14 @@ markup {
   margin: 0 0 8px 0;
 }
 #coffee-syntax-editor, #js-syntax-editor, #example-code-editor, #given-code-editor, #user-code-editor{
-  width: 500px;
   height: 150px;
+  width: 650px;
+  margin: auto;
 }
 #user-console {
   height: 180px;
-  width: 475px;
+  width: 650px;
+  margin: auto;
   position:relative;
   font-family: 'Source Code Pro', monospace;
   background-color: #0B202A;
