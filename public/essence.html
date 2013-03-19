@@ -47,7 +47,8 @@
   <h2>Essence Of CoffeeScript: Syntax Shortcuts</h2>
   <div class='navbar-canvas'>
    <div class='navbar'>
-     <label class='lessonplans-title'>Lessons: </label>
+     <h2 class='lesson-title'/>
+     <h3 class='lesson-headline'/>
      <div class='lessonplans'>
       <ol></ol>
      </div>
@@ -56,9 +57,7 @@
    </div>
   </div>
   <div class='course-content'>
-   <h2 class='lesson-title'/>
    <div class='exercise'>
-     <h3 class='headline'/>
      <p class='lesson'/>
      <p class='description'/>
      <div id='coffee-syntax'>
@@ -99,7 +98,7 @@
      <div id='user-console'/>
    </div>
   </div>
-  <div class='next-exercise'>Next</div>
+  <input type='submit' class='next-exercise' value='Next'/>
 
  </div>
 </script>
@@ -115,11 +114,9 @@
  <data class='title'>Essence of CoffeeScript</data>
 </data>
 <data class='lessonplan'>
-  <data class='title'>Call A Function</data>
-  <data class='headline'>Quacks like a duck!</data>
-
+  <data class='title'>How to Call A Function</data>
+  <data class='headline'>It Quacks like a duck!</data>
 <data class='exercise'>
-  <data class='headline'>Quacks like a duck!</data>
   <data class='lesson'>Functions can be called just like in JavaScript</data>
   <data class='description'>
   </data>
@@ -141,9 +138,7 @@ Explore around in the CoffeeScript console to get familiar with it.
   </data>
   <data class='user-console'>true</data>
 </data>
-
 <data class='exercise'>
-  <data class='headline'>Quacks like a duck!</data>
   <data class='lesson'>Skip uneccessary punctuation</data>
   <data class='description'>
    Function Description
@@ -160,7 +155,156 @@ console.log 'Hi ' + nickname
   </data>
   <data class='user-console'>true</data>
 </data>
+<data class='exercise'>
+ <data class='lesson'>Add parenthesis wherever it improves readability</data>
+ <data class='description'>
+   Function Description
+ </data>
+ <data class='coffee-syntax'>
+(alert 'Hi')
+ </data>
+ <data class='example-code'>
+nickname = (prompt 'What is your nickname?')
+console.log('Hi ' + nickname)
+</data>
+ <data class='instruction'>
+Use the example code to play with the placement of parenthesis.
+ </data>
+ <data class='instruction'>
+ Find your own style for how you want to enhance readability.
+ </data>
+ <data class='given-code'>
+ </data>
+ <data class='user-code'></data>
+ <data class='user-console'>true</data>
+</data>
+<data class='exercise'>
+ <data class='lesson'>Read a line of code from right-to-left to understand it better</data>
+ <data class='description'>
+   Function Description
+ </data>
+ <data class='example-code'>
+ console.log 'Hi ' + prompt 'What is your nickname?'
+</data>
+ <data class='instruction'>
+Read the the above example line of code from right to left.
+ </data>
+ <data class='instruction'>
+Predict what it will do once you run it 
+ </data>
+ <data class='instruction'>
+Try it out by typing the line into the console.
+ </data>
+ <data class='instruction'>
+If necessary, adjust your prediction, and try it again :)
+ </data>
+ <data class='given-code'>
+ </data>
+ <data class='user-code'></data>
+ <data class='user-console'>true</data>
+</data>
+</data>
+<data class='lessonplan'>
+<data class='title'>Define a Function</data>
+<data class='headline'>It ain't Pseudocode<code></code></data>
 
+
+<data class='exercise'>
+ <data class='lesson'>The dash-rocket -> means: 'There is a function being defined here!'</data>
+ <data class='description'>
+   Define Function Description use a dash rocket, and skip the curly brackets
+ </data>
+ <data class='js-syntax'>
+function add(x,y) { return x + y; };
+// or equivalently:
+var add = function(x,y) { return x + y; };
+ </data>
+ <data class='coffee-syntax'>
+add = (x,y) -> return x + y
+ </data>
+ <data class='instruction'>
+Use the editor below to define a function called <strong>addThree</strong>, which takes 3 parameters and returns their sum. (define the function in 1 line)
+ </data>
+ <data class='instruction'>
+ Use the console to invoke your function by calling it with addThree 1, 2, 3
+ </data>
+ <data class='user-code'></data>
+ <data class='user-console'>true</data>
+</data>
+<data class='exercise'>
+ <data class='lesson'>The dash-rocket, -> is a symbol for 'function'</data>
+ <data class='description'>
+   Define Function Description use a dash rocket. instead of curlies, body of function can be indicated by indenting
+ </data>
+ <data class='js-syntax'>
+function add(x,y) {
+  return x + y;
+}
+// or equivilantly:
+var add = function(x,y) {
+  return x + y;
+}
+ </data>
+ <data class='coffee-syntax'>
+add = (x,y) ->
+  return x + y
+ </data>
+ <data class='instruction'>
+Use the editor below to define a function called addThree, which takes 3 parameters and returns their sum. (Indent the body of the function with 2 spaces - no need to use curly braces)
+ </data>
+ <data class='instruction'>
+ </data>
+ <data class='instruction'>
+ See that it returns 6 when called with: addThree 1, 2, 3
+ </data>
+ <data class='user-code'></data>
+ <data class='user-console'>true</data>
+</data>
+
+<data class='exercise'>
+ <data class='lesson'>A function with no arguments doesn't need parens</data>
+ <data class='description'>
+   You can ommit the parenthesis when defining a function that doesn't take any arguments.
+   The following examples are all logically equivilent:
+ </data>
+ <data class='example-code'>
+like = ()-> likeCount = likeCount + 1
+like = -> likeCount = likeCount + 1
+like = (-> likeCount = likeCount + 1)
+ </data>
+ <data class='instruction'>
+Use the editor below to define a function called addThree, which takes 3 parameters and returns their sum. (Indent the body of the function with 2 spaces - no need to use curly braces)
+ </data>
+ <data class='instruction'>
+ </data>
+ <data class='instruction'>
+ See that it returns 6 when called with: addThree 1, 2, 3
+ </data>
+ <data class='user-code'></data>
+ <data class='user-console'>true</data>
+</data>
+
+
+<data class='exercise'>
+ <data class='lesson'>A function autmatically returns the result from its last expression</data>
+ <data class='description'>
+  You don't have to type the 'return' for your function to return a value.
+ </data>
+ <data class='example-code'>
+addThree = (x,y,z) ->
+  sum = x + y
+  sum + z
+
+addThree 1,2,3
+ </data>
+ <data class='instruction'>
+Define the addThree function all in one line.
+ </data>
+</data>
+
+
+
+</data>
 
 </data>
 

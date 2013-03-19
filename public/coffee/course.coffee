@@ -21,6 +21,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$exercise = @$('.course-content .exercise')
 
     @$lessonTitle = @$('.lesson-title')
+    @$lessonHeadline = @$('.lesson-headline')
 
     @$lessonPlansNavbar = @$('.navbar .lessonplans')
     @$lessonPlansNavbarTitle = @$('.navbar .lessonplans')

@@ -12,7 +12,6 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
     @course.$lessonPlansNavbar.find('ol').append("<li><input class='show-lesson' type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
 
-    @$title = @course.$('data.title')
     @$navbar = $('<ol>')
 
     @exercises = []
@@ -22,6 +21,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
   materializeModel: ()->
     atts =
       title: @$elLessonPlanModel.textValue 'title'
+      headline: @$elLessonPlanModel.textValue 'headline'
     @model = new Backbone.Model atts
 
   render: =>
@@ -64,6 +64,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
   display: () =>
     @course.$exercisesNavbar.html @$navbar 
     @course.$lessonTitle.html @model.get 'title'
+    @course.$lessonHeadline.html @model.get 'headline'
     @currentExercise.display()
 
   hiGotoExercise:   (event) => @displayExercise( parseInt $(event.target).data('idx') ); event.preventDefault()

@@ -4,7 +4,7 @@
 
 .course {
  margin: 8px 0 12px 0;
- border-top: 1px dotted #aaa ;
+ border-top: 1px dotted #aaa;
  width: 660px;
 }
 .course .course-content {
@@ -28,11 +28,9 @@
  color: #688bab;
 }
 .course .navbar .lessonplans {
-  outline: 1px solid blue;
   padding: 3px;
 }
 .course .navbar .exercises {
- outline: 1px solid red;
  padding: 3px;
 }
 .course .navbar ol {
