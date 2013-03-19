@@ -6,7 +6,7 @@
     , "coffee-script": "*"  
     }
   , "engines": {
-      "node": "*"
-    , "npm": "*"
+      "node": "0.10"
+    , "npm": "1.2.12"
     }
 }
