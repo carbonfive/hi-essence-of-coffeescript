@@ -66,8 +66,4 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
     @course.$lessonTitle.html @model.get 'title'
     @currentExercise.display()
 
-  # undisplay: (callback) =>
-  #   console.log 'undisplay lesson plan'
-  #   @currentExercise?.undisplay(callback)
-
   hiGotoExercise:   (event) => @displayExercise( parseInt $(event.target).data('idx') ); event.preventDefault()

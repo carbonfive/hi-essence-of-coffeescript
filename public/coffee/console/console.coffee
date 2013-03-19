@@ -45,9 +45,7 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
   
   clearCodeEditors: -> @codeEditors = []
   addCodeEditor: (editors...)=>
-    console.log 'codeEditors', @codeEditors
     @getCodeEditors().push editor for editor in editors when editor.runCode?
-    console.log 'codeEditors', @codeEditors
 
   getCodeEditors: =>
     @codeEditors = [] unless @codeEditors?

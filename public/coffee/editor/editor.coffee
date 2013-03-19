@@ -37,11 +37,9 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     @aceEditor
 
   hide: ()=>
-    console.log 'hide', @$widgetEl
     @$widgetEl.fadeOut()
 
   show: (code)=>
-    console.log 'show', @$widgetEl
     @aceEditor.setValue('')
     @aceEditor.insert(code)
     @$widgetEl.delay(100).fadeIn => @aceEditor.autoAdjustHeight()

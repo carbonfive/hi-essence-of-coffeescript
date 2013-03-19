@@ -1,0 +1,1 @@
+// worker-coffee.js for ace editor

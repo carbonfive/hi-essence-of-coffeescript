@@ -61,7 +61,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @
 
   launchEditors: ()=>
-    # ace.config.set("workerPath", "ace")
+    ace.config.set("workerPath", "js/vendor/ace")
     @launchJavaScriptSyntaxEditor()
     @launchCoffeeScriptSyntaxEditor()
     @launchExampleCodeEditor()

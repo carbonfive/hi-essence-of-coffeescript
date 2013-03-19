@@ -63,13 +63,11 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @course.coffeeScriptSyntaxEditor.show @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
     @course.exampleCodeEditor.show @model.get 'example-code' if @model.get('example-code')?
     @course.givenCodeEditor.show @model.get 'given-code' if @model.get('given-code')?.length > 0
-    @course.userCodeEditor.show('') if @model.get('user-code')?.length>0
+    @course.userCodeEditor.show('') if @model.get('user-code')?
     
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
     @$navbarButton.parents('ol').children('.active').removeClass('active')
     @$navbarButton.addClass('active')
 
   undisplay: (callback) =>
-    # console.log 'duration', @options.fadeOutDuration
-    # @$el.fadeOut @options.fadeOutDuration, callback
     @$navbarButton.removeClass('active')
