@@ -10,7 +10,7 @@ $.fn.getAttributes = ()->
 
 $.fn.textValue = (attName)->
   return undefined unless @length
-  $e = @find(attName)
+  $e = @find(".#{attName}")
   return undefined unless $e
   switch $e.length
     when 0 then null
@@ -19,7 +19,7 @@ $.fn.textValue = (attName)->
 
 $.fn.htmlValue = (attName)->
   return undefined unless @length
-  $e = @find(attName)
+  $e = @find(".#{attName}")
   return undefined unless $e
   switch $e.length
     when 0 then null

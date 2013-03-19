@@ -15,7 +15,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$elSpot = $(@elSpot)
 
     _.extend @options, EssenceOfCoffeeScript.options
-    @model = @materializeModel $('markup course')
+    @model = @materializeModel $('data.markup data.course')
     @el = $(@elTemplate).htmlElement()
     @$el = $(@el)
     @$exercise = @$('.course-content .exercise')
@@ -135,7 +135,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   loadLessonPlans: () =>
     el = @$('.lessonplan')
-    for elLessonPlanModel, idx in $('markup lessonplan')
+    for elLessonPlanModel, idx in $('data.markup data.lessonplan')
       $elLessonPlanModel = $(elLessonPlanModel)
       lessonPlanView = new EssenceOfCoffeeScript.LessonPlan { idx, $elLessonPlanModel, el, course: @ }
       @lessonPlans.push lessonPlanView

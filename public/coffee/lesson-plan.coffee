@@ -12,7 +12,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
     @course.$lessonPlansNavbar.find('ol').append("<li><input class='show-lesson' type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
 
-    @$title = @course.$('.title')
+    @$title = @course.$('data.title')
     @$navbar = $('<ol>')
 
     @exercises = []
@@ -50,7 +50,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
   loadExercises: () =>
     el = @course.$el.find('.exercise')
-    for elExerciseModel, idx in @$elLessonPlanModel.find('exercise')
+    for elExerciseModel, idx in @$elLessonPlanModel.find('data.exercise')
       $elExerciseModel = $(elExerciseModel)
       exerciseView = new EssenceOfCoffeeScript.Exercise { idx, $elExerciseModel, el, lessonPlan: @, course: @course }
       @exercises.push exerciseView
@@ -58,8 +58,8 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
   displayExercise: (idx)=>
     exercise = @findExercise idx
     return unless exercise?
-    @display()
     @currentExercise = exercise
+    @display()
 
   display: () =>
     @course.$exercisesNavbar.html @$navbar 
