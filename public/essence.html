@@ -1,8 +1,9 @@
 <html>
 <head>
-  <script type="text/javascript" src="/js/vendor/jquery.js"></script>
-  <script type="text/javascript" src="/js/vendor/underscore.min.js"></script>
-  <script type="text/javascript" src="/js/vendor/backbone.min.js"></script>
+  <meta name="robots" content="noindex" />
+  <script type="text/javascript" src="./js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="./js/vendor/underscore.min.js"></script>
+  <script type="text/javascript" src="./js/vendor/backbone.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all"  href="./css/wp-content/themes/carbonfive/blog.css">
 </head>
 <body>
@@ -25,21 +26,21 @@
 </div>
 <!--more-->
 
-<link rel='stylesheet' href='/css/jq-console/jq.css' type='text/css'></style>
-<link rel='stylesheet' href='/css/essence-of-coffeescript.css' type='text/css'></style>
+<link rel='stylesheet' href='./css/jq-console/jq.css' type='text/css'></style>
+<link rel='stylesheet' href='./css/essence-of-coffeescript.css' type='text/css'></style>
 
-<script src="/js/vendor/jqconsole.min.js"></script>
+<script src="./js/vendor/jqconsole.min.js"></script>
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
-<script src='/coffee/essence-of-coffeescript.coffee' type='text/coffeescript'></script>
-<script src='/coffee/jquery.essence-of-coffeescript.coffee' type='text/coffeescript'></script>
-<script src='/coffee/console/console.coffee' type='text/coffeescript'></script>
-<script src='/coffee/editor/editor.coffee' type='text/coffeescript'></script>
-<script src='/coffee/editor/javascript-editor.coffee' type='text/coffeescript'></script>
-<script src='/coffee/editor/coffeescript-editor.coffee' type='text/coffeescript'></script>
-<script src='/coffee/exercise.coffee' type='text/coffeescript'></script>
-<script src='/coffee/lesson-plan.coffee' type='text/coffeescript'></script>
-<script src='/coffee/course.coffee' type='text/coffeescript'></script>
+<script src='./coffee/essence-of-coffeescript.coffee' type='text/coffeescript'></script>
+<script src='./coffee/jquery.essence-of-coffeescript.coffee' type='text/coffeescript'></script>
+<script src='./coffee/console/console.coffee' type='text/coffeescript'></script>
+<script src='./coffee/editor/editor.coffee' type='text/coffeescript'></script>
+<script src='./coffee/editor/javascript-editor.coffee' type='text/coffeescript'></script>
+<script src='./coffee/editor/coffeescript-editor.coffee' type='text/coffeescript'></script>
+<script src='./coffee/exercise.coffee' type='text/coffeescript'></script>
+<script src='./coffee/lesson-plan.coffee' type='text/coffeescript'></script>
+<script src='./coffee/course.coffee' type='text/coffeescript'></script>
 
 <script id='course-template' type='text/template'>
  <div class='course'>
@@ -137,11 +138,10 @@ console.log('Hi ' + nickname);
   Explore around in the CoffeeScript console to get familiar with it.
    </instruction>
    <given-code>
-   </given-code>  
+   </given-code>
+   <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
   <exercise>
    <headline>Quacks like a duck!</headline>
    <lesson>Skip uneccessary punctuation</lesson>
@@ -162,12 +162,10 @@ console.log('Hi ' + nickname);
    Enter the example again: this time without uneccessary punctuation.
    </instruction>
    <given-code>
-   </given-code>  
+   </given-code>
+   <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
-
   <exercise>
    <headline>Quacks like a duck!</headline>
    <lesson>Add parenthesis wherever it improves readability</lesson>
@@ -188,11 +186,10 @@ console.log('Hi ' + nickname);
    Find your own style for how you want to enhance readability.
    </instruction>
    <given-code>
-   </given-code>  
+   </given-code>
+   <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
   <exercise>
    <headline>Quacks like a duck!</headline>
    <lesson>Read a line of code from right-to-left to understand it better</lesson>
@@ -215,19 +212,13 @@ console.log('Hi ' + nickname);
   If necessary, adjust your prediction, and try it again :)
    </instruction>
    <given-code>
-   </given-code>  
+   </given-code>
+   <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
-
-
-
 <lessonplan>
   <title>Define a Function</title>
-
-
   <exercise>
    <headline></headline>
    <lesson>The dash-rocket, '->', is a symbol for 'function'</lesson>
@@ -251,9 +242,6 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
-
   <exercise>
    <headline></headline>
    <lesson>The dash-rocket, '->', is a symbol for 'function'</lesson>
@@ -284,8 +272,6 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
   <exercise>
    <headline></headline>
    <lesson>A function autmatically returns the result from its last expression</lesson>
@@ -303,15 +289,9 @@ console.log('Hi ' + nickname);
   Define the addThree function all in one line.
    </instruction>
   </exercise>
-
 </lessonplan>
-
-
-
 <lessonplan>
   <title>The Essence</title>
-
-
   <exercise>
    <headline></headline>
    <lesson>There's no need to declare variables</lesson>
@@ -336,8 +316,6 @@ console.log('Hi ' + nickname);
    </instruction>
    <user-console>true</user-console>
   </exercise>
-
-
   <exercise>
    <headline></headline>
    <lesson>Variables can be used to construct strings</lesson>
@@ -372,8 +350,6 @@ console.log('Hi ' + nickname);
    </given-code>
    <user-console>true</user-console>
   </exercise>
-
-
   <exercise>
    <headline></headline>
    <lesson>Skip the punctuation</lesson>
@@ -391,7 +367,6 @@ console.log('Hi ' + nickname);
   theme = textColor: 'green', buttonColor: 'blue'
    </coffee-syntax>
   </exercise>
-
   <exercise>
    <headline></headline>
    <lesson>Indentation has meaning means</lesson>
@@ -407,7 +382,6 @@ console.log('Hi ' + nickname);
     buttonColor: 'blue'
    </coffee-syntax>
   </exercise>
-
   <exercise>
    <headline></headline>
    <lesson>Everything returns something</lesson>
@@ -424,13 +398,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
-
 <lessonplan>
   <title>Variables</title>
-
   <exercise>
    <headline></headline>
    <lesson>Variables can be used to construct strings</lesson>
@@ -453,11 +423,6 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
-
-
-
   <exercise>
    <headline></headline>
    <lesson>No need to use var to declare a variable</lesson>
@@ -493,8 +458,6 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
   <exercise>
    <headline></headline>
    <lesson>Variables can be used to construct strings</lesson>
@@ -517,24 +480,6 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <exercise>
    <headline>var none!</headline>
    <lesson>No need to use var</lesson>
@@ -556,17 +501,9 @@ console.log('Hi ' + nickname);
    <instruction></instruction>
    <instruction></instruction>
   </exercise>
-
 </lessonplan>
-
-
-
-
-
-
 <lessonplan>
   <title>Conditional Love</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -589,13 +526,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
-
 <lessonplan>
   <title>is isnt yes</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -618,14 +551,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
-
-
 <lessonplan>
   <title>Loops</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -648,12 +576,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
 <lessonplan>
   <title>Existential ?.</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -676,13 +601,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
-
 <lessonplan>
   <title>OO Design</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -705,13 +626,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
-
 <lessonplan>
   <title>Destructuring</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -734,12 +651,9 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
-
 <lessonplan>
   <title>Hash Rocket Science</title>
-
   <exercise>
    <headline></headline>
    <lesson></lesson>
@@ -762,14 +676,10 @@ console.log('Hi ' + nickname);
    <user-code></user-code>
    <user-console>true</user-console>
   </exercise>
-
 </lessonplan>
 </markup>
 
-
-
-
- <script src='/js/vendor/coffee-script.js'></script>
+<script src='./js/vendor/coffee-script.js'></script>
 
 </div></div></div></div>
 </body>
