@@ -6,9 +6,27 @@
  margin: 8px 0 12px 0;
  border-top: 1px dotted #aaa;
  width: 660px;
+ -webkit-transition: top 0.2s ease;
+    -moz-transition: top 0.2s ease;
+     -ms-transition: top 0.2s ease;
+      -o-transition: top 0.2s ease;
+         transition: top 0.2s ease;
 }
+
 .course .course-content {
+ -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+     -ms-transition: opacity 0.2s ease;
+      -o-transition: opacity 0.2s ease;
+         transition: opacity 0.2s ease;
 }
+
+.course-content.deactivated {
+ zoom: 1;
+ filter: alpha(opacity=01);
+ opacity: 0.01;
+}
+
 .course h1, .course h2, .course h3, .course h4, .course .title{
  text-align: left;
 }
@@ -40,7 +58,6 @@
  display: inline-block;
  list-style-image: none;
 }
-
 
 .course .navbar ol li input[type=submit] {
  height: 32px;
@@ -103,6 +120,11 @@
   height: 150px;
   padding: 0;
   margin: 0 0 8px 0;
+ -webkit-transition: height 0.2s ease;
+    -moz-transition: height 0.2s ease;
+     -ms-transition: height 0.2s ease;
+      -o-transition: height 0.2s ease;
+         transition: height 0.2s ease;
 }
 #coffee-syntax-editor, #js-syntax-editor, #example-code-editor, #given-code-editor, #user-code-editor{
   height: 150px;

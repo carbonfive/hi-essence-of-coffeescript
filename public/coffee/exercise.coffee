@@ -1,7 +1,7 @@
 $ = $ || jQuery
 
 class EssenceOfCoffeeScript.Exercise extends Backbone.View
-  initialize: (attributes)->
+  initialize: (attributes)=>
     super attributes
     _.extend @options, EssenceOfCoffeeScript.options
 
@@ -19,9 +19,9 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @lessonPlan.$navbar.append("<li><input class='show-exercise' type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
     @$navbarButton = @lessonPlan.$navbar.find("li input[data-idx=#{@idx}]")
 
-    @undisplay()
+    @deactivate()
 
-  materializeModel: (@$elExerciseModel)->
+  materializeModel: (@$elExerciseModel)=>
     atts = @$elExerciseModel.pickHTMLValues 'title',
       'headline',
       'description',
@@ -39,7 +39,9 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     atts.instruction = [atts.instruction] if 'string' is typeof atts.instruction
     @model = new Backbone.Model atts
 
-  display: () =>
+  activate: ()=>
+    $html = $('html, body')
+
     @$headline.html @model.get 'headline'
     @$lesson.html @model.get 'lesson'
     @$description.html @model.get 'description'
@@ -68,6 +70,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
     @$navbarButton.parents('ol').children('.active').removeClass('active')
     @$navbarButton.addClass('active')
+    @course.$content.removeClass('unloaded')
+    @
 
-  undisplay: (callback) =>
-    @$navbarButton.removeClass('active')
+  deactivate: ()=> @$navbarButton.removeClass('active')

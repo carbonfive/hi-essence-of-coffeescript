@@ -9,7 +9,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     'click .navbar .show-lesson'    : 'hiGotoLesson'
     'click .navbar .show-exercise'  : 'hiGotoExercise'
 
-  initialize: (attributes) =>
+  initialize: (attributes)=>
     super attributes
     { @elSpot } = attributes
     @$elSpot = $(@elSpot)
@@ -18,6 +18,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @model = @materializeModel $('data.markup data.course')
     @el = $(@elTemplate).htmlElement()
     @$el = $(@el)
+    @$content = @$('.course-content')
     @$exercise = @$('.course-content .exercise')
 
     @$lessonTitle = @$('.lesson-title')
@@ -35,7 +36,6 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
     @render()
 
-
   hijackConsole: ()=>
     window.console._log = console.log
     window.console.log = (args...)=>
@@ -46,12 +46,20 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   restoreConsole: ()=> 
     window.console.log = window.console._log if window.console._log?
 
-  materializeModel: ($elModel)->
+  materializeModel: ($elModel)=>
     atts =
       title: $elModel.textValue 'title'
     @model = new Backbone.Model atts
 
-  renderAtt: (name) => 
+  loadLessonPlans: ()=>
+    el = @$('.lessonplan')
+    for elLessonPlanModel, idx in $('data.markup data.lessonplan')
+      $elLessonPlanModel = $(elLessonPlanModel)
+      lessonPlanView = new EssenceOfCoffeeScript.LessonPlan { idx, $elLessonPlanModel, el, course: @ }
+      @lessonPlans.push lessonPlanView
+    @currentLessonPlan = @lessonPlans[0]
+
+  renderAtt: (name)=> 
     @["$#{name}"]?.html?(@model.get name)
 
   render: =>
@@ -123,34 +131,31 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   start: ()=> @next() unless @started
 
+  activate: (activateFunctor)=>
+    @deactivateContent()
+    @scrollToTop()
+    setTimeout activateFunctor, 200
+    setTimeout @activateContent, 800
+
+  scrollToTop: ()=> $('html, body').animate {scrollTop: @$el.offset().top - 10}
+  activateContent: ()=> @$content.removeClass('deactivated')
+  deactivateContent: ()=> @$content.addClass('deactivated')
+
   next: ()=>
     if @started
-      @currentLessonPlan?.nextExercise()
+      @currentLessonPlan.activateNextExercise()
     else 
-      @displayLessonPlan(0)
+      @activateLessonPlan(0)
 
-  nextLesson: ()=>
+  activateNextLesson: ()=>
     idx = if @currentLessonPlan? then 1 + @currentLessonPlan.idx else 0
     idx = @lessonPlans.length - 1 if idx > @lessonPlans.length
-    @displayLessonPlan idx
+    @activateLessonPlan idx
 
-  loadLessonPlans: () =>
-    el = @$('.lessonplan')
-    for elLessonPlanModel, idx in $('data.markup data.lessonplan')
-      $elLessonPlanModel = $(elLessonPlanModel)
-      lessonPlanView = new EssenceOfCoffeeScript.LessonPlan { idx, $elLessonPlanModel, el, course: @ }
-      @lessonPlans.push lessonPlanView
-    @currentLessonPlan = @lessonPlans[0]
-
-  displayLessonPlan: (idx)=>
+  activateLessonPlan: (idx)=>
     @started = true
-    lesson = @findLessonPlan idx
-    return unless lesson?
- 
-    # @currentLessonPlan?.undisplay ->lesson.display()
-    @currentLessonPlan = lesson
-    @currentLessonPlan.display()
+    @currentLessonPlan = @findLessonPlan(idx)?.activate() || @currentLessonPlan
 
-  hiNext:   (event) => @next()
-  hiGotoLesson:   (event) => @displayLessonPlan( parseInt $(event.target).data('idx') ); event.preventDefault()
-  hiGotoExercise:   (event) => @currentLessonPlan.hiGotoExercise(event)
+  hiNext:           (event)=> event.preventDefault(); @activate ()=> @next()
+  hiGotoLesson:     (event)=> event.preventDefault(); @activate ()=> @activateLessonPlan( parseInt $(event.target).data('idx') )
+  hiGotoExercise:   (event)=> event.preventDefault(); @activate ()=> @currentLessonPlan.hiGotoExercise(event)

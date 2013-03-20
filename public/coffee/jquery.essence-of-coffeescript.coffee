@@ -68,10 +68,13 @@ $.fn.autoAdjustAceEditorHeight = (aceEditor, options)->
 
   autoAdjustHeightFunctor = (e)=>
     return if e? and e.data.text isnt '\n' # auto adjust only on enter key or if there is no event
-    h = aceEditorHeight()
-    @height(h)
-    @parent().height(h + parentOverSize) if options.adjustParent
-    aceEditor.resize()
+    window.clearTimeout(aceEditor.autoAdjustTimer) if aceEditor.autoAdjustTimer?
+    trigger = ()=>
+      h = aceEditorHeight()
+      @height(h)
+      @parent().height(h + parentOverSize) if options.adjustParent
+      aceEditor.resize()
+    aceEditor.autoAdjustTimer = window.setTimeout trigger, 200
 
   aceEditor.on 'change', autoAdjustHeightFunctor
   aceEditor.onChangeFold autoAdjustHeightFunctor

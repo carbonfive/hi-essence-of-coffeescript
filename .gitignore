@@ -6,6 +6,10 @@ scratch
 #####################
 node_modules
 
+# Local Env #   
+#############
+.env
+
 # Compiled source #
 ###################
 *.com
