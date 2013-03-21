@@ -205,8 +205,16 @@
          transition: height 0.2s ease;
 }
 .course .next-exercise {
-  float: right;
-  margin-top: 12px;
+ float: right;
+ margin-top: 12px;
+ background: #eb8810;
+ background: -moz-linear-gradient(top, #eb8810 0%, #eb8810 50%, #df800f 51%, #df800f 100%);
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eb8810), color-stop(50%,#eb8810), color-stop(51%,#df800f), color-stop(100%,#df800f));
+ background: -webkit-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ background: -o-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ background: -ms-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb8810', endColorstr='#df800f',GradientType=0 );
+ background: linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
 }
 #coffee-syntax-editor, #js-syntax-editor, #example-code-editor, #given-code-editor, #user-code-editor{
   height: 150px;

@@ -51,13 +51,12 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
     @course.$exercisesNavbar.html @$navbar 
     @course.$lessonTitle.html @model.get 'title'
     @currentExercise.activate()
-    @$navbarButton.addClass('active')
     @
 
   deactivate: (callback)=> 
     @currentExercise.deactivate()
     # slide navbar off
 
-  activateExercise: (idx)=> @currentExercise = @findExercise(idx)?.activate() || @currentExercise
+  activateExercise: (idx)=> @currentExercise = @findExercise(idx)?.activate() || @currentExercise.activate()
 
   hiGotoExercise: (event)=> event.preventDefault(); @activateExercise( parseInt $(event.target).data('idx') )

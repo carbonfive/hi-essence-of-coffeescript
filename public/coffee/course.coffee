@@ -130,6 +130,8 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   start: ()=> @next() unless @started
 
   activate: (activateFunctor)=>
+    @$('.show-lesson').removeClass('active')
+    @$('.show-exercise').removeClass('active')    
     @deactivateContent()
     # @scrollToTop()
     setTimeout activateFunctor, 200
@@ -152,15 +154,16 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   activateLessonPlan: (idx)=>
     @started = true
-    @currentLessonPlan = @findLessonPlan(idx)?.activate() || @currentLessonPlan
+    @currentLessonPlan = @findLessonPlan(idx)?.activate() || @currentLessonPlan.activate()
 
-  hiNext:           (event)=> event.preventDefault(); @activate ()=> @next()
-  hiGotoLesson:     (event)=>
+  hiNext: (event)=>
     event.preventDefault()
-    @$('.show-lesson').removeClass('active')
+    @activate ()=> @next()
+
+  hiGotoLesson: (event)=>
+    event.preventDefault()
     @activate ()=> @activateLessonPlan( parseInt $(event.target).data('idx') )
 
-  hiGotoExercise:   (event)=>
+  hiGotoExercise: (event)=>
     event.preventDefault()
-    @$('.show-exercise').removeClass('active')
     @activate ()=> @currentLessonPlan.hiGotoExercise(event)

@@ -70,6 +70,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @course.userCodeEditor.show('') if @model.get('user-code')?
     
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
+    @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
     @
 
