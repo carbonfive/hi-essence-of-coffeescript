@@ -9,7 +9,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @materializeModel @$elExerciseModel
     @$title = @$('.title')
     @$headline = @$('.headline')
-    @$lesson = @$('.lesson')
+    @$realization = @course.$('.realization')
     @$description = @$('.description')
     @$instructions= @$('.instructions')
     @$instructionList= @$('.instructions ol')
@@ -27,7 +27,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     atts = @$elExerciseModel.pickHTMLValues 'title',
       'headline',
       'description',
-      'lesson',
+      'realization',
       'instruction',
       'user-console',
       'factoid'
@@ -45,7 +45,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     $html = $('html, body')
 
     @$headline.html @model.get 'headline'
-    @$lesson.html @model.get 'lesson'
+    @$realization.html @model.get 'realization'
     @$description.html @model.get 'description'
     @$instructionList.html ''
     if @model.get('instruction')?.length > 0
@@ -53,9 +53,9 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
         @$instructionList.append "<li class='instruction'>#{instruction}</li>"
       @$instructions.fadeIn()
 
-    @$lesson.fadeOut() unless @model.get('lesson')?
-    @$description.fadeOut() unless @model.get('description')?
-    @$instructions.fadeOut() unless @model.get('instruction')?.length > 0
+    if @model.get('realization')? then @$realization.fadeIn() else @$realization.fadeOut()
+    if @model.get('description')? then @$description.fadeIn() else @$description.fadeOut()
+    if @model.get('instruction')?.length > 0 then @$instructions.fadeIn() else @$instructions.fadeOut()
 
     @course.javaScriptSyntaxEditor.hide()
     @course.coffeeScriptSyntaxEditor.hide()

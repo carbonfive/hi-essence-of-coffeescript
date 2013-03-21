@@ -32,33 +32,43 @@
 }
 
 .course h1 {
- margin-top: 20px;
+ margin-top: 20px; 
  font-size: 28px;
 }
 
 .course h2 {
- margin-top: 12px;
+ margin: 12px 0;
  color: #eb8810;  
 }
 
 .course .course-content .exercise .title {
  display: none;
 }
+
 .course .course-content h3{
   margin: 40px 0 8px 0;
   text-align: left;
 }
+
 .course .lesson-navbar {
  margin-top: 12px;
  padding-top: 8px;
- width: 100%;
  color: #688bab;
  padding: 12px 20px 12px 20px;
  background-color: #EFEFEF;
+ -o-border-radius: 8px;
+ -ms-border-radius: 8px;
+ -moz-border-radius: 8px;
+ -webkit-border-radius: 8px;
+ border-radius: 8px;
+ min-height: 100px;
 }
+
 .course .lesson-navbar  ol {
  margin: 0px;
+ min-height: 48px;
 }
+
 .course .lesson-navbar  ol li {
  display: inline-block;
  list-style-image: none;
@@ -77,9 +87,21 @@
  -moz-border-radius: 50%;
  -webkit-border-radius: 50%;
  border-radius: 50%;
-
+ -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+         transition: all 0.3s ease;
 }
+
 .course .lesson-navbar ol li input.active {
+ height: 48px;
+ line-height: 48px;
+ padding: 0 5px;
+ color: #fff;
+ font-size: 24px;
+ margin-right: 8px;
+ min-width: 48px;
  background: #eb8810;
  background: -moz-linear-gradient(top, #eb8810 0%, #eb8810 50%, #df800f 51%, #df800f 100%);
  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eb8810), color-stop(50%,#eb8810), color-stop(51%,#df800f), color-stop(100%,#df800f));
@@ -92,12 +114,13 @@
 }
 
 .course .exercise-navbar {
- padding: 3px;
  float:right;
+ margin: 8px 0;
 }
 
 .course .exercise-navbar  ol {
  margin: 0px;
+ min-height: 32px;
 }
 
 .course .exercise-navbar ol li {
@@ -119,8 +142,19 @@
  -moz-border-radius: 50%;
  -webkit-border-radius: 50%;
  border-radius: 50%;
+ -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+         transition: all 0.3s ease;
 }
 .course .exercise-navbar ol li input.active {
+ height: 32px;
+ line-height: 32px;
+ padding: 0 2px;
+ color: #fff;
+ font-size: 18px;
+ min-width: 32px;
  background: #eb8810;
  background: -moz-linear-gradient(top, #eb8810 0%, #eb8810 50%, #df800f 51%, #df800f 100%);
  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eb8810), color-stop(50%,#eb8810), color-stop(51%,#df800f), color-stop(100%,#df800f));
@@ -133,16 +167,13 @@
 }
 .course .course-content {
  padding: 0px;
- margin-top: 12px;
- float: left;
- width: 650px;
-}
-.course .splash {
- min-height: 300px;
- padding: 8px;
-}
-.course .splash h1, #course .splash h2, .course .splash h3, .course .splash h4 {
- text-align: center;
+ width: 660px;
+ -o-border-radius: 8px;
+ -ms-border-radius: 8px;
+ -moz-border-radius: 8px;
+ -webkit-border-radius: 8px;
+ border-radius: 8px;
+ background-color: #FAFAFA;
 }
 .course .exercise {
  display:none;
@@ -156,12 +187,14 @@
 .course .exercise li {
   margin-left: 26px;
 }
-.course .exercise .lesson {
+.course .realization {
  font-weight: bold;
- margin:8px 0;
+ font-size: 16px;
+ line-height: 32px;
+ margin: 8px 4px;
 }
 .course .editor {
-  width: 100%;
+  width: 600px;
   height: 150px;
   padding: 0;
   margin: 0 0 8px 0;
@@ -171,20 +204,22 @@
       -o-transition: height 0.2s ease;
          transition: height 0.2s ease;
 }
+.course .next-exercise {
+  float: right;
+  margin-top: 12px;
+}
 #coffee-syntax-editor, #js-syntax-editor, #example-code-editor, #given-code-editor, #user-code-editor{
   height: 150px;
-  width: 650px;
+  width: 600px;
   margin: auto;
 }
 #user-console {
   height: 180px;
-  width: 650px;
-  margin: auto;
+  width: 600px;
   position:relative;
   font-family: 'Source Code Pro', monospace;
   background-color: #0B202A;
   color: #526870;
   border: 2px solid #526870;
-  margin: 0 auto;
   margin-top: 8px;
 }
