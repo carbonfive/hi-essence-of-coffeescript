@@ -5,9 +5,9 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   elTemplate: '#course-template'
 
   events: # human interaction event
-    'click .next-exercise'          : 'hiNext'
-    'click .navbar .show-lesson'    : 'hiGotoLesson'
-    'click .navbar .show-exercise'  : 'hiGotoExercise'
+    'click .next-exercise'  : 'hiNext'
+    'click .show-lesson'    : 'hiGotoLesson'
+    'click .show-exercise'  : 'hiGotoExercise'
 
   initialize: (attributes)=>
     super attributes
@@ -22,13 +22,11 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$exercise = @$('.course-content .exercise')
 
     @$lessonTitle = @$('.lesson-title')
-    @$lessonHeadline = @$('.lesson-headline')
 
-    @$lessonPlansNavbar = @$('.navbar .lessonplans')
+    @$lessonPlansNavbar = @$('.lesson-navbar')
     @$lessonPlansNavbarTitle = @$('.navbar .lessonplans')
-    @$factoid = @$('.factoid')
 
-    @$exercisesNavbar = @$('.navbar .exercises')
+    @$exercisesNavbar = @$('.exercise-navbar')
     @lessonPlans = []
     @loadLessonPlans()
 
@@ -133,7 +131,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   activate: (activateFunctor)=>
     @deactivateContent()
-    @scrollToTop()
+    # @scrollToTop()
     setTimeout activateFunctor, 200
     setTimeout @activateContent, 800
 
@@ -157,5 +155,12 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @currentLessonPlan = @findLessonPlan(idx)?.activate() || @currentLessonPlan
 
   hiNext:           (event)=> event.preventDefault(); @activate ()=> @next()
-  hiGotoLesson:     (event)=> event.preventDefault(); @activate ()=> @activateLessonPlan( parseInt $(event.target).data('idx') )
-  hiGotoExercise:   (event)=> event.preventDefault(); @activate ()=> @currentLessonPlan.hiGotoExercise(event)
+  hiGotoLesson:     (event)=>
+    event.preventDefault()
+    @$('.show-lesson').removeClass('active')
+    @activate ()=> @activateLessonPlan( parseInt $(event.target).data('idx') )
+
+  hiGotoExercise:   (event)=>
+    event.preventDefault()
+    @$('.show-exercise').removeClass('active')
+    @activate ()=> @currentLessonPlan.hiGotoExercise(event)

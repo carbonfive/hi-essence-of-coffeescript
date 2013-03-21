@@ -31,6 +31,16 @@
  text-align: left;
 }
 
+.course h1 {
+ margin-top: 20px;
+ font-size: 28px;
+}
+
+.course h2 {
+ margin-top: 12px;
+ color: #eb8810;  
+}
+
 .course .course-content .exercise .title {
  display: none;
 }
@@ -38,28 +48,23 @@
   margin: 40px 0 8px 0;
   text-align: left;
 }
-.course .navbar {
+.course .lesson-navbar {
  margin-top: 12px;
  padding-top: 8px;
  width: 100%;
- background: #CCC;
  color: #688bab;
+ padding: 12px 20px 12px 20px;
+ background-color: #EFEFEF;
 }
-.course .navbar .lessonplans {
-  padding: 3px;
-}
-.course .navbar .exercises {
- padding: 3px;
-}
-.course .navbar ol {
+.course .lesson-navbar  ol {
  margin: 0px;
 }
-.course .navbar ol li {
+.course .lesson-navbar  ol li {
  display: inline-block;
  list-style-image: none;
 }
 
-.course .navbar ol li input[type=submit] {
+.course .lesson-navbar ol li input[type=submit] {
  height: 32px;
  line-height: 32px;
  padding: 0 5px;
@@ -74,7 +79,48 @@
  border-radius: 50%;
 
 }
-.course .navbar ol li input.active {
+.course .lesson-navbar ol li input.active {
+ background: #eb8810;
+ background: -moz-linear-gradient(top, #eb8810 0%, #eb8810 50%, #df800f 51%, #df800f 100%);
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eb8810), color-stop(50%,#eb8810), color-stop(51%,#df800f), color-stop(100%,#df800f));
+ background: -webkit-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ background: -o-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ background: -ms-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb8810', endColorstr='#df800f',GradientType=0 );
+ background: linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+ text-shadow: -1px -1px 1px #b2660c;
+}
+
+.course .exercise-navbar {
+ padding: 3px;
+ float:right;
+}
+
+.course .exercise-navbar  ol {
+ margin: 0px;
+}
+
+.course .exercise-navbar ol li {
+ display: inline-block;
+ list-style-image: none;
+ margin-left: 2px;
+}
+
+.course .exercise-navbar ol li input[type=submit] {
+ height: 24px;
+ line-height: 24px;
+ padding: 0 2px;
+ color: #fff;
+ font-size: 12px;
+ margin-right: 2px;
+ min-width: 24px;
+ -o-border-radius: 50%;
+ -ms-border-radius: 50%;
+ -moz-border-radius: 50%;
+ -webkit-border-radius: 50%;
+ border-radius: 50%;
+}
+.course .exercise-navbar ol li input.active {
  background: #eb8810;
  background: -moz-linear-gradient(top, #eb8810 0%, #eb8810 50%, #df800f 51%, #df800f 100%);
  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eb8810), color-stop(50%,#eb8810), color-stop(51%,#df800f), color-stop(100%,#df800f));
@@ -114,7 +160,6 @@
  font-weight: bold;
  margin:8px 0;
 }
-
 .course .editor {
   width: 100%;
   height: 150px;

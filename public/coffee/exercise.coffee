@@ -16,7 +16,9 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
 
     @quote = @$('quote').text().trim()
 
-    @lessonPlan.$navbar.append("<li><input class='show-exercise' type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
+    @$navbarButton = $("<input class='show-exercise' type='submit' value='#{@idx + 1}' data-idx='#{@idx}'/>")
+    @lessonPlan.$navbar.append $("<li></li>").append(@$navbarButton)
+
     @$navbarButton = @lessonPlan.$navbar.find("li input[data-idx=#{@idx}]")
 
     @deactivate()
@@ -68,9 +70,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @course.userCodeEditor.show('') if @model.get('user-code')?
     
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
-    @$navbarButton.parents('ol').children('.active').removeClass('active')
     @$navbarButton.addClass('active')
-    @course.$content.removeClass('unloaded')
     @
 
   deactivate: ()=> @$navbarButton.removeClass('active')

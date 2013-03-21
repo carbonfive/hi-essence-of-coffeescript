@@ -10,7 +10,8 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
 
     @model = @materializeModel()
 
-    @course.$lessonPlansNavbar.find('ol').append("<li><input class='show-lesson' type='submit' value='#{@idx}' data-idx='#{@idx}'/></li>")
+    @$navbarButton = $("<input class='show-lesson' type='submit' value='#{@idx + 1}' data-idx='#{@idx}'/>")
+    @course.$lessonPlansNavbar.find('ol').append($("<li></li>").append(@$navbarButton))
 
     @$navbar = $('<ol>')
 
@@ -49,8 +50,8 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
   activate: ()=>
     @course.$exercisesNavbar.html @$navbar 
     @course.$lessonTitle.html @model.get 'title'
-    @course.$lessonHeadline.html @model.get 'headline'
     @currentExercise.activate()
+    @$navbarButton.addClass('active')
     @
 
   deactivate: (callback)=> 
