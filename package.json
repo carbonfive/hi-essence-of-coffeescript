@@ -1,10 +1,17 @@
 {
     "name": "node-example"
   , "version": "0.0.1"
-  , "dependencies": {
+  , "dependencies": 
+    {
       "express": "*"
     , "coffee-script": "*"  
     }
+  , "devDependencies": 
+    {
+      "jade": "0.27.x"
+    , "stylus": "0.32.x"
+    }
+
   , "engines": {
       "node": "0.10"
     , "npm": "1.2.12"

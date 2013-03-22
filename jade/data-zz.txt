@@ -1,0 +1,180 @@
+
+
+
+
+
+
+
+  data.exercise 
+   data.realization Add parenthesis wherever it improves readability
+   data.description 
+     Function Description
+   
+   data.coffee-syntax 
+  (alert 'Hi')
+   
+   data.example-code 
+  nickname = (prompt 'What is your nickname?')
+  console.log('Hi ' + nickname)
+
+   data.instruction 
+  Use the example code to play with the placement of parenthesis.
+   
+   data.instruction 
+   Find your own style for how you want to enhance readability.
+   
+   data.given-code 
+   
+   data.user-code 
+   data.user-console true
+
+
+
+
+
+
+
+  data.exercise 
+   data.realization Read a line of code from right-to-left to understand it better
+   data.description 
+     Function Description
+   
+   data.example-code 
+   console.log 'Hi ' + prompt 'What is your nickname?'
+
+   data.instruction 
+  Read the the above example line of code from right to left.
+   
+   data.instruction 
+  Predict what it will do once you run it 
+   
+   data.instruction 
+  Try it out by typing the line into the console.
+   
+   data.instruction 
+  If necessary, adjust your prediction, and try it again :)
+   
+   data.given-code 
+   
+   data.user-code 
+   data.user-console true
+
+
+  data.lessonplan 
+  data.title Define a Function
+  data.headline It ain't Pseudocodecode>
+
+
+
+
+
+
+
+
+  data.exercise 
+   data.realization The dash-rocket -> means: 'There is a function being defined here!'
+   data.description 
+     Define Function Description use a dash rocket, and skip the curly brackets
+   
+   data.js-syntax 
+  function add(x,y) { return x + y; };
+  // or equivalently:
+  var add = function(x,y) { return x + y; };
+   
+   data.coffee-syntax 
+  add = (x,y) -> return x + y
+   
+   data.instruction 
+  Use the editor below to define a function called strong>addThree, which takes 3 parameters and returns their sum. (define the function in 1 line)
+   
+   data.instruction 
+   Use the console to invoke your function by calling it with addThree 1, 2, 3
+   
+   data.user-code 
+   data.user-console true
+
+
+
+
+
+
+
+  data.exercise 
+   data.realization The dash-rocket, -> is a symbol for 'function'
+   data.description 
+     Define Function Description use a dash rocket. instead of curlies, body of function can be indicated by indenting
+   
+   data.js-syntax 
+  function add(x,y) {
+    return x + y;
+  }
+  // or equivilantly:
+  var add = function(x,y) {
+    return x + y;
+  }
+   
+   data.coffee-syntax 
+  add = (x,y) ->
+    return x + y
+   
+   data.instruction 
+  Use the editor below to define a function called addThree, which takes 3 parameters and returns their sum. (Indent the body of the function with 2 spaces - no need to use curly braces)
+   
+   data.instruction 
+   
+   data.instruction 
+   See that it returns 6 when called with: addThree 1, 2, 3
+   
+   data.user-code 
+   data.user-console true
+
+
+
+
+
+
+
+
+  data.exercise 
+   data.realization A function with no arguments doesn't need parens
+   data.description 
+     You can ommit the parenthesis when defining a function that doesn't take any arguments.
+     The following examples are all logically equivilent:
+   
+   data.example-code 
+  like = ()-> likeCount = likeCount + 1
+  like = -> likeCount = likeCount + 1
+  like = (-> likeCount = likeCount + 1)
+   
+   data.instruction 
+  Use the editor below to define a function called addThree, which takes 3 parameters and returns their sum. (Indent the body of the function with 2 spaces - no need to use curly braces)
+   
+   data.instruction 
+   
+   data.instruction 
+   See that it returns 6 when called with: addThree 1, 2, 3
+   
+   data.user-code 
+   data.user-console true
+
+
+
+
+
+
+
+
+  data.exercise 
+   data.realization A function autmatically returns the result from its last expression
+   data.description 
+    You don't have to type the 'return' for your function to return a value.
+   
+   data.example-code 
+  addThree = (x,y,z) ->
+    sum = x + y
+    sum + z
+
+  addThree 1,2,3
+   
+   data.instruction 
+  Define the addThree function all in one line.

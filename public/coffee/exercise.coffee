@@ -30,16 +30,21 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       'realization',
       'instruction',
       'user-console',
-      'factoid'
     codeAtts = @$elExerciseModel.pickTextValues 'js-syntax',
       'coffee-syntax',
       'example-code',
       'given-code',
-      'user-code',
-      'user-console',
+      'user-code'
+
+    codeAtts[key] = @trimLinesOfCode(code) for key, code of codeAtts
+
     atts = _.extend atts, codeAtts
     atts.instruction = [atts.instruction] if 'string' is typeof atts.instruction
     @model = new Backbone.Model atts
+
+  trimLinesOfCode: (sourceCode)-> 
+    return undefined unless sourceCode?
+    (line.trim() for line in sourceCode.split('\n')).join '\n'
 
   activate: ()=>
     $html = $('html, body')
@@ -66,7 +71,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @course.javaScriptSyntaxEditor.show @model.get 'js-syntax' if @model.get('js-syntax')?
     @course.coffeeScriptSyntaxEditor.show @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
     @course.exampleCodeEditor.show @model.get 'example-code' if @model.get('example-code')?
-    @course.givenCodeEditor.show @model.get 'given-code' if @model.get('given-code')?.length > 0
+    @course.givenCodeEditor.show @model.get 'given-code' if @model.get('given-code')?
     @course.userCodeEditor.show('') if @model.get('user-code')?
     
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)

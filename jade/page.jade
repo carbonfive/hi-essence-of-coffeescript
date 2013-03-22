@@ -1,0 +1,94 @@
+extends layout
+
+block content
+  .teaser 
+   h1 Learn CoffeeScript in 2 hours
+   p
+    | It took me 2 full days of straight studying to learn the essence of CoffeeScript.
+    | Two weeks later, I found myself writing the cleanest, most error-free client-side code I had ever created.
+    
+    p
+     | I've set a goal to help bring that initial 2 day learning curve down to 2 fun hours:
+     | whether you have done only a little JavaScript programming, or you are already a master.
+    
+    p
+     | To capture my learnings, I've developed a few exercises that you can try for yourself.
+     | You may be surprised at how fast the essence of CoffeeScript can be absorbed.
+    
+  <!--more-->
+
+  link(rel='stylesheet', type='text/css', href='./css/jq-console/jq.css')
+  link(rel='stylesheet', type='text/css', href='./css/essence-of-coffeescript.css')
+
+  script(type='text/javascript', src="./js/vendor/jqconsole.min.js")
+  script(type="text/javascript", src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js", charset="utf-8")
+
+  script(type='text/coffeescript', src='./coffee/essence-of-coffeescript.coffee')
+  script(type='text/coffeescript', src='./coffee/jquery.essence-of-coffeescript.coffee')
+  script(type='text/coffeescript', src='./coffee/console/console.coffee')
+  script(type='text/coffeescript', src='./coffee/editor/editor.coffee')
+  script(type='text/coffeescript', src='./coffee/editor/javascript-editor.coffee')
+  script(type='text/coffeescript', src='./coffee/editor/coffeescript-editor.coffee')
+  script(type='text/coffeescript', src='./coffee/exercise.coffee')
+  script(type='text/coffeescript', src='./coffee/lesson-plan.coffee')
+  script(type='text/coffeescript', src='./coffee/course.coffee')
+
+  script(type='text/template', id='course-template')
+   .course 
+    h1 Essence Of CoffeeScript: Syntax Shortcuts
+     .lesson-navbar 
+      ol
+      h2.lesson-title
+    .exercise-navbar
+    .realization
+    .course-content 
+     .exercise 
+       p.description
+       #coffee-syntax 
+         h3 CoffeeScript Syntax
+         .editor 
+           #coffee-syntax-editor
+         
+       
+       #js-syntax 
+         h3 JavaScript Syntax 
+         .editor 
+           #js-syntax-editor
+         
+       
+       #example-code 
+         h3 CoffeeScript Example
+         .editor 
+           #example-code-editor
+         
+       
+       .instructions 
+         h3 Pactice Steps:
+         ol!!
+       
+       #given-code 
+         h3 Given the following code
+         .editor 
+           #given-code-editor
+         
+       
+       #user-code 
+         h3 User Code
+         .editor 
+           #user-code-editor
+         
+         #user-code-error 
+       
+       #user-console
+     
+    input.next-exercise(type='submit', value='Next')
+
+  include course
+
+  #course-spot
+
+  script(type='text/coffeescript')
+    $ = jQuery
+    $ ->course = new EssenceOfCoffeeScript.Course elSpot: '#course-spot'
+
+  script(type='text/javascript', src='./js/vendor/coffee-script.js')

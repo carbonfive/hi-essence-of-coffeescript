@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Essence of CoffeeScript</title>
+    <meta name="robots" content="noindex">
+    <script type="text/javascript" src="./js/vendor/jquery.js"></script>
+    <script type="text/javascript" src="./js/vendor/underscore.min.js"></script>
+    <script type="text/javascript" src="./js/vendor/backbone.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="./css/wp-content/themes/carbonfive/blog.css">
+  </head>
+  <body>
+    <div id="wrapper" class="hfeed">'
+      <div id="main">
+        <div id="container">
+          <div id="content" role="main">
+            <div class="teaser"> 
+              <h1>Learn CoffeeScript in 2 hours</h1>
+              <p>
+                It took me 2 full days of straight studying to learn the essence of CoffeeScript.
+                Two weeks later, I found myself writing the cleanest, most error-free client-side code I had ever created.
+                <p>
+                  I've set a goal to help bring that initial 2 day learning curve down to 2 fun hours:
+                  whether you have done only a little JavaScript programming, or you are already a master.
+                </p>
+                <p>
+                  To capture my learnings, I've developed a few exercises that you can try for yourself.
+                  You may be surprised at how fast the essence of CoffeeScript can be absorbed.
+                </p>
+              </p>
+            </div><!--more-->
+            <link rel="stylesheet" type="text/css" href="./css/jq-console/jq.css">
+            <link rel="stylesheet" type="text/css" href="./css/essence-of-coffeescript.css">
+            <script type="text/javascript" src="./js/vendor/jqconsole.min.js"></script>
+            <script type="text/javascript" src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" charset="utf-8"></script>
+            <script type="text/coffeescript" src="./coffee/essence-of-coffeescript.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/jquery.essence-of-coffeescript.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/console/console.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/editor/editor.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/editor/javascript-editor.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/editor/coffeescript-editor.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/exercise.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/lesson-plan.coffee"></script>
+            <script type="text/coffeescript" src="./coffee/course.coffee"></script>
+            <script type="text/template" id="course-template">
+              <div class="course"> 
+                <h1>Essence Of CoffeeScript: Syntax Shortcuts
+                  <div class="lesson-navbar"> 
+                    <ol></ol>
+                    <h2 class="lesson-title"></h2>
+                  </div>
+                </h1>
+                <div class="exercise-navbar"></div>
+                <div class="realization"></div>
+                <div class="course-content"> 
+                  <div class="exercise"> 
+                    <p class="description"></p>
+                    <div id="coffee-syntax"> 
+                      <h3>CoffeeScript Syntax</h3>
+                      <div class="editor"> 
+                        <div id="coffee-syntax-editor"></div>
+                      </div>
+                    </div>
+                    <div id="js-syntax"> 
+                      <h3>JavaScript Syntax </h3>
+                      <div class="editor"> 
+                        <div id="js-syntax-editor"></div>
+                      </div>
+                    </div>
+                    <div id="example-code"> 
+                      <h3>CoffeeScript Example</h3>
+                      <div class="editor"> 
+                        <div id="example-code-editor"></div>
+                      </div>
+                    </div>
+                    <div class="instructions"> 
+                      <h3>Pactice Steps:</h3>
+                      <ol>!!</ol>
+                    </div>
+                    <div id="given-code"> 
+                      <h3>Given the following code</h3>
+                      <div class="editor"> 
+                        <div id="given-code-editor"></div>
+                      </div>
+                    </div>
+                    <div id="user-code"> 
+                      <h3>User Code</h3>
+                      <div class="editor"> 
+                        <div id="user-code-editor"></div>
+                      </div>
+                      <div id="user-code-error"> </div>
+                    </div>
+                    <div id="user-console"></div>
+                  </div>
+                </div>
+                <input type="submit" value="Next" class="next-exercise">
+              </div>
+            </script>
+            <data class="markup"> 
+              <data class="course"> 
+                <data class="title">Essence of CoffeeScript</data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">How to Call A Function</data>
+                <data class="headline">It Quacks like a duck!</data>
+                <data class="exercise"> 
+                  <data class="realization">Functions can be called just like in JavaScript</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">alert('Hi');</data>
+                  <data class="coffee-syntax">alert('Hi');</data>
+                  <data class="example-code">
+                    nickname = prompt('What is your nickname?');
+                    console.log('Hi ' + nickname);
+                  </data>
+                  <data class="given-code">
+                    nickname = prompt('What is your nickname?');
+                    console.log('Hi ' + nickname);
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">Run the two lines of example code above by typing it into the console below.</data>
+                  <data class="instruction">Explore around in the CoffeeScript console to get familiar with it.</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">Skip uneccessary punctuation</data>
+                  <data class="description"> </data>
+                  <data class="coffee-syntax">
+                     
+                    alert 'Hi'
+                  </data>
+                  <data class="example-code">
+                     
+                    nickname = prompt 'What is your nickname?'
+                    console.log 'Hi ' + nickname
+                  </data>
+                  <data class="instruction">Enter the example again: this time without uneccessary punctuation.</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+              <data class="lessonplan"> 
+                <data class="title">[Lesson Title]</data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+                <data class="exercise"> 
+                  <data class="realization">[realization]</data>
+                  <data class="description"></data>
+                  <data class="js-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="coffee-syntax">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="example-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="given-code">
+                    [some code]
+                    [some code]
+                  </data>
+                  <data class="user-code">true</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="instruction">[instruction]</data>
+                  <data class="user-console">true</data>
+                </data>
+              </data>
+            </data>
+            <div id="course-spot"></div>
+            <script type="text/coffeescript">
+              $ = jQuery
+              $ ->course = new EssenceOfCoffeeScript.Course elSpot: '#course-spot'
+            </script>
+            <script type="text/javascript" src="./js/vendor/coffee-script.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
