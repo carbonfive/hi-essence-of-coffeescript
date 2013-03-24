@@ -9,7 +9,7 @@ $ = $ || jQuery
 class EssenceOfCoffeeScript.Console extends Backbone.View
 
   defaultOptions:
-    header: 'CoffeeScript Console\n'
+    header: 'Interactive Console - CoffeeScript\n'
     prompt1: '>> '
     prompt2: '.. '
 
