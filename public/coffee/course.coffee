@@ -38,7 +38,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     window.console._log = console.log
     window.console.log = (args...)=>
       window.console._log args...
-      @jqconsole.Write?(''+arg+'\n') for arg in args
+      @jqconsole.Write?(args...)
       undefined
 
   restoreConsole: ()=> 

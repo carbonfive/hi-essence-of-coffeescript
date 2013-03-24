@@ -43,31 +43,34 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
 
     @jqconsoleHandler()
   
-  clearCodeEditors: -> @codeEditors = []
+  clearCodeEditors: ()-> @codeEditors = []
   addCodeEditor: (editors...)=>
     @getCodeEditors().push editor for editor in editors when editor.runCode?
 
-  getCodeEditors: =>
+  getCodeEditors: ()=>
     @codeEditors = [] unless @codeEditors?
     @codeEditors
 
-  Write: (args...)=> @jqconsole.Write args...
+  Write: (args...)=> 
+    for result in args
+      output = switch typeof result
+        when 'function'
+          '[Function]'
+        when 'object'
+          JSON.stringify result, null, 0
+        when 'undefined'
+          ''
+        else 
+          JSON.stringify result, null, 1
+      @jqconsole.Write '' + output
+    @jqconsole.Write '\n'
 
   jqconsoleHandler: (command)=>
     if command
       try
         editor.runCode() for editor in @getCodeEditors()
-        result = @runCode command 
-        output = switch typeof result
-          when 'function'
-            '[Function]'
-          when 'object'
-            JSON.stringify result, null, 0
-          when 'undefined'
-            ''
-          else 
-            JSON.stringify result, null, 1
-        @jqconsole.Write '' + output + '\n'
+        result = @runCode command
+        @Write result
       catch e
         @jqconsole.Write 'ERROR: ' + e.message + '\n'
     @jqconsole.Prompt true, @jqconsoleHandler, (command)->
