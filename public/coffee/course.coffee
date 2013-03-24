@@ -76,6 +76,15 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @launchUserCodeEditor()
     @
 
+
+  launchJavaScriptSyntaxEditor: ()=>
+    @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
+      el: '#js-syntax-editor'
+      widgetEl: '#js-syntax'
+      options:
+        theme: 'solarized_light'
+        readOnlyMode: true
+
   launchJavaScriptSyntaxEditor: ()=>
     @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
       el: '#js-syntax-editor'
@@ -97,6 +106,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
       el: '#example-code-editor'
       widgetEl: '#example-code'
       options:
+        theme: 'solarized_light'
         readOnlyMode: true
 
   launchGivenCodeEditor: ()=>

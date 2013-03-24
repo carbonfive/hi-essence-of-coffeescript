@@ -31,7 +31,9 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     opts = _.extend {}, @defaultOptions, options
     {theme, readOnlyMode, languageMode} = opts
     @aceEditor = ace.edit @el
-    @aceEditor.getSession().setMode('ace/mode/' + languageMode)
+    @aceEditor.getSession().setMode 'ace/mode/' + languageMode
+    @aceEditor.getSession().setUseSoftTabs true
+    @aceEditor.getSession().setTabSize 2
     @aceEditor.setTheme 'ace/theme/' + theme
     @aceEditor.setReadOnly readOnlyMode
     @aceEditor
@@ -43,4 +45,4 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     throw "Error: code needs to be a string, not #{typeof code}" if 'string' isnt typeof code
     @aceEditor.setValue('')
     @aceEditor.insert(code)
-    @$widgetEl.delay(100).fadeIn 400, => @aceEditor.autoAdjustHeight()
+    @$widgetEl.delay(100).fadeIn 800, => @aceEditor.autoAdjustHeight()

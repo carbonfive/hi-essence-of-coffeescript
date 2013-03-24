@@ -8,10 +8,11 @@ class EssenceOfCoffeeScript.JavaScriptEditor extends EssenceOfCoffeeScript.Edito
     @parseException = null
 
     if @onParse?
-      @aceEditor.on 'change', (event)=> @parseCode()
+      @aceEditor.on 'change', (event)=> 
+        @evaluated = false
+        @parseCode()
 
   parseCode: =>
-    @evaluated = false
     @parseException = null
     try
       Function @javascriptSourceCode()
@@ -21,6 +22,7 @@ class EssenceOfCoffeeScript.JavaScriptEditor extends EssenceOfCoffeeScript.Edito
       @onParseException?(e.message)
 
   runCode: =>
+    return if @evaluated
     eval.call window, @javascriptSourceCode()
     @evaluated = true
 

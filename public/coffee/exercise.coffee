@@ -30,6 +30,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       'realization',
       'instruction',
       'user-console',
+
     codeAtts = @$elExerciseModel.pickTextValues 'js-syntax',
       'coffee-syntax',
       'example-code',

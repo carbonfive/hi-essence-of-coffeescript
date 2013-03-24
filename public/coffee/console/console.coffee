@@ -51,6 +51,8 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
     @codeEditors = [] unless @codeEditors?
     @codeEditors
 
+  Write: (args...)=> @jqconsole.Write args...
+
   jqconsoleHandler: (command)=>
     if command
       try
@@ -82,6 +84,4 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
     @$widgetEl.fadeOut()
 
   show: (code)=>
-    @aceEditor.setValue('')
-    @aceEditor.insert(code)
-    @$widgetEl.delay(100).fadeIn => @aceEditor.autoAdjustHeight()
+    @$widgetEl.delay(100).fadeIn()

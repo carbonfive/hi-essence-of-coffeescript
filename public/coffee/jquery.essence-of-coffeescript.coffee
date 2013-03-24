@@ -69,12 +69,25 @@ $.fn.autoAdjustAceEditorHeight = (aceEditor, options)->
   autoAdjustHeightFunctor = (e)=>
     return if e? and e.data.text isnt '\n' # auto adjust only on enter key or if there is no event
     window.clearTimeout(aceEditor.autoAdjustTimer) if aceEditor.autoAdjustTimer?
-    trigger = ()=>
+
+    trigger = ()=> # hack to keep resizing for 5 seconds after a change, allowing an editor to animate into view
+      aceEditor.elapsedResizeTime += 100
+      return if 5000 < aceEditor.elapsedResizeTime
       h = aceEditorHeight()
+
+      if h is aceEditor.elapsedResizeHeight
+        aceEditor.autoAdjustTimer = window.setTimeout trigger, 100
+        return 
+      aceEditor.elapsedResizeHeight = h
       @height(h)
       @parent().height(h + parentOverSize) if options.adjustParent
-      aceEditor.resize()
-    aceEditor.autoAdjustTimer = window.setTimeout trigger, 200
+      aceEditor.resize(true)
+      aceEditor.autoAdjustTimer = window.setTimeout trigger, 100
+
+    aceEditor.elapsedResizeTime = 0
+    aceEditor.elapsedResizeHeight = -1.1
+    clearTimeout(aceEditor.autoAdjustTimer)
+    aceEditor.autoAdjustTimer = window.setTimeout trigger, 100
 
   aceEditor.on 'change', autoAdjustHeightFunctor
   aceEditor.onChangeFold autoAdjustHeightFunctor
