@@ -42,9 +42,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     atts.instruction = [atts.instruction] if 'string' is typeof atts.instruction
     @model = new Backbone.Model atts
 
-  trimLinesOfCode: (sourceCode)-> 
-    return undefined unless sourceCode?
-    (line.trim() for line in sourceCode.split('\n')).join '\n'
+  trimLinesOfCode: (sourceCode)-> sourceCode?.trim()
 
   activate: ()=>
     $html = $('html, body')
