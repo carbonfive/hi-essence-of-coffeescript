@@ -1,22 +1,6 @@
 extends layout
 
 block content
-  .teaser 
-   h1 Learn CoffeeScript in 2 hours
-   p
-    | It took me 2 full days of straight studying to learn the essence of CoffeeScript.
-    | Two weeks later, I found myself writing the cleanest, most error-free client-side code I had ever created.
-    
-    p
-     | I've set a goal to help bring that initial 2 day learning curve down to 2 fun hours:
-     | whether you have done only a little JavaScript programming, or you are already a master.
-    
-    p
-     | To capture my learnings, I've developed a few exercises that you can try for yourself.
-     | You may be surprised at how fast the essence of CoffeeScript can be absorbed.
-
-  <!--more-->
-
   link(rel='stylesheet', type='text/css', href='./css/jq-console/jq.css')
   link(rel='stylesheet', type='text/css', href='./css/essence-of-coffeescript.css')
 
@@ -83,7 +67,7 @@ block content
      
     input.next-exercise(type='submit', value='Next')
 
-  include course
+  include course/course
 
   #course-spot
 
