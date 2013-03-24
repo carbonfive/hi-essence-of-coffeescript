@@ -1,18 +1,12 @@
 data.exercise 
-  data.realization [realization]
-  data.description
+  data.realization Use a dash rocket <code> -> </code> to define a function
   data.js-syntax.
-    [some code]
-    [some code]
+    var add = function(x,y) { return x + y; };
   data.coffee-syntax.
-    [some code]
-    [some code]
+    add = (x,y)-> return x + y
   data.example-code.
-    [some code]
-    [some code]
-  data.given-code.
-    [some code]
-    [some code]
-  data.instruction [instruction]
-  data.instruction [instruction]
-  data.user-code true
+    logStatus = (msg)-> console.log 'Status:', msg
+    logStatus 'We have lift off!'
+  data.instruction Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.
+  data.instruction Write the function in 1 line.
+  data.instruction Call your function by running: <pre>addThree 1, 2, 3</pre>

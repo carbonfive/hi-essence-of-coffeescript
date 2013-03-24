@@ -1,12 +1,17 @@
 data.exercise 
-  data.realization Use a dash rocket <code> -> </code> to define a function
+  data.realization Variables never need to be declared with <code>var</code>
   data.js-syntax.
-    var add = function(x,y) { return x + y; };
+    var length = 5
+    var cost = 8.85
+    var username = 'underwater.crystals'
+    var password = "Ins3cur3"
+    var friendList = ['Rob', 'Chris', 'Travis', 'Lane', 'Amanda']
+    var colorTheme = { textColor: 'dark gray', buttonColor: 'blue', backgroundColor: 'white' }
   data.coffee-syntax.
-    add = (x,y)-> return x + y
-  data.example-code.
-    logStatus = (msg)-> console.log 'Status:', msg
-    logStatus 'We have lift off!'
+    length = 5
+    cost = 8.85
+    username = 'underwater.crystals'
+    password = "Ins3cur3"
+    friends = ['Rob', 'Chris', 'Travis', 'Lane', 'Amanda']
+    colorTheme = { textColor: 'dark gray', buttonColor: 'blue', backgroundColor: 'white' }
   data.instruction Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.
-  data.instruction Write the function in 1 line.
-  data.instruction Call your function by running: <pre>addThree 1, 2, 3</pre>

@@ -1,17 +1,9 @@
 data.exercise 
-  data.realization Indent the body of a function instead of using { } 
-  data.js-syntax.
-    var addThree = function (x,y,z) {
-      var sum = x + y
-      sum += z
-      return sum
-    }
-  data.coffee-syntax.
-    addThree = (x,y,z)-> 
-      sum = x + y
-      sum += z
-      return sum
-  data.instruction Use the CoffeeScript editor below to enter multiple lines of code.
-  data.instruction Define the <strong>addThree</strong> function, this time using multiple lines to indent the body
-  data.instruction Call your function from the console by running: <pre>addThree 1, 2, 3</pre>
-  data.user-code yes
+  data.realization Use variables from inside a string
+  data.example-code.
+    itemCount = 4
+    cost = 77.88
+    total = "Total cost of \#{itemCount} items comes out to $\#{cost}"
+    console.log total
+  data.instruction Run the example code above using double quotes for <code>total</code>.
+  data.instruction Find out what happens if you use single quotes istead.

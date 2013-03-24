@@ -1,6 +1,13 @@
 data.exercise 
-  data.realization A function alwyas returns the results from its last expression
+  data.realization Use indentation instead of {} to specify the body of a hash
   data.example-code.
-    addThree = (x,y,z)-> 
-      x + y + z
-  data.instruction Re-write the addThree without using return
+    colorTheme =
+      textColor: 'dark gray', 
+      buttonColor: 'blue', 
+      backgroundColor: 'white'
+
+    console.log colorTheme.textColor
+    console.log colorTheme['buttonColor']
+
+  data.instruction Use the editor to create a hash for a colorTheme.
+  data.instruction Use the console to print out the hash's values.

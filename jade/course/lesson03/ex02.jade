@@ -1,18 +1,17 @@
 data.exercise 
-  data.realization [realization]
-  data.description
+  data.realization Use indentation instead of {} to specify the body of a function
   data.js-syntax.
-    [some code]
-    [some code]
+    var addThree = function (x,y,z) {
+      var sum = x + y
+      sum += z
+      return sum
+    }
   data.coffee-syntax.
-    [some code]
-    [some code]
-  data.example-code.
-    [some code]
-    [some code]
-  data.given-code.
-    [some code]
-    [some code]
-  data.instruction [instruction]
-  data.instruction [instruction]
-  data.user-code true
+    addThree = (x,y,z)-> 
+      sum = x + y
+      sum += z
+      return sum
+  data.instruction Use the CoffeeScript editor below to enter multiple lines of code.
+  data.instruction Define the <strong>addThree</strong> function, this time using multiple lines to indent the body
+  data.instruction Call your function from the console by running: <pre>addThree 1, 2, 3</pre>
+  data.user-code yes
