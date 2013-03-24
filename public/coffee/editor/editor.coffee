@@ -31,11 +31,14 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     opts = _.extend {}, @defaultOptions, options
     {theme, readOnlyMode, languageMode} = opts
     @aceEditor = ace.edit @el
+    @aceEditor.setTheme 'ace/theme/' + theme
+    @aceEditor.setReadOnly readOnlyMode
+    activateLineHighlighting = !readOnlyMode
+    @aceEditor.setHighlightActiveLine activateLineHighlighting
+    @aceEditor.setHighlightGutterLine activateLineHighlighting
     @aceEditor.getSession().setMode 'ace/mode/' + languageMode
     @aceEditor.getSession().setUseSoftTabs true
     @aceEditor.getSession().setTabSize 2
-    @aceEditor.setTheme 'ace/theme/' + theme
-    @aceEditor.setReadOnly readOnlyMode
     @aceEditor
 
   hide: ()=>
