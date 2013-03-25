@@ -4,7 +4,7 @@ console.log 'Hi ' + nickname</data><data class="instruction">Use the console bel
   checkers: true,
   baseball: true,
   basketball: true,
-  fishing: false,
+  fishing: false
 }</data><data class="coffee-syntax">funGames = 
   chess: false,
   checkers: true,
@@ -35,70 +35,45 @@ funGames =
     fishing: false
     </data><data class="instruction">Define the bigTree array and the funGames hash in the editor.</data><data class="instruction">Use the console to print them out. </data></data><data class="exercise"> <data class="realization">Use variables inside of strings</data><data class="example-code">itemCount = 4
 cost = 14.99
-total = "Total cost of #{itemCount} items comes out to $#{cost}"
-console.log total</data><data class="instruction">Run the example code above using double quotes for <code>total</code>.</data><data class="instruction">Find out what happens if you use single quotes instead.</data></data><data class="exercise"> <data class="realization">Variables never need to be declared with <code>var</code></data><data class="js-syntax">var cost = 9.99
+total = "Total cost of #{itemCount} items comes out to $#{cost}"</data><data class="instruction">Run the example code above using double quotes for <code>total</code>.</data><data class="instruction">Find out what happens if you use single quotes instead.</data></data><data class="exercise"> <data class="realization">Variables never need to be declared with <code>var</code></data><data class="js-syntax">var cost = 9.99
 var username = 'underwater.crystals'
-var friendList = ['Rob', 'Chris', 'Travis', 'Lane', 'Amanda']
-var colorTheme = { text: 'blue', button: 'red', background: 'white' }</data><data class="coffee-syntax">cost = 9.99
+var colorTheme = {
+  text: 'blue',
+  button: 'red',
+  background: 'white'
+}</data><data class="coffee-syntax">cost = 9.99
 username = 'underwater.crystals'
-friends = ['Rob', 'Chris', 'Travis', 'Lane', 'Amanda']
-colorTheme = { text: 'blue', button: 'red', background: 'white' }
-
-console.log colorTheme</data><data class="instruction">Stop worrying about always remembering to use 'var' </data></data><data class="exercise"> <data class="realization">Every expression has a value</data><data class="example-code">hour = (new Date).getHours()
-timeOfDay = if hour > 17 then 'night' else 'day'</data><data class="instruction">Predict what timeOfDay will be set right at this hour.</data><data class="instruction">Enter the example into the console and  see if you got it.</data></data></data><data class="lessonplan"> <data class="title">Insights on Variables</data><data class="exercise"> <data class="realization">Use variables inside of strings</data><data class="example-code">itemCount = 4
-cost = 14.99
-total = "Total cost of #{itemCount} items comes out to $#{cost}"
-console.log total</data><data class="instruction">Run the example code above using double quotes for <code>total</code>.</data><data class="instruction">Find out what happens if you use single quotes instead.</data></data><data class="exercise"> <data class="realization">Skip commas when Array and Hash elements are on their own line</data><data class="example-code">bigTree = [
-  'leaves'
-  'branches'
-  'trunk'
-  'roots'
-]
-
-funGames = 
-  board:
-    chess: false
-    checkers: true
-  ball:
-    baseball: true 
-    basketball: true
-  others:
-    fishing: false
-    </data><data class="instruction">Define the bigTree array and the funGames hash in the editor.</data><data class="instruction">Use the console to print them out. </data></data><data class="exercise"> <data class="realization">Variables never need to be declared with <code>var</code></data><data class="js-syntax">var cost = 9.99
-var username = 'underwater.crystals'
-var friendList = ['Rob', 'Chris', 'Travis', 'Lane', 'Amanda']
-var colorTheme = { text: 'blue', button: 'red', background: 'white' }</data><data class="coffee-syntax">cost = 9.99
-username = 'underwater.crystals'
-friends = ['Rob', 'Chris', 'Travis', 'Lane', 'Amanda']
-colorTheme = { text: 'blue', button: 'red', background: 'white' }
-
-console.log colorTheme</data><data class="instruction">Stop worrying about always remembering to use 'var' </data></data></data><data class="lessonplan"> <data class="title">Functions: go this way -></data><data class="exercise"> <data class="realization">Use a dash rocket <code> -> </code> to define a function</data><data class="js-syntax">var add = function(x,y) { return x + y; };</data><data class="coffee-syntax">add = (x,y)-> return x + y</data><data class="example-code">logStatus = (msg)-> console.log 'Status:', msg
-logStatus 'We have lift off!'</data><data class="instruction">Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.</data><data class="instruction">Write the function in 1 line.</data><data class="instruction">Call your function by running: <pre>addThree 1, 2, 3</pre></data></data><data class="exercise"> <data class="realization">Use indentation for the function body</data><data class="js-syntax">var addThree = function (x,y,z) {
+colorTheme =
+  text: 'blue'
+  button: 'red'
+  background: 'white'</data><data class="instruction">Stop worrying about always remembering to use 'var' </data></data><data class="exercise"> <data class="realization">Every expression has a value</data><data class="example-code">hour = (new Date).getHours()
+timeOfDay = if hour > 17 then 'night' else 'day'</data><data class="instruction">Predict what timeOfDay will be set to at this hour.</data><data class="instruction">Enter the example into the console and  see if you got it.</data></data></data><data class="lessonplan"> <data class="title">Functions: this way -></data><data class="exercise"> <data class="realization">Use a dash rocket <code> -> </code> to define a function</data><data class="js-syntax">var add = function(x,y) { return x + y; };</data><data class="coffee-syntax">add = (x,y)-> return x + y</data><data class="example-code">logStatus = (msg)-> console.log 'Status:', msg
+logStatus 'We have lift off!'</data><data class="instruction">Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.</data><data class="instruction">Write the function in 1 line.</data><data class="instruction">Call your function by running: <pre>addThree 1, 2, 3</pre></data></data><data class="exercise"> <data class="realization">Indent the function body</data><data class="js-syntax">var addThree = function (x,y,z) {
   var sum = x + y
   sum += z
   return sum
 }</data><data class="coffee-syntax">addThree = (x,y,z)-> 
   sum = x + y
   sum += z
-  return sum</data><data class="instruction">Use the CoffeeScript editor below to enter multiple lines of code.</data><data class="instruction">Define the <strong>addThree</strong> function, this time using multiple lines to indent the body</data><data class="instruction">Call your function from the console by running: <pre>addThree 1, 2, 3</pre></data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">A function will return its final value</data><data class="example-code">addThree = (x,y,z)-> 
-  x + y + z</data><data class="instruction">Re-write the addThree without using return</data></data><data class="exercise"> <data class="realization">A function that doesn't take any arguments, doesn't need any parenthesis</data><data class="js-syntax">var getDate = function() { return new Date; }</data><data class="coffee-syntax">getDate = ()-> new Date
-getDate = -> new Date</data><data class="instruction">write a function called logDate that takes no arguments and prints the date to the console</data></data></data><data class="lessonplan"> <data class="title">Some Conditional Love</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">The existential ?</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+  return sum</data><data class="instruction">Use the CoffeeScript editor below to enter multiple lines of code.</data><data class="instruction">Define the <strong>addThree</strong> function, this time using multiple lines to indent the body</data><data class="instruction">Call your function from the console by running: <pre>addThree 1, 2, 3</pre></data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">A function autmatically returns its final value</data><data class="example-code">addThree = (x,y,z)-> 
+  x + y + z</data><data class="instruction">Re-write the addThree without using return</data><data class="instruction">Re-write it again on 1 line, then with 2 lines</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">A function with no arguments need no parenthesis</data><data class="js-syntax">var getDate = function() { return new Date; }</data><data class="coffee-syntax">getDate = -> new Date</data><data class="instruction">write the logDate function to take no arguments and return the current date</data><data class="instruction">Call it from the console</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">Some Conditional Love</data><data class="exercise"> <data class="realization">Inline simple if statments </data><data class="js-syntax">var hour, timeOfDay;
+hour = (new Date).getHours();
+if (11 < hour && hour < 2) {
+  timeOfDay = 'lunch'
+}</data><data class="coffee-syntax">hour = (new Date).getHours()
+timeOfDay = 'lunch' if 11 < hour < 2)</data><data class="instruction">See if it is lunch time</data></data><data class="exercise"> <data class="realization">Inlined unless</data><data class="js-syntax">var hour, timeOfDay;
+hour = (new Date).getHours();
+if (11 > hour || hour > 2) {
+  timeOfDay = 'nap'
+}</data><data class="coffee-syntax">timeOfDay = 'nap' unless 11 < (new Date).getHours() < 2)</data><data class="instruction">See if it is nap time</data></data><data class="exercise"> <data class="realization">if statements return a value</data><data class="example-code">timeOfDay = if (11 < (new Date).getHours() < 2) then 'lunch' else 'nap'</data><data class="instruction">See if it is lunch time or nap time</data></data><data class="exercise"> <data class="realization">Indent if blocks</data><data class="js-syntax">if (navigator.geolocation) {
+  alert('geo is supported');
+}
+else {
+  alert(geo is unsupported');
+}</data><data class="coffee-syntax">if navigator.geolocation
+  alert 'geo is supported' 
+else 
+  alert 'geo is unsupported' </data><data class="instruction">find out if your browser supports geolocation</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">The existential ?</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
@@ -116,6 +91,22 @@ getDate = -> new Date</data><data class="instruction">write a function called lo
 [some code]</data><data class="given-code">[some code]
 [some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Loopy</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Working With Class</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">console.log name for name of window
 console.log i for i in [0..10]
 console.log (i for i in [0..10])</data><data class="given-code">[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
@@ -130,23 +121,23 @@ console.log (i for i in [0..10])</data><data class="given-code">[some code]</dat
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Working With Class</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
 [some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Whats this @</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="coffee-syntax">[some code]
+[some code]</data><data class="example-code">[some code]
+[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Absorb the Essence</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
