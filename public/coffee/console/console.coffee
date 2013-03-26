@@ -53,13 +53,14 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
 
   Write: (args...)=> 
     for result in args
+
       output = switch typeof result
+        when 'undefined'
+          'undefined'
         when 'function'
           '[Function]'
         when 'object'
           JSON.stringify result, null, 0
-        when 'undefined'
-          ''
         else 
           JSON.stringify result, null, 1
       @jqconsole.Write '' + output
