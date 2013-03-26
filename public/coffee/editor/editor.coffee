@@ -46,6 +46,7 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
 
   show: (code)=>
     throw "Error: code needs to be a string, not #{typeof code}" if 'string' isnt typeof code
-    @aceEditor.setValue('')
-    @aceEditor.insert(code)
-    @$widgetEl.delay(100).fadeIn 800, => @aceEditor.autoAdjustHeight()
+    @aceEditor.setValue(code)
+    @aceEditor.getSession().getSelection().clearSelection()
+
+    @$widgetEl.delay(100).fadeIn 400, => @aceEditor.autoAdjustHeight()
