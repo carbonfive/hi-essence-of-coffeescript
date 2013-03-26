@@ -47,7 +47,6 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     throw "Error: code needs to be a string, not #{typeof code}" if 'string' isnt typeof code
     @aceEditor.setValue(code)
     @aceEditor.getSession().getSelection().clearSelection()
-    @showInfo 1, 'wassup dude yo?'
     @$widgetEl.delay(100).fadeIn 400, => @aceEditor.autoAdjustHeight()
 
   showError: (lineNumber, msg)-> @showAnnotation 'error', lineNumber, msg
