@@ -121,19 +121,12 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
       el: '#user-code-editor'
       widgetEl: '#user-code'
       displaySettings: minHeight: 100
-      onParse: @hideUserCodeParseError
-      onParseException: @showUserCodeParseError
+      autoParse: true
 
   launchUserConsole: ()=>
     @jqconsole = new EssenceOfCoffeeScript.Console
       el: '#user-console'
     @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
-
-  hideUserCodeParseError: ()=>
-    @$('#user-code-error').fadeOut => @$('#user-code-error').html('')
-
-  showUserCodeParseError: (@userCodeCompilationErrorMessage)=>
-    @$('#user-code-error').html(@userCodeCompilationErrorMessage).fadeIn()
 
   findLessonPlan: (idx) => @lessonPlans[idx] if 0 <= idx < @lessonPlans?.length
 
