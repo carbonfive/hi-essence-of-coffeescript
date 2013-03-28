@@ -6,12 +6,22 @@ console.log 'Hi ' + prompt('What is your nickname?')</data><data class="instruct
   baseball: true,
   basketball: true,
   fishing: false
-}</data><data class="coffee-syntax">funGames = 
+}
+
+now = new Date() 
+if (17 < now.getHours()) {
+  console.log 'It is now night time'
+}
+</data><data class="coffee-syntax">funGames = 
   chess: false,
   checkers: true,
   baseball: true,
   basketball: true,
   fishing: false
+  
+now = new Date() 
+if 17 < now.getHours()
+  console.log 'It is now night time'
   </data><data class="example-code">colorTheme =
   text: 'blue',
   button: 'red'
@@ -36,7 +46,7 @@ funGames =
     fishing: false
     </data><data class="instruction">Use the editor below to define a hash and an array without using commas.</data><data class="instruction">Use the console to print them out.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use variables inside of strings</data><data class="example-code">itemCount = 4
 cost = 14.99
-total = "Total cost of #{itemCount} items comes out to $#{cost}"</data><data class="instruction">Run the example code above using double quotes for <code>total</code>.</data><data class="instruction">Find out what happens if you use single quotes instead.</data></data><data class="exercise"> <data class="realization">Variables never need to be declared with <code>var</code></data><data class="js-syntax">var cost = 9.99
+total = "Total cost of #{itemCount} items comes out to $#{cost}"</data><data class="instruction">Run the example code above using double quotes for <code>total</code>.</data><data class="instruction">Find out what happens if you use single quotes instead.</data></data><data class="exercise"> <data class="realization">No need to use <code>var</code></data><data class="js-syntax">var cost = 9.99
 var username = 'underwater.crystals'
 var colorTheme = {
   text: 'blue',
@@ -47,9 +57,9 @@ username = 'underwater.crystals'
 colorTheme =
   text: 'blue'
   button: 'red'
-  background: 'white'</data><data class="instruction">Stop worrying about always remembering to use 'var' </data></data><data class="exercise"> <data class="realization">Every expression returns a value</data><data class="example-code">hour = (new Date).getHours()
-timeOfDay = if hour > 17 then 'night' else 'day'</data><data class="instruction">Predict what timeOfDay will be set to at this hour.</data><data class="instruction">Enter the example into the console and  see if you got it.</data></data></data><data class="lessonplan"> <data class="title">Functions: this way -></data><data class="exercise"> <data class="realization">Use a dash rocket <code> -> </code> to define a function</data><data class="js-syntax">var add = function(x,y) { return x + y; };</data><data class="coffee-syntax">add = (x,y)-> return x + y</data><data class="example-code">logStatus = (msg)-> console.log 'Status:', msg
-logStatus 'We have lift off!'</data><data class="instruction">Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.</data><data class="instruction">Write the function in 1 line.</data><data class="instruction">Call your function by running: <pre>addThree 1, 2, 3</pre></data></data><data class="exercise"> <data class="realization">Indent the function body</data><data class="js-syntax">var addThree = function (x,y,z) {
+  background: 'white'</data><data class="instruction">Stop worrying about accidentally forgetting a 'var' </data></data><data class="exercise"> <data class="realization">Every expression returns a value</data><data class="example-code">hour = (new Date).getHours()
+timeOfDay = if hour > 17 then 'night' else 'day'</data><data class="instruction">Predict what timeOfDay will be set to at this hour.</data><data class="instruction">Enter the example into the console and  see if you got it.</data></data></data><data class="lessonplan"> <data class="title">Functions: this way -></data><data class="exercise"> <data class="realization">Use a dash rocket <code> -> </code> to define a function</data><data class="js-syntax">var add = function(x,y) { return x + y; };</data><data class="coffee-syntax">add = (x,y)-> return x + y</data><data class="example-code">reportStatus = (msg)-> console.log 'Status:', msg
+reportStatus 'We have lift off!'</data><data class="instruction">Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.</data><data class="instruction">Write the function in 1 line.</data><data class="instruction">Call your function by running: <pre>addThree 1, 2, 3</pre></data></data><data class="exercise"> <data class="realization">Indent the body of a function</data><data class="js-syntax">var addThree = function (x,y,z) {
   var sum = x + y
   sum += z
   return sum
@@ -90,22 +100,13 @@ else
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Loopy</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Loopy</data><data class="exercise"> <data class="realization">Loop through an array</data><data class="js-syntax">for(var i = 0; i < 10; i++) { console.log(i); };</data><data class="coffee-syntax">console.log i for i in [0..9]</data><data class="example-code">console.log i for i in [0..9]    </data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">A loop retuns an array </data><data class="example-code">digits = (i for i in [0..9])</data><data class="instruction">run the example code in the console to see what the value of digits will be</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Loop through a hash</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">The body of a loop can come before or after</data><data class="description"></data><data class="example-code">console.log i for i in [0..9]
+for i in [0..9]
+  console.log i </data><data class="given-code">[some code]
 [some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Working With Class</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">console.log name for name of window
