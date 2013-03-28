@@ -1,42 +1,19 @@
-<!DOCTYPE html><html lang="en"><head><title>Essence of CoffeeScript</title><meta name="robots" content="noindex"><script type="text/javascript" src="./js/vendor/jquery.js"></script><script type="text/javascript" src="./js/vendor/underscore.min.js"></script><script type="text/javascript" src="./js/vendor/backbone.min.js"></script><link rel="stylesheet" type="text/css" media="all" href="./css/wp-content/themes/carbonfive/blog.css"></head><body><div id="wrapper" class="hfeed">'<div id="main"><div id="container"><div id="content" role="main"><link rel="stylesheet" type="text/css" href="./css/jq-console/jq.css"><link rel="stylesheet" type="text/css" href="./css/essence-of-coffeescript.css"><script type="text/javascript" src="./js/vendor/jqconsole.min.js"></script><script type="text/javascript" src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" charset="utf-8"></script><script type="text/coffeescript" src="./coffee/essence-of-coffeescript.coffee"></script><script type="text/coffeescript" src="./coffee/jquery.essence-of-coffeescript.coffee"></script><script type="text/coffeescript" src="./coffee/console/console.coffee"></script><script type="text/coffeescript" src="./coffee/editor/editor.coffee"></script><script type="text/coffeescript" src="./coffee/editor/javascript-editor.coffee"></script><script type="text/coffeescript" src="./coffee/editor/coffeescript-editor.coffee"></script><script type="text/coffeescript" src="./coffee/exercise.coffee"></script><script type="text/coffeescript" src="./coffee/lesson-plan.coffee"></script><script type="text/coffeescript" src="./coffee/course.coffee"></script><script type="text/template" id="course-template"><div class="course"> <h1>Essence Of CoffeeScript: Syntax Shortcuts<div class="lesson-navbar"> <ol></ol><h2 class="lesson-title"></h2></div></h1><div class="exercise-navbar"></div><div class="realization"></div><div class="course-content"> <div class="exercise"> <p class="description"></p><div id="js-syntax"><h3>Syntax - JavaScript </h3><div class="editor"> <div id="js-syntax-editor"></div></div></div><div id="coffee-syntax"><h3>Syntax - CoffeeScript</h3><div class="editor"> <div id="coffee-syntax-editor"></div></div></div><div id="example-code"> <h3>Example - CoffeeScript</h3><div class="editor"> <div id="example-code-editor">  </div></div></div><div class="instructions"> <h3>Interactive Pactice:</h3><ol></ol></div><div id="given-code"> <h3>Given the following code</h3><div class="editor"> <div id="given-code-editor"></div></div></div><div id="user-code"> <h3>Interactive Editor - CoffeeScript</h3><div class="editor"> <div id="user-code-editor"></div></div><div id="user-code-error"> </div></div><div id="user-console"></div></div></div><input type="submit" value="Next" class="next-exercise"></div></script><data class="markup"> <data class="course"> <data class="title">Essence of CoffeeScript</data></data><data class="lessonplan"> <data class="title">Fundamentals</data><data class="exercise"> <data class="realization">Skip uneccessary punctuations ;})</data><data class="js-syntax">alert('Hi');</data><data class="coffee-syntax">alert 'Hi'</data><data class="example-code">nickname = prompt 'What is your nickname?'
-console.log 'Hi ' + nickname</data><data class="instruction">Run the example code above by entering it into the console below.</data></data><data class="exercise"> <data class="realization">Read from right-to-left</data><data class="example-code">console.log 'Hi ' + prompt 'What is your nickname?'</data><data class="instruction">Predict what the example code above will do by reading it from right to left.</data><data class="instruction">Run it in the console to see if you got it.</data></data><data class="exercise"> <data class="realization">Add punctuations wherever it improves readability</data><data class="example-code">(alert 'Hi')
-console.log 'Hi ' + prompt('What is your nickname?')</data><data class="instruction">Experiment with different placement of parenthesis.</data><data class="instruction">Find a style that enhances the readability of your code for others.</data></data><data class="exercise"> <data class="realization">Use indentation instead of { } curly braces</data><data class="js-syntax">funGames = { 
-  chess: false,
-  checkers: true,
+<!DOCTYPE html><html lang="en"><head><title>Essence of CoffeeScript</title><meta name="robots" content="noindex"><script type="text/javascript" src="./js/vendor/jquery.js"></script><script type="text/javascript" src="./js/vendor/underscore.min.js"></script><script type="text/javascript" src="./js/vendor/backbone.min.js"></script><link rel="stylesheet" type="text/css" media="all" href="./css/wp-content/themes/carbonfive/blog.css"></head><body><div id="wrapper" class="hfeed">'<div id="main"><div id="container"><div id="content" role="main"><link rel="stylesheet" type="text/css" href="./css/jq-console/jq.css"><link rel="stylesheet" type="text/css" href="./css/essence-of-coffeescript.css"><script type="text/javascript" src="./js/vendor/jqconsole.min.js"></script><script type="text/javascript" src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" charset="utf-8"></script><script type="text/coffeescript" src="./coffee/essence-of-coffeescript.coffee"></script><script type="text/coffeescript" src="./coffee/jquery.essence-of-coffeescript.coffee"></script><script type="text/coffeescript" src="./coffee/console/console.coffee"></script><script type="text/coffeescript" src="./coffee/editor/editor.coffee"></script><script type="text/coffeescript" src="./coffee/editor/javascript-editor.coffee"></script><script type="text/coffeescript" src="./coffee/editor/coffeescript-editor.coffee"></script><script type="text/coffeescript" src="./coffee/exercise.coffee"></script><script type="text/coffeescript" src="./coffee/lesson-plan.coffee"></script><script type="text/coffeescript" src="./coffee/course.coffee"></script><script type="text/template" id="course-template"><div class="course"> <h1>Essence Of CoffeeScript: Syntax Shortcuts<div class="lesson-navbar"> <ol></ol><h2 class="lesson-title"></h2></div></h1><div class="exercise-navbar"></div><div class="realization"></div><div class="course-content"> <div class="exercise"> <p class="description"></p><div id="js-syntax"><h3>Syntax - JavaScript </h3><div class="editor"> <div id="js-syntax-editor"></div></div></div><div id="coffee-syntax"><h3>Syntax - CoffeeScript</h3><div class="editor"> <div id="coffee-syntax-editor"></div></div></div><div id="example-code"> <h3>Example - CoffeeScript</h3><div class="editor"> <div id="example-code-editor">  </div></div></div><div class="instructions"> <h3>Interactive Pactice:</h3><ol></ol></div><div id="given-code"> <h3>Given the following code</h3><div class="editor"> <div id="given-code-editor"></div></div></div><div id="user-code"> <h3>Interactive Editor - CoffeeScript</h3><div class="editor"> <div id="user-code-editor"></div></div><div id="user-code-error"> </div></div><div id="user-console"></div></div></div><input type="submit" value="Next" class="next-exercise"></div></script><data class="markup"> <data class="course"> <data class="title">Essence of CoffeeScript</data></data><data class="lessonplan"> <data class="title">Fundamentals</data><data class="exercise"> <data class="realization">Skip the punctuation ;}),</data><data class="js-syntax">console.log('Hi');</data><data class="coffee-syntax">console.log 'Hi'</data><data class="example-code">console.log 'Hi ' + prompt 'What is your nickname?'</data><data class="instruction">Run the example code above by entering it into the console below.</data></data><data class="exercise"> <data class="realization">Use indentation instead of { } curly braces</data><data class="js-syntax">funGames = { 
   baseball: true,
   basketball: true,
   fishing: false
 }</data><data class="coffee-syntax">funGames = 
-  chess: false,
-  checkers: true,
-  baseball: true,
-  basketball: true,
+  baseball: true
+  basketball: true
   fishing: false
   </data><data class="example-code">colorTheme =
-  text: 'blue',
+  text: 'blue'
   button: 'red'
   
 console.log colorTheme.text
 console.log colorTheme['button']
-</data><data class="instruction">Use the editor below to define a hash.</data><data class="instruction">Use the console to print it out.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Skip commas when elements are on their own line</data><data class="example-code">bigTree = [
-  'leaves'
-  'branches'
-  'trunk'
-  'roots'
-]
-
-funGames =
-  board:
-    chess: false
-    checkers: true
-  ball:
-    baseball: true 
-    basketball: true
-  others:
-    fishing: false
-    </data><data class="instruction">Use the editor below to define a hash and an array without using commas.</data><data class="instruction">Use the console to print them out.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use variables inside of strings</data><data class="example-code">itemCount = 4
-cost = 14.99
-total = "Total cost of #{itemCount} items comes out to $#{cost}"</data><data class="instruction">Run the example code above using double quotes for <code>total</code>.</data><data class="instruction">Find out what happens if you use single quotes instead.</data></data><data class="exercise"> <data class="realization">Variables never need to be declared with <code>var</code></data><data class="js-syntax">var cost = 9.99
+</data><data class="instruction">Use the editor below to define a hash.</data><data class="instruction">Use the console to print it out.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Every expression returns a value</data><data class="example-code">hour = (new Date).getHours()
+timeOfDay = if hour > 17 then 'night' else 'day'</data><data class="instruction">Predict what timeOfDay would be set to right now.</data><data class="instruction">Enter the example into the console and  see if you got it.</data></data><data class="exercise"> <data class="realization">Never specify <code>var</code></data><data class="js-syntax">var cost = 9.99
 var username = 'underwater.crystals'
 var colorTheme = {
   text: 'blue',
@@ -47,22 +24,35 @@ username = 'underwater.crystals'
 colorTheme =
   text: 'blue'
   button: 'red'
-  background: 'white'</data><data class="instruction">Stop worrying about always remembering to use 'var' </data></data><data class="exercise"> <data class="realization">Every expression returns a value</data><data class="example-code">hour = (new Date).getHours()
-timeOfDay = if hour > 17 then 'night' else 'day'</data><data class="instruction">Predict what timeOfDay will be set to at this hour.</data><data class="instruction">Enter the example into the console and  see if you got it.</data></data></data><data class="lessonplan"> <data class="title">Functions: this way -></data><data class="exercise"> <data class="realization">Use a dash rocket <code> -> </code> to define a function</data><data class="js-syntax">var add = function(x,y) { return x + y; };</data><data class="coffee-syntax">add = (x,y)-> return x + y</data><data class="example-code">logStatus = (msg)-> console.log 'Status:', msg
-logStatus 'We have lift off!'</data><data class="instruction">Define a function called <strong>addThree</strong> that takes 3 arguments and returns their sum.</data><data class="instruction">Write the function in 1 line.</data><data class="instruction">Call your function by running: <pre>addThree 1, 2, 3</pre></data></data><data class="exercise"> <data class="realization">Indent the function body</data><data class="js-syntax">var addThree = function (x,y,z) {
-  var sum = x + y
-  sum += z
-  return sum
-}</data><data class="coffee-syntax">addThree = (x,y,z)-> 
-  sum = x + y
-  sum += z
-  return sum</data><data class="instruction">Use the CoffeeScript editor below to enter multiple lines of code.</data><data class="instruction">Define the <strong>addThree</strong> function, this time using multiple lines to indent the body</data><data class="instruction">Call your function from the console by running: <pre>addThree 1, 2, 3</pre></data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">A function autmatically returns its final value</data><data class="example-code">addThree = (x,y,z)-> 
-  x + y + z</data><data class="instruction">Re-write the addThree without using return</data><data class="instruction">Re-write it again on 1 line, then with 2 lines</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">A function with no arguments need no parenthesis</data><data class="js-syntax">var getDate = function() { return new Date; }</data><data class="coffee-syntax">getDate = -> new Date</data><data class="instruction">write the logDate function to take no arguments and return the current date</data><data class="instruction">Call it from the console</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">Some Conditional Love</data><data class="exercise"> <data class="realization">Inline simple if statments </data><data class="js-syntax">var hour, timeOfDay;
+  background: 'white'</data><data class="instruction">Worrying no more about forgetting a 'var' somewhere. </data></data></data><data class="lessonplan"> <data class="title">Functions: this way -></data><data class="exercise"> <data class="realization">Use dash rocket <code> -> </code> to define a function</data><data class="js-syntax">var reportStatus = function(msg){ console.log('Status:', msg); };</data><data class="example-code">reportStatus = (msg)-> console.log 'Status:', msg</data><data class="instruction">Define the 1-line reportStatus function.</data><data class="instruction">Call it with a status message.</data></data><data class="exercise"> <data class="realization">A function returns its final value</data><data class="example-code">getHostname = -> location.hostname</data><data class="instruction">define the getHostname function, using the console, then call it.</data></data><data class="exercise"> <data class="realization">Indent the function body</data><data class="js-syntax">var askForGeoLocation = function () {
+  if (navigator.geolocation) {
+    alert('Your browser is about to ask you to allow geolocation');
+    navigator.geolocation.getCurrentPosition(reportGeoPoint);
+  }
+  else {
+    alert('Seriously? Please update your dang browser.');
+  }
+}
+
+var reportGeoPoint = function(position) {
+  var point = position.coords;
+  console.log("Lat: " + point.latitude +  ", Lng: " + point.longitude);
+}</data><data class="example-code">askForGeoLocation = ->
+  if navigator.geolocation
+    alert 'Your browser is about to ask you to allow geolocation'
+    navigator.geolocation.getCurrentPosition(reportGeoPoint);
+  else
+    alert 'Seriously? Please update your dang browser.'
+    
+reportGeoPoint = (position)->
+  point = position.coords
+  console.log "Lat: #{point.latitude}, Lng: #{point.longitude}"
+  </data><data class="instruction">Enter the 2 functions from the example code into the editor below.</data><data class="instruction">Get the geo location of your browser.</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">Some Conditional Love</data><data class="exercise"> <data class="realization">Inline simple if statments </data><data class="js-syntax">var hour, timeOfDay;
 hour = (new Date).getHours();
 if (11 < hour && hour < 2) {
   timeOfDay = 'lunch'
 }</data><data class="coffee-syntax">hour = (new Date).getHours()
-timeOfDay = 'lunch' if 11 < hour < 2)</data><data class="instruction">See if it is lunch time</data></data><data class="exercise"> <data class="realization">Inlined unless</data><data class="js-syntax">var hour, timeOfDay;
+timeOfDay = 'lunch' if 11 < hour < 2</data><data class="instruction">See if it is lunch time</data></data><data class="exercise"> <data class="realization">Inlined unless</data><data class="js-syntax">var hour, timeOfDay;
 hour = (new Date).getHours();
 if (11 > hour || hour > 2) {
   timeOfDay = 'nap'
@@ -90,22 +80,13 @@ else
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Loopy</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Loopy</data><data class="exercise"> <data class="realization">Loop through an array</data><data class="js-syntax">for(var i = 0; i < 10; i++) { console.log(i); };</data><data class="coffee-syntax">console.log i for i in [0..9]</data><data class="example-code">console.log i for i in [0..9]    </data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">A loop retuns an array </data><data class="example-code">digits = (i for i in [0..9])</data><data class="instruction">run the example code in the console to see what the value of digits will be</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Loop through a hash</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
+[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">The body of a loop can come before or after</data><data class="description"></data><data class="example-code">console.log i for i in [0..9]
+for i in [0..9]
+  console.log i </data><data class="given-code">[some code]
 [some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Working With Class</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">console.log name for name of window

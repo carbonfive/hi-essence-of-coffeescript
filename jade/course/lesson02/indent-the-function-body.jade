@@ -1,0 +1,32 @@
+data.exercise 
+  data.realization Indent the function body
+  data.js-syntax.
+    var askForGeoLocation = function () {
+      if (navigator.geolocation) {
+        alert('Your browser is about to ask you to allow geolocation');
+        navigator.geolocation.getCurrentPosition(reportGeoPoint);
+      }
+      else {
+        alert('Seriously? Please update your dang browser.');
+      }
+    }
+
+    var reportGeoPoint = function(position) {
+      var point = position.coords;
+      console.log("Lat: " + point.latitude +  ", Lng: " + point.longitude);
+    }
+  data.example-code.
+    askForGeoLocation = ->
+      if navigator.geolocation
+        alert 'Your browser is about to ask you to allow geolocation'
+        navigator.geolocation.getCurrentPosition(reportGeoPoint);
+      else
+        alert 'Seriously? Please update your dang browser.'
+
+    reportGeoPoint = (position)->
+      point = position.coords
+      console.log "Lat: \#{point.latitude}, Lng: \#{point.longitude}"
+
+  data.instruction Enter the 2 functions from the example code into the editor below.
+  data.instruction Get the geo location of your browser.
+  data.user-code yes
