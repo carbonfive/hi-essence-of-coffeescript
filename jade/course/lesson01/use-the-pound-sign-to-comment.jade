@@ -1,1 +1,9 @@
-use-the-pound-sign-to-comment.jade
+data.exercise 
+  data.realization Use # for comment
+  data.instruction Comment out the first line below.
+  data.instruction Use the console to see the timeOfDay.
+  data.user-code.
+    use the current hour to set the time of day
+    hour = (new Date).getHours()
+    timeOfDay = 'day' # default
+    timeOfDay = 'night' unless  17 > hour 

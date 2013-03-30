@@ -3,7 +3,6 @@ class EssenceOfCoffeeScript.JavaScriptEditor extends EssenceOfCoffeeScript.Edito
   initialize: (attributes) =>
     super attributes
 
-
     @evaluated = false
     @timer2IndicateParseError = undefined
 

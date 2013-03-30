@@ -1,28 +1,8 @@
 data.exercise 
-  data.realization indent if else blocks
-  data.js-syntax.
-    if (navigator.geolocation) {
-      alert('Your browser is cool!');
-    }
-    else {
-      alert('Seriously? You really need to update your browser.');
-    }
-  data.coffee-syntax.
-    if navigator.geolocation
-      alert 'Your browser is cool!'
-    else
-      alert 'Seriously? You really need to update your browser.'
+  data.realization Get Used To Passing a Function
   data.example-code.
-    askForGeoLocation = ->
-      if navigator.geolocation
-        alert 'Your browser is about to ask you to allow geolocation'
-        navigator.geolocation.getCurrentPosition reportGeoPoint
-      else
-        alert 'Seriously? You really need to update your browser.'
-
-    reportGeoPoint = (position)->
-      point = position.coords
-      console.log "Lat: \#{point.latitude}, Lng: \#{point.longitude}"
-  data.instruction Enter the 2 functions from the example above into the editor below.
-  data.instruction Use the console to get the geo location of your browser.
-  data.user-code yes
+    quoteURL = 'https://api.github.com/zen'
+    quoteCallback = (quote)-> console.log quote
+    jQuery.get quoteURL, quoteCallback
+  data.instruction Enter the example code into the console to get a github zen coding quote.
+  data.instruction Pair with someone to either teach them, or learn from them, what each line means.

@@ -1,18 +1,12 @@
 data.exercise 
-  data.realization [realization]
-  data.description
-  data.js-syntax.
-    [some code]
-    [some code]
-  data.coffee-syntax.
-    [some code]
-    [some code]
+  data.realization Do some error checking with <code>?</code> the existantial operator
   data.example-code.
-    [some code]
-    [some code]
-  data.given-code.
-    [some code]
-    [some code]
-  data.instruction [instruction]
-  data.instruction [instruction]
-  data.user-code true
+    console.log 'uncorns are real: ', unicornsExist if unicornsExist?
+    console.log '# unicorns: ', numberOfUnicorns if numberOfUnicorns?
+
+    numberOfUnicorns = 0
+    unicornsExist = false
+
+    console.log 'uncorns are real: ', unicornsExist if unicornsExist?
+    console.log '# unicorns: ', numberOfUnicorns if numberOfUnicorns?
+  data.instruction Enter the example code above into the console.

@@ -1,18 +1,11 @@
 data.exercise 
-  data.realization [realization]
+  data.realization Use <code>?</code> to set a variable if it does not already exist
   data.description
-  data.js-syntax.
-    [some code]
-    [some code]
-  data.coffee-syntax.
-    [some code]
-    [some code]
   data.example-code.
-    [some code]
-    [some code]
-  data.given-code.
-    [some code]
-    [some code]
-  data.instruction [instruction]
-  data.instruction [instruction]
-  data.user-code true
+    age = 32
+    name ?= 'misty'
+    age ?= 25
+
+    console.log 'name: ', name
+    console.log 'age: ', age
+  data.instruction Enter the example code above into the console.

@@ -1,13 +1,13 @@
 data.exercise 
-  data.realization 
+  data.realization Use <code>?</code> in a chain
+  data.description
   data.example-code.
     barn = 
       horse:
         run: ()-> console.log 'gallop' for i in [0..3]
 
-    console.log barn.horse?.fly?()
-    console.log barn.pig?.run?()
+    console.log barn.horse?.run()
+    console.log barn.pig?.run()
   data.instruction Define barn in the editor like in the example code.
   data.instruction Run the console.log statements in the console.
-  data.instruction What happens if you run the same statements without <code>?</code>
   data.user-code true

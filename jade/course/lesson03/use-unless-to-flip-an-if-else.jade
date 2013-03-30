@@ -1,11 +1,16 @@
 data.exercise 
   data.realization Use unless to flip an if else
-  data.js-syntax.
-    var hour, timeOfDay;
-    hour = (new Date).getHours();
-    if (11 > hour || hour > 2) {
-      timeOfDay = 'nap'
-    }
   data.coffee-syntax.
     timeOfDay = 'nap' unless 11 < (new Date).getHours() < 2)
-  data.instruction See if it is nap time
+  data.example-code.
+    askForGeoLocation = ->
+      return alert 'Seriously? You need to update.' unless navigator.geolocation
+      alert 'Your browser is about to ask you to allow geolocation'
+      navigator.geolocation.getCurrentPosition reportGeoPoint
+
+    reportGeoPoint = (position)->
+      point = position.coords
+      console.log "Lat: \#{point.latitude}, Lng: \#{point.longitude}"
+  data.instruction Enter the 2 functions from the example above into the editor below.
+  data.instruction Use the console to get the geo location of your browser.
+  data.user-code yes
