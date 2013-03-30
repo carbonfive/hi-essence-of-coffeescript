@@ -10,6 +10,4 @@ app.configure ->
   app.use allowCORS
   app.use express.static 'public'
 
-app.get '/', (request, response)-> response.redirect '/essence.html'
-
 app.listen port, -> console.log "Listening on " + port

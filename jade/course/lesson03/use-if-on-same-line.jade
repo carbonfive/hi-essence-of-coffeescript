@@ -1,0 +1,12 @@
+data.exercise 
+  data.realization The body of an if can be first
+  data.coffee-syntax.
+    hour = (new Date).getHours()
+    timeOfDay = 'morning' if hour < 11
+    timeOfDay = 'night' if hour > 17
+  data.user-code.
+    getTimeOfDay = (hour)->
+
+  data.instruction Using ifs on the same line: Complete the function getTimeOfDay.
+  data.instruction Have it conditionally return 'morning', 'night' or 'LUNCH' based on the hour.
+  data.instruction Test it in the console by calling it with different values of hour.

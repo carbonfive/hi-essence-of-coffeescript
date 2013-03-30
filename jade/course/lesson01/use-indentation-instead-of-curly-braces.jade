@@ -1,25 +1,17 @@
 data.exercise 
   data.realization Use indentation instead of { } curly braces
   data.js-syntax.
-    funGames = { 
-      baseball: true,
-      basketball: true,
-      fishing: false
+    if (hour > 17) {
+      now = 'night'
     }
-  data.coffee-syntax.
-    funGames = 
-      baseball: true
-      basketball: true
-      fishing: false
-
+    else {
+      now = 'day'
+    }
   data.example-code.
-    colorTheme =
-      text: 'blue'
-      button: 'red'
-
-    console.log colorTheme.text
-    console.log colorTheme['button']
-
-  data.instruction Use the editor below to define a hash.
-  data.instruction Use the console to print it out.
+    if hour > 17
+      now = 'night'
+    else
+      now = 'day'
+  data.instruction Enter the if statement above into the editor below.
+  data.instruction Use the console to see what your value of now is.
   data.user-code yes

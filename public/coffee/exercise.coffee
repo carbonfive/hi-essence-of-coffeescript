@@ -71,8 +71,11 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @course.coffeeScriptSyntaxEditor.show @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
     @course.exampleCodeEditor.show @model.get 'example-code' if @model.get('example-code')?
     @course.givenCodeEditor.show @model.get 'given-code' if @model.get('given-code')?
-    @course.userCodeEditor.show('') if @model.get('user-code')?
-    
+    userCode = @model.get('user-code')
+    if userCode?
+      userCode = '' if 'yes' is userCode.toLowerCase() or 'true' is userCode.toLowerCase()
+      @course.userCodeEditor.show(userCode) if @model.get('user-code')?
+
     @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')

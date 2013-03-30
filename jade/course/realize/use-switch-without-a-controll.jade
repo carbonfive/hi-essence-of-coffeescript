@@ -1,0 +1,13 @@
+data.exercise 
+  data.realization use switch without a controll
+  data.example-code.
+    d = new Date
+    hour = d.getHours()
+    day = d.getDay()
+    timeOfDay = switch
+      when day > 4 then 'play'
+      when 22 < hour then 'sleep'
+      when 17 < hour then 'play'
+      when 11 < hour < 14 then 'nap'
+      else 'work'
+  data.instruction See if it is lunch time or nap time
