@@ -40,50 +40,71 @@ console.log 'unicorns are real!' if unicornsExist?
 
 unicornsExist = false
 console.log 'uncorns are real!' if unicornsExist
-console.log 'uncorns are real!' if unicornsExist?</data><data class="instruction">Enter each of the lines (in order) from the example code above into the console.</data><data class="instruction">Observe which statements create errors.</data><data class="instruction">Observe that the <code>?</code> operator is not a replace for boolean logic.</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to set default values</data><data class="description"></data><data class="example-code">setProfile: (profile)->
+console.log 'uncorns are real!' if unicornsExist?</data><data class="instruction">Enter each of the lines (in order) from the example code above into the console.</data><data class="instruction">Observe which statements create errors.</data><data class="instruction">Observe that the <code>?</code> operator is not a replace for boolean logic.</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to set default values</data><data class="description"></data><data class="example-code">setProfile = (profile)->
   profile ?= {}
   profile.name ?= 'guest'
   console.log 'profile:', profile
   
 setProfile()
-setProfile name: 'misty'</data><data class="instruction">Enter the setProfile function into the editor.</data><data class="instruction">Use console.log to call it with different values.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to call a function only if it exists</data><data class="example-code">barn = 
+setProfile age: 25
+setProfile name: 'misty'</data><data class="instruction">Enter the setProfile function into the editor.</data><data class="instruction">Use console.log to call it with different values, or no value at all.</data><data class="instruction">Be sure to pass in a hash.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to call a function only if it exists</data><data class="example-code">barn = 
   horse:
     run: ()-> 'gallop' for i in [0..3]
     
 console.log barn.horse.run()
 console.log barn.horse.fly()
 console.log barn.horse.fly?()
+</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="instruction">What happens if you run the same statements without <code>?</code></data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to soak up errors in chain</data><data class="description"></data><data class="example-code">console.log h.run?()
+console.log h.fly?()
 
-console.log barn.pig.run()
-console.log barn.pig?.run()</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="instruction">What happens if you run the same statements without <code>?</code></data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to soak up errors in chain</data><data class="description"></data><data class="example-code">barn = 
+console.log p.run?()
+console.log p.fly?()
+</data><data class="user-code">barn = 
   horse:
-    run: ()-> console.log 'gallop' for i in [0..3]
+    run: ()-> 'gallop' for i in [0..3]
     
-console.log barn.horse?.run()
-console.log barn.pig?.run()</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">Some Loopy Situations</data><data class="exercise"> <data class="realization">Loop through an array</data><data class="js-syntax">for(var i = 0; i < 10; i++) { console.log(i); };</data><data class="coffee-syntax">console.log i for i in [0..9]</data><data class="example-code">console.log i for i in [0..9]    </data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Loop through a hash</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">The body of a loop can come first</data><data class="description"></data><data class="example-code">console.log i for i in [0..9]
-for i in [0..9]
-  console.log i </data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">A loop retuns an array </data><data class="example-code">digits = (i for i in [0..9])</data><data class="instruction">run the example code in the console to see what the value of digits will be</data><data class="user-code">true  </data></data></data><data class="lessonplan"> <data class="title">Working With Class</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">console.log name for name of window
-console.log i for i in [0..10]
-console.log (i for i in [0..10])</data><data class="given-code">[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Whats this @</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
+h = barn.horse
+p = barn.pig
+</data><data class="instruction">Run the console.log statements from the exampe above in the console below.</data><data class="instruction">Add <code>?</code> where necessary to soak up any errors.</data></data></data><data class="lessonplan"> <data class="title">Some Loopy Situations</data><data class="exercise"> <data class="realization">use in to loop through an array</data><data class="example-code">printDigits = ()->
+  digits = [0..9]
+  for digit in digits
+    console.log 'digit: ', digit</data><data class="instruction">Enter the example code above into the editor</data><data class="instruction">call <code>printList()</code> from the console</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">use of to loop through a hash</data><data class="example-code">reportTheme = ()->
+  theme = text: 'blue', button: 'red'
+  for key, value of list
+    console.log "#{key} is set to #{value}"</data><data class="instruction">Enter the example code above into the editor</data><data class="instruction">call <code>reportTheme()</code> from the console</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">The body of a loop can come first</data><data class="description"></data><data class="example-code">digits = [0..9]
+console.log i for i in digits
+
+theme = {text: 'blue', button: 'red'}
+console.log key, val for key,value of theme</data><data class="instruction">enter the example code above into the console</data></data><data class="exercise"> <data class="realization">A loop retuns an array </data><data class="example-code">oddDigits = (1 + i*2 for i in [0..4])</data><data class="instruction">run the example code in the console to see that oddDigits is actually an array of values.</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Working With Class</data><data class="exercise"> <data class="realization">Defining a class is simple</data><data class="example-code">class Mutant
+  fight: (badGuy)-> 'Spin a Web onto ' + badGuy
+  
+spidy = new Mutant
+spidy.fight('Lizard')</data><data class="instruction">Define the Mutant class in the editor</data><data class="instruction">Create an instance of spidy in the console and have him fight Sandman.</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization"><code>this</code> has an alias: <code>@</code></data><data class="example-code">class Mutant
+  superPower: 'do nothing'
+  fight: (badGuy)-> @superPower + ' onto ' + badGuy
+  
+spidy = new Mutant
+spidy.fight('Boomerang')
+spidy.superPower = 'Spin web'
+spidy.fight('Boomerang')
+</data><data class="instruction">Define the Mutant class in the editor.</data><data class="instruction">Create an instance of spidy and use the instance in the console.</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Use a constructor for initialization</data><data class="example-code">class Mutant
+  superPower: 'do nothing'
+  constructor: (power) -> @superPower = power
+  fight: (badGuy)-> @superPower + ' onto ' + badGuy
+  
+spidy = new Mutant 'spin web'
+spidy.fight 'SandMan'</data><data class="instruction">Define the Mutant class in the editor.</data><data class="instruction">Create an instance of spidy in the console and have him fight Sandman.</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Inheriting From a Class is Simple</data><data class="example-code">class Mutant
+  superPower: 'do nothing'
+  constructor: (power) -> @superPower = power
+  fight: (badGuy)-> @superPower + ' onto ' + badGuy
+  
+class NinjaTurle extends Mutant
+  constructor: () ->
+    super('Kung Fu')
+    
+raphael = new NinjaTurtle
+raphael.fight('Shredder')
+</data><data class="instruction">Define the Mutant class in the editor.</data><data class="instruction">Create an instance of spidy and use the instance in the console.</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Whats this @</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
@@ -100,38 +121,6 @@ console.log (i for i in [0..10])</data><data class="given-code">[some code]</dat
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]
 [some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Absorb The Essence of CoffeeScript</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">[Lesson Title]</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
-[some code]</data><data class="coffee-syntax">[some code]
-[some code]</data><data class="example-code">[some code]
-[some code]</data><data class="given-code">[some code]
-[some code]</data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">[Lesson Title]</data><data class="exercise"> <data class="realization">[realization]</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]

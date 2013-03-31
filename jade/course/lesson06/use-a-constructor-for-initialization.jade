@@ -3,13 +3,11 @@ data.exercise
   data.example-code.
     class Mutant
       superPower: 'do nothing'
-
       constructor: (power) -> @superPower = power
-
-      useSuperPower: (target)-> @superPower + ' onto ' + target
+      fight: (badGuy)-> @superPower + ' onto ' + badGuy
 
     spidy = new Mutant 'spin web'
-    spidy.useSuperPower()
+    spidy.fight 'SandMan'
   data.instruction Define the Mutant class in the editor.
-  data.instruction Create an instance of spidy and use the instance in the console.
+  data.instruction Create an instance of spidy in the console and have him fight Sandman.
   data.user-code true
