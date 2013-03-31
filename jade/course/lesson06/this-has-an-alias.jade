@@ -1,0 +1,17 @@
+data.exercise 
+  data.realization Defining a class is easy
+  data.example-code.
+    class Mutant
+      superPower: 'do nothing'
+
+      setSuperPower: (power)-> @superPower = power
+
+      useSuperPower: (target)-> @superPower + ' onto ' + target
+
+    spidy = new Mutant
+    spidy.useSuperPower()
+    spidy.setSuperPower('spin web')
+    spidy.useSuperPower()
+  data.instruction Define the Mutant class in the editor.
+  data.instruction Create an instance of spidy and use the instance in the console.
+  data.user-code true

@@ -35,29 +35,32 @@ timeOfDay = 'night' if hour > 17</data><data class="user-code">getTimeOfDay = (h
   
 reportGeoPoint = (position)->
   point = position.coords
-  console.log "Lat: #{point.latitude}, Lng: #{point.longitude}"</data><data class="instruction">Enter the 2 functions from the example above into the editor below.</data><data class="instruction">Use the console to get the geo location of your browser.</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">The Existential ?</data><data class="exercise"> <data class="realization">Do some error checking with <code>?</code> the existantial operator</data><data class="example-code">console.log 'uncorns are real: ', unicornsExist if unicornsExist?
-console.log '# unicorns: ', numberOfUnicorns if numberOfUnicorns?
+  console.log "Lat: #{point.latitude}, Lng: #{point.longitude}"</data><data class="instruction">Enter the 2 functions from the example above into the editor below.</data><data class="instruction">Use the console to get the geo location of your browser.</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">The Existential <code>?</code> Operator</data><data class="exercise"> <data class="realization">Use <code>?</code> to do some error handling</data><data class="example-code">console.log 'unicorns are real!' if unicornsExist
+console.log 'unicorns are real!' if unicornsExist?
 
-numberOfUnicorns = 0
 unicornsExist = false
-
-console.log 'uncorns are real: ', unicornsExist if unicornsExist?
-console.log '# unicorns: ', numberOfUnicorns if numberOfUnicorns?</data><data class="instruction">Enter the example code above into the console.</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to set a variable if it does not already exist</data><data class="description"></data><data class="example-code">age = 32
-name ?= 'misty'
-age ?= 25
-
-console.log 'name: ', name
-console.log 'age: ', age</data><data class="instruction">Enter the example code above into the console.</data></data><data class="exercise"> <data class="realization"> </data><data class="example-code">barn = 
+console.log 'uncorns are real!' if unicornsExist
+console.log 'uncorns are real!' if unicornsExist?</data><data class="instruction">Enter each of the lines (in order) from the example code above into the console.</data><data class="instruction">Observe which statements create errors.</data><data class="instruction">Observe that the <code>?</code> operator is not a replace for boolean logic.</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to set default values</data><data class="description"></data><data class="example-code">setProfile: (profile)->
+  profile ?= {}
+  profile.name ?= 'guest'
+  console.log 'profile:', profile
+  
+setProfile()
+setProfile name: 'misty'</data><data class="instruction">Enter the setProfile function into the editor.</data><data class="instruction">Use console.log to call it with different values.</data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to call a function only if it exists</data><data class="example-code">barn = 
   horse:
-    run: ()-> console.log 'gallop' for i in [0..3]
+    run: ()-> 'gallop' for i in [0..3]
     
-console.log barn.horse?.fly?()
-console.log barn.pig?.run?()</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="instruction">What happens if you run the same statements without <code>?</code></data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Use <code>?</code> in a chain</data><data class="description"></data><data class="example-code">barn = 
+console.log barn.horse.run()
+console.log barn.horse.fly()
+console.log barn.horse.fly?()
+
+console.log barn.pig.run()
+console.log barn.pig?.run()</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="instruction">What happens if you run the same statements without <code>?</code></data><data class="user-code">yes</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to soak up errors in chain</data><data class="description"></data><data class="example-code">barn = 
   horse:
     run: ()-> console.log 'gallop' for i in [0..3]
     
 console.log barn.horse?.run()
-console.log barn.pig?.run()</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="user-code">true</data></data></data><data class="lessonplan"> <data class="title">Some Loopy Situations</data><data class="exercise"> <data class="realization">Loop through an array</data><data class="js-syntax">for(var i = 0; i < 10; i++) { console.log(i); };</data><data class="coffee-syntax">console.log i for i in [0..9]</data><data class="example-code">console.log i for i in [0..9]    </data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Loop through a hash</data><data class="description"></data><data class="js-syntax">[some code]
+console.log barn.pig?.run()</data><data class="instruction">Define barn in the editor like in the example code.</data><data class="instruction">Run the console.log statements in the console.</data><data class="user-code">yes</data></data></data><data class="lessonplan"> <data class="title">Some Loopy Situations</data><data class="exercise"> <data class="realization">Loop through an array</data><data class="js-syntax">for(var i = 0; i < 10; i++) { console.log(i); };</data><data class="coffee-syntax">console.log i for i in [0..9]</data><data class="example-code">console.log i for i in [0..9]    </data><data class="instruction">[instruction]</data><data class="instruction">[instruction]</data><data class="user-code">true</data></data><data class="exercise"> <data class="realization">Loop through a hash</data><data class="description"></data><data class="js-syntax">[some code]
 [some code]</data><data class="coffee-syntax">[some code]
 [some code]</data><data class="example-code">[some code]
 [some code]</data><data class="given-code">[some code]

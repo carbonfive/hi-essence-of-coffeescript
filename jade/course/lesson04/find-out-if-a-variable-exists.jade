@@ -1,12 +1,12 @@
 data.exercise 
-  data.realization Do some error checking with <code>?</code> the existantial operator
+  data.realization Use <code>?</code> to do some error handling
   data.example-code.
-    console.log 'uncorns are real: ', unicornsExist if unicornsExist?
-    console.log '# unicorns: ', numberOfUnicorns if numberOfUnicorns?
+    console.log 'unicorns are real!' if unicornsExist
+    console.log 'unicorns are real!' if unicornsExist?
 
-    numberOfUnicorns = 0
     unicornsExist = false
-
-    console.log 'uncorns are real: ', unicornsExist if unicornsExist?
-    console.log '# unicorns: ', numberOfUnicorns if numberOfUnicorns?
-  data.instruction Enter the example code above into the console.
+    console.log 'uncorns are real!' if unicornsExist
+    console.log 'uncorns are real!' if unicornsExist?
+  data.instruction Enter each of the lines (in order) from the example code above into the console.
+  data.instruction Observe which statements create errors.
+  data.instruction Observe that the <code>?</code> operator is not a replace for boolean logic.

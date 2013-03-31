@@ -1,0 +1,16 @@
+data.exercise 
+  data.realization Use <code>?</code> to soak up errors in chain
+  data.description
+  data.example-code.
+    console.log barn.pig?.run()
+
+    console.log barn.pig.fly?()
+
+  data.user-code.
+    barn = 
+      horse:
+        run: ()-> 'gallop' for i in [0..3]
+
+  data.instruction Run the console.log statements from the exampe above in the console below.
+  data.instruction Why is that last console.log throwing an error?
+  data.user-code yes
