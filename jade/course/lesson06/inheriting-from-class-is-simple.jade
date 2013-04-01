@@ -1,12 +1,12 @@
 data.exercise 
-  data.realization Inheriting From a Class is Simple
+  data.realization Inheriting from a Class is Simple
   data.example-code.
     class Mutant
       superPower: 'do nothing'
       constructor: (power) -> @superPower = power
       fight: (badGuy)-> @superPower + ' onto ' + badGuy
 
-    class NinjaTurle extends Mutant
+    class NinjaTurtle extends Mutant
       constructor: () ->
         super('Kung Fu')
 
