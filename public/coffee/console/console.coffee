@@ -55,14 +55,11 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
     for result in args
 
       output = switch typeof result
-        when 'undefined'
-          'undefined'
-        when 'function'
-          '[Function]'
-        when 'object'
-          JSON.stringify result, null, 0
-        else 
-          JSON.stringify result, null, 1
+        when 'undefined' then 'undefined'
+        when 'function' then '[Function]'
+        when 'string' then result
+        when 'object' then JSON.stringify result, null, 0
+        else JSON.stringify result, null, 1
       @jqconsole.Write '' + output
     @jqconsole.Write '\n'
 

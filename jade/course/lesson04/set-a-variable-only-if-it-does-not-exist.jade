@@ -1,11 +1,16 @@
 data.exercise 
-  data.realization Use <code>?</code> to set a variable if it does not already exist
+  data.realization Use <code>?</code> to set default values
   data.description
   data.example-code.
-    age = 32
-    name ?= 'misty'
-    age ?= 25
+    setProfile = (profile)->
+      profile ?= {}
+      profile.name ?= 'guest'
+      console.log 'profile:', profile
 
-    console.log 'name: ', name
-    console.log 'age: ', age
-  data.instruction Enter the example code above into the console.
+    setProfile()
+    setProfile age: 25
+    setProfile name: 'misty'
+  data.instruction Enter the setProfile function into the editor.
+  data.instruction Use console.log to call it with different values, or no value at all.
+  data.instruction Be sure to pass in a hash.
+  data.user-code yes

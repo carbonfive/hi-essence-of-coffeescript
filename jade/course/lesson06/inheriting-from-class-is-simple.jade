@@ -1,0 +1,18 @@
+data.exercise 
+  data.realization Inheriting from a Class is Simple
+  data.example-code.
+    class Mutant
+      superPower: 'do nothing'
+      constructor: (power) -> @superPower = power
+      fight: (badGuy)-> @superPower + ' onto ' + badGuy
+
+    class NinjaTurtle extends Mutant
+      constructor: () ->
+        super('Kung Fu')
+
+    raphael = new NinjaTurtle
+    raphael.fight('Shredder')
+
+  data.instruction Define the Mutant class in the editor.
+  data.instruction Create an instance of spidy and use the instance in the console.
+  data.user-code true

@@ -1,0 +1,15 @@
+data.exercise 
+  data.realization <code>this</code> has an alias: <code>@</code>
+  data.example-code.
+    class Mutant
+      superPower: 'do nothing'
+      fight: (badGuy)-> @superPower + ' onto ' + badGuy
+
+    spidy = new Mutant
+    spidy.fight('Boomerang')
+    spidy.superPower = 'Spin web'
+    spidy.fight('Boomerang')
+
+  data.instruction Define the Mutant class in the editor.
+  data.instruction Create an instance of spidy and use the instance in the console.
+  data.user-code true

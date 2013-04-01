@@ -14,7 +14,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @$instructions= @$('.instructions')
     @$instructionList= @$('.instructions ol')
 
-    @quote = @$('quote').text().trim()
+    @quote = @$('quote').text()?.trim()
 
     @$navbarButton = $("<input class='show-exercise' type='submit' value='#{@idx + 1}' data-idx='#{@idx}'/>")
     @lessonPlan.$navbar.append $("<li></li>").append(@$navbarButton)

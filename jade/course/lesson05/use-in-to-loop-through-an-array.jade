@@ -1,11 +1,10 @@
 data.exercise 
-  data.realization Loop through an array
-  data.js-syntax.
-    for(var i = 0; i < 10; i++) { console.log(i); };
-  data.coffee-syntax.
-    console.log i for i in [0..9]
+  data.realization Use 'in' to loop through an array
   data.example-code.
-    console.log i for i in [0..9]    
-  data.instruction [instruction]
-  data.instruction [instruction]
+    printDigits = ()->
+      digits = [0..9]
+      for digit in digits
+        console.log 'digit: ', digit
+  data.instruction Enter the example code above into the editor
+  data.instruction call <code>printDigits()</code> from the console
   data.user-code true

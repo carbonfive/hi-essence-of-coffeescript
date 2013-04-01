@@ -9,11 +9,65 @@ pre {
 .jqconsole-header {
    margin-bottom: 12px;
 }
+
+@-o-keyframes blink {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #2274cb; }
+}
+@-ms-keyframes blink {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #2274cb; }
+}
+@-moz-keyframes blink {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #2274cb; }
+}
+@-webkit-keyframes blink {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #2274cb; }
+}
+@keyframes blink {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #2274cb; }
+}
+
 .jqconsole-cursor {
   background-color: #E9DFCA;
+  -o-animation:  blink 1s step-end infinite;
+  -ms-animation:  blink 1s step-end infinite;
+  -moz-animation:  blink 1s step-end infinite;
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
 }
+
+@-o-keyframes blink-blurred {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #465B62; }
+}
+@-ms-keyframes blink-blurred {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #465B62; }
+}
+@-moz-keyframes blink-blurred {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #465B62; }
+}
+@-webkit-keyframes blink-blurred {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #465B62; }
+}
+@keyframes blink-blurred {
+  0% {background-color: #E9DFCA; }
+  50% {background-color: #465B62; }
+}
+
 .jqconsole-blurred .jqconsole-cursor {
   background-color: #465B62;
+  -o-animation:  blink-blurred 1s step-end infinite;
+  -ms-animation:  blink-blurred 1s step-end infinite;
+  -moz-animation:  blink-blurred 1s step-end infinite;
+  -webkit-animation: blink-blurred 1s step-end infinite;
+  animation: blink-blurred 1s step-end infinite;
 }
 .jqconsole-prompt {
   color: #2274cb;

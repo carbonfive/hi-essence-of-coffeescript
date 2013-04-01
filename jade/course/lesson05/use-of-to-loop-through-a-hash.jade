@@ -1,18 +1,10 @@
 data.exercise 
-  data.realization Loop through a hash
-  data.description
-  data.js-syntax.
-    [some code]
-    [some code]
-  data.coffee-syntax.
-    [some code]
-    [some code]
+  data.realization Use 'of' to loop through a hash
   data.example-code.
-    [some code]
-    [some code]
-  data.given-code.
-    [some code]
-    [some code]
-  data.instruction [instruction]
-  data.instruction [instruction]
+    reportTheme = ()->
+      theme = text: 'blue', button: 'red'
+      for key, value of theme
+        console.log "\#{key} is set to \#{value}"
+  data.instruction Enter the example code above into the editor
+  data.instruction Call <code>reportTheme()</code> from the console
   data.user-code true
