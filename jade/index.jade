@@ -26,47 +26,49 @@ block content
     .exercise-navbar
     .realization
     .course-content 
-     .exercise 
-       p.description
-
-       #js-syntax
-         h3 Syntax - JavaScript 
-         .editor 
-           #js-syntax-editor
-                 
-       #coffee-syntax
-         h3 Syntax - CoffeeScript
-         .editor 
-           #coffee-syntax-editor
-       
-       #example-code 
-         h3 Example - CoffeeScript
-         .editor 
-           #example-code-editor   
-       
-       .instructions 
-         h3 Interactive Practice:
-         ol
-       
-       #given-code 
-         h3 Given the following code
-         .editor 
-           #given-code-editor
-       
-       #user-code 
-         h3 Interactive Editor - CoffeeScript
-         .editor 
-           #user-code-editor
-         
-         #user-code-error 
-       
-       #user-console
      
     input.next-exercise(type='submit', value='Next')
+
+  script(type='text/template', id='exercise-template')
+   .exercise 
+     p.description
+
+     .js-syntax
+       h3 Syntax - JavaScript 
+       .editor 
+         .js-syntax-editor
+               
+     .coffee-syntax
+       h3 Syntax - CoffeeScript
+       .editor 
+         .coffee-syntax-editor
+     
+     .example-code 
+       h3 Example - CoffeeScript
+       .editor 
+         .example-code-editor   
+     
+     .instructions 
+       h3 Interactive Practice:
+       ol
+     
+     .given-code 
+       h3 Given the following code
+       .editor 
+         .given-code-editor
+     
+     .user-code 
+       h3 Interactive Editor - CoffeeScript
+       .editor 
+         .user-code-editor
+     
+     .user-console
+
 
   include course/course
 
   #course-spot
+
 
   script(type='text/coffeescript')
     $ = jQuery

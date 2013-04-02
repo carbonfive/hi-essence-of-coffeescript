@@ -29,20 +29,16 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$exercisesNavbar = @$('.exercise-navbar')
     @lessonPlans = []
     @loadLessonPlans()
-
-    setTimeout @hijackConsole, 5000
+    setTimeout @monitorConsole, 5000
 
     @render()
 
-  hijackConsole: ()=>
-    window.console._log = console.log
-    window.console.log = (args...)=>
+  monitorConsole: ()=>
+    window.console._log = window.console._log || window.console.log
+    window.console.log = (args...)->
       window.console._log args...
-      @jqconsole.Write?(args...)
+      $('html').trigger('log', { args } )
       undefined
-
-  restoreConsole: ()=> 
-    window.console.log = window.console._log if window.console._log?
 
   materializeModel: ($elModel)=>
     atts =
@@ -62,71 +58,8 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   render: =>
     @$elSpot.append @el
-    @launchEditors()
-    @launchUserConsole()
     @start() # load the first lesson and exercise
     @
-
-  launchEditors: ()=>
-    ace.config.set("workerPath", "http://essence-of-coffeescript.herokuapp.com/js/vendor/ace")
-    @launchJavaScriptSyntaxEditor()
-    @launchCoffeeScriptSyntaxEditor()
-    @launchExampleCodeEditor()
-    @launchGivenCodeEditor()
-    @launchUserCodeEditor()
-    @
-
-
-  launchJavaScriptSyntaxEditor: ()=>
-    @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
-      el: '#js-syntax-editor'
-      widgetEl: '#js-syntax'
-      options:
-        theme: 'solarized_light'
-        readOnlyMode: true
-
-  launchJavaScriptSyntaxEditor: ()=>
-    @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
-      el: '#js-syntax-editor'
-      widgetEl: '#js-syntax'
-      options:
-        theme: 'solarized_light'
-        readOnlyMode: true
-
-  launchCoffeeScriptSyntaxEditor: ()=>
-    @coffeeScriptSyntaxEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
-      el: '#coffee-syntax-editor'
-      widgetEl: '#coffee-syntax'
-      options:
-        theme: 'solarized_light'
-        readOnlyMode: true
-
-  launchExampleCodeEditor: ()=>
-    @exampleCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
-      el: '#example-code-editor'
-      widgetEl: '#example-code'
-      options:
-        theme: 'solarized_light'
-        readOnlyMode: true
-
-  launchGivenCodeEditor: ()=>
-    @givenCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
-      el: '#given-code-editor'
-      widgetEl: '#given-code'
-      options:
-        readOnlyMode: true
-
-  launchUserCodeEditor: ()=>
-    @userCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
-      el: '#user-code-editor'
-      widgetEl: '#user-code'
-      displaySettings: minHeight: 100
-      autoParse: true
-
-  launchUserConsole: ()=>
-    @jqconsole = new EssenceOfCoffeeScript.Console
-      el: '#user-console'
-    @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
 
   findLessonPlan: (idx) => @lessonPlans[idx] if 0 <= idx < @lessonPlans?.length
 
@@ -136,7 +69,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @$('.show-lesson').removeClass('active')
     @$('.show-exercise').removeClass('active')    
     @deactivateContent()
-    # @scrollToTop()
+    @scrollToTop()
     setTimeout activateFunctor, 200
     setTimeout @activateContent, 800
 

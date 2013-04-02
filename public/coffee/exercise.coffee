@@ -1,9 +1,14 @@
 $ = $ || jQuery
 
 class EssenceOfCoffeeScript.Exercise extends Backbone.View
+  elTemplate: '#exercise-template'
+
   initialize: (attributes)=>
     super attributes
     _.extend @options, EssenceOfCoffeeScript.options
+
+    @el = $(@elTemplate).clone().htmlElement()
+    @$el = $(@el)
 
     { @$elExerciseModel, @course, @lessonPlan, @idx } = attributes
     @materializeModel @$elExerciseModel
@@ -20,8 +25,10 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @lessonPlan.$navbar.append $("<li></li>").append(@$navbarButton)
 
     @$navbarButton = @lessonPlan.$navbar.find("li input[data-idx=#{@idx}]")
-
+    @launchEditors()
+    @launchUserConsole()
     @deactivate()
+
 
   materializeModel: (@$elExerciseModel)=>
     atts = @$elExerciseModel.pickHTMLValues 'title',
@@ -39,6 +46,10 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
 
     codeAtts[key] = @trimLinesOfCode(code) for key, code of codeAtts
 
+    userCode = codeAtts['user-code']
+    if userCode?
+      codeAtts['user-code'] = '' if 'yes' is userCode.toLowerCase() or 'true' is userCode.toLowerCase()
+
     atts = _.extend atts, codeAtts
     atts.instruction = [atts.instruction] if 'string' is typeof atts.instruction
     @model = new Backbone.Model atts
@@ -46,6 +57,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
   trimLinesOfCode: (sourceCode)-> sourceCode?.trim()
 
   activate: ()=>
+    console.log 'activating ex'
     $html = $('html, body')
 
     @$headline.html @model.get 'headline'
@@ -55,30 +67,83 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     if @model.get('instruction')?.length > 0
       for instruction in @model.get 'instruction' 
         @$instructionList.append "<li class='instruction'>#{instruction}</li>"
-      @$instructions.fadeIn()
+    else 
+      @$instructions.hide()
 
-    if @model.get('realization')? then @$realization.fadeIn() else @$realization.fadeOut()
-    if @model.get('description')? then @$description.fadeIn() else @$description.fadeOut()
-    if @model.get('instruction')?.length > 0 then @$instructions.fadeIn() else @$instructions.fadeOut()
+    @$realization.hide() unless @model.get('realization')?
+    @$description.hide() unless @model.get('description')?
 
-    @course.javaScriptSyntaxEditor.hide()
-    @course.coffeeScriptSyntaxEditor.hide()
-    @course.exampleCodeEditor.hide()
-    @course.givenCodeEditor.hide()
-    @course.userCodeEditor.hide()
+    @course.$content.html(@el)
+    @$el.show()
 
-    @course.javaScriptSyntaxEditor.show @model.get 'js-syntax' if @model.get('js-syntax')?
-    @course.coffeeScriptSyntaxEditor.show @model.get 'coffee-syntax' if @model.get('coffee-syntax')?
-    @course.exampleCodeEditor.show @model.get 'example-code' if @model.get('example-code')?
-    @course.givenCodeEditor.show @model.get 'given-code' if @model.get('given-code')?
-    userCode = @model.get('user-code')
-    if userCode?
-      userCode = '' if 'yes' is userCode.toLowerCase() or 'true' is userCode.toLowerCase()
-      @course.userCodeEditor.show(userCode) if @model.get('user-code')?
+    @renderEditor @javaScriptSyntaxEditor, @model.get('js-syntax')
+    @renderEditor @coffeeScriptSyntaxEditor, @model.get('coffee-syntax')
+    @renderEditor @exampleCodeEditor, @model.get('example-code')
+    @renderEditor @givenCodeEditor, @model.get('given-code')
+    @renderEditor @userCodeEditor, @model.get('user-code')
+    @jqconsole.activate()
 
-    @$el.delay(@options.fadeOutDuration + 10).fadeIn(@options.fadeInDuration)
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
     @
 
-  deactivate: ()=> @$navbarButton.removeClass('active')
+  renderEditor: (editor, code)-> 
+    if code? then editor?.show(code) else editor?.hide()
+
+  deactivate: ()=>
+    console.log 'deactivating ex'
+    @$el.hide()
+    @jqconsole.deactivate()
+    @$navbarButton.removeClass('active')
+
+  launchEditors: ()=>
+    ace.config.set("workerPath", "http://essence-of-coffeescript.herokuapp.com/js/vendor/ace")
+    @launchJavaScriptSyntaxEditor()
+    @launchCoffeeScriptSyntaxEditor()
+    @launchExampleCodeEditor()
+    @launchGivenCodeEditor()
+    @launchUserCodeEditor()
+    @
+
+  launchJavaScriptSyntaxEditor: ()=>
+    @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
+      el: @.$('.js-syntax-editor')
+      widgetEl: @.$('.js-syntax')
+      options:
+        theme: 'solarized_light'
+        readOnlyMode: true
+
+  launchCoffeeScriptSyntaxEditor: ()=>
+    @coffeeScriptSyntaxEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: @.$ '.coffee-syntax-editor'
+      widgetEl: @.$ '.coffee-syntax'
+      options:
+        theme: 'solarized_light'
+        readOnlyMode: true
+
+  launchExampleCodeEditor: ()=>
+    @exampleCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: @.$ '.example-code-editor'
+      widgetEl: @.$ '.example-code'
+      options:
+        theme: 'solarized_light'
+        readOnlyMode: true
+
+  launchGivenCodeEditor: ()=>
+    @givenCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: @.$ '.given-code-editor'
+      widgetEl: @.$ '.given-code'
+      options:
+        readOnlyMode: true
+
+  launchUserCodeEditor: ()=>
+    @userCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
+      el: @.$ '.user-code-editor'
+      widgetEl: @.$ '.user-code'
+      displaySettings: minHeight: 100
+      autoParse: true
+
+  launchUserConsole: ()=>
+    @jqconsole = new EssenceOfCoffeeScript.Console
+      el: @$ '.user-console'  
+    @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor

@@ -6,19 +6,9 @@
  margin: 8px 0 12px 0;
  border-top: 1px dotted #aaa;
  width: 660px;
- -webkit-transition: top 0.2s ease;
-    -moz-transition: top 0.2s ease;
-     -ms-transition: top 0.2s ease;
-      -o-transition: top 0.2s ease;
-         transition: top 0.2s ease;
 }
 
 .course .course-content {
- -webkit-transition: opacity 0.2s ease;
-    -moz-transition: opacity 0.2s ease;
-     -ms-transition: opacity 0.2s ease;
-      -o-transition: opacity 0.2s ease;
-         transition: opacity 0.2s ease;
 }
 
 .course-content.deactivated {
@@ -215,13 +205,19 @@
  background: -ms-linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb8810', endColorstr='#df800f',GradientType=0 );
  background: linear-gradient(top, #eb8810 0%,#eb8810 50%,#df800f 51%,#df800f 100%);
+
+ -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+     -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+         transition: all 0.2s ease;
 }
-#coffee-syntax-editor, #js-syntax-editor, #example-code-editor, #given-code-editor, #user-code-editor{
+.coffee-syntax-editor, .js-syntax-editor, .example-code-editor, .given-code-editor, .user-code-editor{
   height: 150px;
   width: 600px;
   margin: auto;
 }
-#user-console {
+.user-console {
   height: 180px;
   width: 600px;
   position:relative;

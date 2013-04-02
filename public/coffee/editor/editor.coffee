@@ -16,6 +16,7 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
 
   initialize: (attributes)=>
     super attributes
+
     return console.error attributes, 'Element Not Found', attributes.el unless @$el.exists()
     {widgetEl, options, events, displaySettings} = attributes
     widgetEl = widgetEl || @el
@@ -24,7 +25,6 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     widgetEl = @$widgetEl[0]
 
     @aceEditor = @launch options, displaySettings
-
     @$el.autoAdjustAceEditorHeight(@aceEditor, displaySettings)
 
   launch: (options, displaySettings)=>
@@ -47,7 +47,7 @@ class EssenceOfCoffeeScript.Editor extends Backbone.View
     throw "Error: code needs to be a string, not #{typeof code}" if 'string' isnt typeof code
     @aceEditor.setValue(code)
     @aceEditor.getSession().getSelection().clearSelection()
-    @$widgetEl.delay(100).fadeIn 400, => @aceEditor.autoAdjustHeight()
+    @aceEditor.autoAdjustHeight()
 
   showError: (lineNumber, msg)-> @showAnnotation 'error', lineNumber, msg
   showWarning: (lineNumber, msg)-> @showAnnotation 'warning', lineNumber, msg
