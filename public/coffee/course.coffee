@@ -5,7 +5,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   elTemplate: '#course-template'
 
   events: # human interaction event
-    'click .next-exercise'  : 'hiNext'
+    'click .next'           : 'hiNext'
     'click .show-lesson'    : 'hiGotoLesson'
     'click .show-exercise'  : 'hiGotoExercise'
 
@@ -18,15 +18,14 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     @model = @materializeModel $('data.markup data.course')
     @el = $(@elTemplate).htmlElement()
     @$el = $(@el)
-    @$content = @$('.course-content')
-    @$exercise = @$('.course-content .exercise')
+    @$content = @$('.exercise-spot')
+    @$exercise = @$('.exercise-spot .exercise')
 
-    @$lessonTitle = @$('.lesson-title')
+    @$lessonTitle = @$('h2.lesson')
 
-    @$lessonPlansNavbar = @$('.lesson-navbar')
-    @$lessonPlansNavbarTitle = @$('.navbar .lessonplans')
+    @$lessonPlansNavbar = @$('nav.lesson')
 
-    @$exercisesNavbar = @$('.exercise-navbar')
+    @$exercisesNavbar = @$('nav.exercise')
     @lessonPlans = []
     @loadLessonPlans()
     setTimeout @monitorConsole, 5000

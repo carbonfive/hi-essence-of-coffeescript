@@ -13,7 +13,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
     @$navbarButton = $("<input class='show-lesson' type='submit' value='#{@idx + 1}' data-idx='#{@idx}'/>")
     @course.$lessonPlansNavbar.find('ol').append($("<li></li>").append(@$navbarButton))
 
-    @$navbar = $('<ol>')
+    @$navbar = $('<ul>')
 
     @exercises = []
     @loadExercises()

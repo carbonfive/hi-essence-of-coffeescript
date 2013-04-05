@@ -19,11 +19,11 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @$instructions= @$('.instructions')
     @$instructionList= @$('.instructions ol')
 
-    @quote = @$('quote').text()?.trim()
-
+    navbarLi =  $("<li></li>")
     @$navbarButton = $("<input class='show-exercise' type='submit' value='#{@idx + 1}' data-idx='#{@idx}'/>")
-    @lessonPlan.$navbar.append $("<li></li>").append(@$navbarButton)
-
+    navbarLi.append(@$navbarButton)
+    navbarLi.append(" " + @model.get 'realization')
+    @lessonPlan.$navbar.append navbarLi
     @$navbarButton = @lessonPlan.$navbar.find("li input[data-idx=#{@idx}]")
     @launchEditors()
     @launchUserConsole()
@@ -57,7 +57,6 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
   trimLinesOfCode: (sourceCode)-> sourceCode?.trim()
 
   activate: ()=>
-    console.log 'activating ex'
     $html = $('html, body')
 
     @$headline.html @model.get 'headline'
@@ -91,7 +90,6 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     if code? then editor?.show(code) else editor?.hide()
 
   deactivate: ()=>
-    console.log 'deactivating ex'
     @$el.hide()
     @jqconsole.deactivate()
     @$navbarButton.removeClass('active')

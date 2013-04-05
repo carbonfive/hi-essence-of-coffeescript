@@ -1,17 +1,29 @@
-font-family-section-name= 'Open Sans', sans-serif
-font-family-header= 'Bitter', serif
-color-light-grey= #b8babd
-color-medium-grey= #64666f
-color-dark-grey= #292a2f
-color-c5-orange= #f15d2a
+font-family-base = 'Bitter', serif
+font-family-section-name = 'Open Sans', sans-serif
+font-family-header = 'Bitter', serif
+color-light-grey = #b8babd
+color-medium-grey = #64666f
+color-dark-grey = #292a2f
+color-c5-orange = #f15d2a
 
-p, ol, ul, li
+.markup
+  display none
+
+body, p, ol, ul, li
   margin 0
   padding 0
 
+body
+  min-height 1500px
+  font-family font-family-base
+  font-weight normal
+
+.ace_gutter, .ace_scroller
+  padding-top 8px
+
 .centered
   margin 0 auto
-  max-width 1400px
+  max-width 2000px
   min-width 960px
   width 80%
 
@@ -20,7 +32,7 @@ p, ol, ul, li
   font-size 12px
   text-transform uppercase
 
-h1 h2 h3 h4
+h1, h2, h3, h4
   font-family font-family-header
 
 h1
@@ -37,39 +49,48 @@ nav ol li, nav ul li
   input[type=submit]
     background-color color-medium-grey
     border 2px solid white
-    color: #fff
-    -o-border-radius: 50%
-    -ms-border-radius: 50%
-    -moz-border-radius: 50%
-    -webkit-border-radius: 50%
-    border-radius: 50%
+    color color-dark-grey
+    -o-border-radius 50%
+    -ms-border-radius 50%
+    -moz-border-radius 50%
+    -webkit-border-radius 50%
+    border-radius 50%
+    -webkit-transition all 0.4s ease
+    -moz-transition all 0.4s ease
+    -ms-transition all 0.4s ease
+    -o-transition all 0.4s ease
+    transition all 0.4s ease
+
     font-weight bold
     &:hover
-      color color-c5-orange
-      background-color white
-      border-color color-c5-orange
+      color color-dark-grey
+      background-color color-c5-orange
     &.active
+      color white
+      background-color color-c5-orange
+    &.active:hover
+      color white
       background-color color-c5-orange
 
   input.show-lesson
-    font-size: 16px
-    height: 40px
-    line-height: 40px
-    margin-right: 4px
-    min-width: 40px
-    padding: 0 4px
+    font-size 16px
+    height 40px
+    line-height 40px
+    margin-right 4px
+    min-width 40px
+    padding 0 4px
   input.show-exercise
-    font-size: 12px
-    height: 28px
-    line-height: 28px
-    margin-right: 4px
-    min-width: 28px
-    padding: 0 2px
+    font-size 12px
+    height 28px
+    line-height 28px
+    margin-right 4px
+    min-width 28px
+    padding 0 2px
 
 nav.lesson
   margin-top 8px
   ol
-    margin-top 4px
+    margin-top 8px
     li
       display inline-block
 
@@ -79,7 +100,7 @@ nav.exercise
     margin-left 8px
     list-style none
   li
-    min-height: 28px
+    min-height 28px
     margin 4px 0
 
 
@@ -137,7 +158,6 @@ body
           line-height exercise-header-height
         a.next
           position absolute        
-          text-indent 200%
           display inline-block
           background-image url('/images/button-arrows-next.png')
           width 90px
@@ -146,12 +166,48 @@ body
           top exercise-spacing
           &:hover
             background-position 0 -60px
-      .exercise
+      .exercise-spot
+        position relative
+        top -40px
         width 60%
         float left
         margin-left exercise-spacing
         padding-bottom exercise-spacing
+        .exercise
+          h4
+            margin 20px 0 4px 0
+          .instructions
+            h4
+              font-size 16px
+            color color-c5-orange
+            ol
+              padding-left 40px
+          .editor
+            position relative
+            width 100%
+            height 150px
+            padding 0
+            margin 0 0 8px 0
+           -webkit-transition height 0.2s ease
+              -moz-transition height 0.2s ease
+               -ms-transition height 0.2s ease
+                -o-transition height 0.2s ease
+                   transition height 0.2s ease
+            .coffee-syntax-editor, .js-syntax-editor, .example-code-editor, .given-code-editor, .user-code-editor
+              height 150px
+              width 100%
+              margin auto
+          .user-console 
+            height 180px
+            width 100%
+            position relative
+            font-family 'Source Code Pro', monospace
+            background-color #0B202A
+            color #526870
+            border 2px solid #526870
+            margin-top 8px
       nav.exercise
+        position relative
         background-color color-light-grey
         float right
         margin-right exercise-spacing

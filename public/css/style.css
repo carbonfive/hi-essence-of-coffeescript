@@ -1,3 +1,7 @@
+.markup {
+  display: none;
+}
+body,
 p,
 ol,
 ul,
@@ -5,9 +9,18 @@ li {
   margin: 0;
   padding: 0;
 }
+body {
+  min-height: 1500px;
+  font-family: 'Bitter', serif;
+  font-weight: normal;
+}
+.ace_gutter,
+.ace_scroller {
+  padding-top: 8px;
+}
 .centered {
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 2000px;
   min-width: 960px;
   width: 80%;
 }
@@ -16,7 +29,10 @@ li {
   font-size: 12px;
   text-transform: uppercase;
 }
-h1 h2 h3 h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Bitter', serif;
 }
 h1 {
@@ -36,22 +52,32 @@ nav ol li input[type=submit],
 nav ul li input[type=submit] {
   background-color: #64666f;
   border: 2px solid #fff;
-  color: #fff;
+  color: #292a2f;
   -o-border-radius: 50%;
   -ms-border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   font-weight: bold;
 }
 nav ol li input[type=submit]:hover,
 nav ul li input[type=submit]:hover {
-  color: #f15d2a;
-  background-color: #fff;
-  border-color: #f15d2a;
+  color: #292a2f;
+  background-color: #f15d2a;
 }
 nav ol li input[type=submit].active,
 nav ul li input[type=submit].active {
+  color: #fff;
+  background-color: #f15d2a;
+}
+nav ol li input[type=submit].active:hover,
+nav ul li input[type=submit].active:hover {
+  color: #fff;
   background-color: #f15d2a;
 }
 nav ol li input.show-lesson,
@@ -76,7 +102,7 @@ nav.lesson {
   margin-top: 8px;
 }
 nav.lesson ol {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 nav.lesson ol li {
   display: inline-block;
@@ -165,13 +191,57 @@ body .course .exercise-container .header a.next {
 body .course .exercise-container .header a.next:hover {
   background-position: 0 -60px;
 }
-body .course .exercise-container .exercise {
+body .course .exercise-container .exercise-spot {
+  position: relative;
+  top: -40px;
   width: 60%;
   float: left;
   margin-left: 24px;
   padding-bottom: 24px;
 }
+body .course .exercise-container .exercise-spot .exercise h4 {
+  margin: 20px 0 4px 0;
+}
+body .course .exercise-container .exercise-spot .exercise .instructions {
+  color: #f15d2a;
+}
+body .course .exercise-container .exercise-spot .exercise .instructions h4 {
+  font-size: 16px;
+}
+body .course .exercise-container .exercise-spot .exercise .instructions ol {
+  padding-left: 40px;
+}
+body .course .exercise-container .exercise-spot .exercise .editor {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  padding: 0;
+  margin: 0 0 8px 0;
+}
+body .course .exercise-container .exercise-spot .exercise -webkit-transition height 0.2sease -moz-transition height 0.2sease -ms-transition height 0.2sease -o-transition height 0.2sease {
+  transition: height 0.2s ease;
+}
+body .course .exercise-container .exercise-spot .exercise .coffee-syntax-editor,
+body .course .exercise-container .exercise-spot .exercise .js-syntax-editor,
+body .course .exercise-container .exercise-spot .exercise .example-code-editor,
+body .course .exercise-container .exercise-spot .exercise .given-code-editor,
+body .course .exercise-container .exercise-spot .exercise .user-code-editor {
+  height: 150px;
+  width: 100%;
+  margin: auto;
+}
+body .course .exercise-container .exercise-spot .exercise .user-console {
+  height: 180px;
+  width: 100%;
+  position: relative;
+  font-family: 'Source Code Pro', monospace;
+  background-color: #0b202a;
+  color: #526870;
+  border: 2px solid #526870;
+  margin-top: 8px;
+}
 body .course .exercise-container nav.exercise {
+  position: relative;
   background-color: #b8babd;
   float: right;
   margin-right: 24px;
