@@ -5,9 +5,11 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   elTemplate: '#course-template'
 
   events: # human interaction event
-    'click .next'           : 'hiNext'
-    'click .show-lesson'    : 'hiGotoLesson'
-    'click .show-exercise'  : 'hiGotoExercise'
+    'click .next'             : 'hiNext'
+    'mouseenter .show-lesson' : 'hiPreviewLesson'
+    'mouseleave .show-lesson' : 'hiQuitPreviewLesson'
+    'click .show-lesson'      : 'hiGotoLesson'
+    'click .show-exercise'    : 'hiGotoExercise'
 
   initialize: (attributes)=>
     super attributes
@@ -65,10 +67,9 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   start: ()=> @next() unless @started
 
   activate: (activateFunctor)=>
-    @$('.show-lesson').removeClass('active')
     @$('.show-exercise').removeClass('active')    
     @deactivateContent()
-    @scrollToTop()
+    # @scrollToTop()
     setTimeout activateFunctor, 200
     setTimeout @activateContent, 800
 
@@ -89,6 +90,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
   activateLessonPlan: (idx)=>
     @started = true
+    @$('.show-lesson').removeClass('active') unless @lessonPlans[idx] is @currentLessonPlan
     @currentLessonPlan = @findLessonPlan(idx)?.activate() || @currentLessonPlan.activate()
 
   hiNext: (event)=>
@@ -102,3 +104,12 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   hiGotoExercise: (event)=>
     event.preventDefault()
     @activate ()=> @currentLessonPlan.hiGotoExercise(event)
+
+  hiPreviewLesson: (event)=>
+    event.preventDefault()
+    idx =  parseInt $(event.target).data('idx')
+    @$lessonTitle.html "<span class='preview'>#{@findLessonPlan(idx)?.title}</span>"
+
+  hiQuitPreviewLesson: (event)=>
+    event.preventDefault()
+    @$lessonTitle.html @currentLessonPlan.title

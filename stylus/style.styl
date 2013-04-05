@@ -6,6 +6,37 @@ color-medium-grey = #64666f
 color-dark-grey = #292a2f
 color-c5-orange = #f15d2a
 
+
+@-o-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@-ms-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@-moz-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@-webkit-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+
+ease-transitions()
+  -webkit-transition all 0.4s ease
+  -moz-transition all 0.4s ease
+  -ms-transition all 0.4s ease
+  -o-transition all 0.4s ease
+  transition all 0.4s ease
+
+ease-color-transitions()
+  -webkit-transition color 0.4s ease
+  -moz-transition color 0.4s ease
+  -ms-transition color 0.4s ease
+  -o-transition color 0.4s ease
+  transition color 0.4s ease
+
 .markup
   display none
 
@@ -19,7 +50,7 @@ body
   font-weight normal
 
 .ace_gutter, .ace_scroller
-  padding-top 8px
+  padding 8px 0
 
 .centered
   margin 0 auto
@@ -49,21 +80,15 @@ nav ol li, nav ul li
   input[type=submit]
     background-color color-medium-grey
     border 2px solid white
-    color color-dark-grey
     -o-border-radius 50%
     -ms-border-radius 50%
     -moz-border-radius 50%
     -webkit-border-radius 50%
     border-radius 50%
-    -webkit-transition all 0.4s ease
-    -moz-transition all 0.4s ease
-    -ms-transition all 0.4s ease
-    -o-transition all 0.4s ease
-    transition all 0.4s ease
+    ease-transitions()
 
     font-weight bold
     &:hover
-      color color-dark-grey
       background-color color-c5-orange
     &.active
       color white
@@ -73,6 +98,7 @@ nav ol li, nav ul li
       background-color color-c5-orange
 
   input.show-lesson
+    color color-dark-grey
     font-size 16px
     height 40px
     line-height 40px
@@ -80,6 +106,7 @@ nav ol li, nav ul li
     min-width 40px
     padding 0 4px
   input.show-exercise
+    color color-light-grey
     font-size 12px
     height 28px
     line-height 28px
@@ -99,9 +126,9 @@ nav.exercise
   ul
     margin-left 8px
     list-style none
-  li
-    min-height 28px
-    margin 4px 0
+    li
+      min-height 28px
+      margin 4px 0
 
 
 body
@@ -118,7 +145,7 @@ body
       margin 4px 0 80px 0
   .course
     background-color color-dark-grey
-    lesson-nav-offset = 46px
+    lesson-nav-offset = 54px
     margin-top (1.5 * lesson-nav-offset)
     position relative
     padding-bottom 30px
@@ -143,6 +170,8 @@ body
       h2
         margin 0 0 20px 0
         color white
+        .preview
+          color color-light-grey
     .exercise-container
       exercise-spacing = 24px
       background-color white
@@ -157,6 +186,11 @@ body
           color color-dark-grey
           line-height exercise-header-height
         a.next
+          color white
+          line-height 54px
+          text-align left
+          text-indent 20px          
+          font-family font-family-section-name
           position absolute        
           display inline-block
           background-image url('/images/button-arrows-next.png')
@@ -164,8 +198,10 @@ body
           height exercise-header-height
           right exercise-spacing
           top exercise-spacing
+          ease-color-transitions()
           &:hover
             background-position 0 -60px
+            color color-c5-orange
       .exercise-spot
         position relative
         top -40px
@@ -178,8 +214,13 @@ body
             margin 20px 0 4px 0
           .instructions
             h4
-              font-size 16px
-            color color-c5-orange
+              font-size 18px
+              ease-color-transitions()
+              -o-animation:  highlightinstructions 8s step-end 2
+              -ms-animation:  highlightinstructions 8s step-end 2
+              -moz-animation:  highlightinstructions 8s step-end 2
+              -webkit-animation: highlightinstructions 8s step-end 2
+              animation: highlightinstructions 8s step-end 2
             ol
               padding-left 40px
           .editor
@@ -188,11 +229,7 @@ body
             height 150px
             padding 0
             margin 0 0 8px 0
-           -webkit-transition height 0.2s ease
-              -moz-transition height 0.2s ease
-               -ms-transition height 0.2s ease
-                -o-transition height 0.2s ease
-                   transition height 0.2s ease
+            ease-transitions()
             .coffee-syntax-editor, .js-syntax-editor, .example-code-editor, .given-code-editor, .user-code-editor
               height 150px
               width 100%

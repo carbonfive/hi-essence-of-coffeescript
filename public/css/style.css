@@ -1,3 +1,39 @@
+@-o-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@-ms-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@-moz-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@-webkit-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
 .markup {
   display: none;
 }
@@ -16,7 +52,7 @@ body {
 }
 .ace_gutter,
 .ace_scroller {
-  padding-top: 8px;
+  padding: 8px 0;
 }
 .centered {
   margin: 0 auto;
@@ -52,7 +88,6 @@ nav ol li input[type=submit],
 nav ul li input[type=submit] {
   background-color: #64666f;
   border: 2px solid #fff;
-  color: #292a2f;
   -o-border-radius: 50%;
   -ms-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -67,7 +102,6 @@ nav ul li input[type=submit] {
 }
 nav ol li input[type=submit]:hover,
 nav ul li input[type=submit]:hover {
-  color: #292a2f;
   background-color: #f15d2a;
 }
 nav ol li input[type=submit].active,
@@ -82,6 +116,7 @@ nav ul li input[type=submit].active:hover {
 }
 nav ol li input.show-lesson,
 nav ul li input.show-lesson {
+  color: #292a2f;
   font-size: 16px;
   height: 40px;
   line-height: 40px;
@@ -91,6 +126,7 @@ nav ul li input.show-lesson {
 }
 nav ol li input.show-exercise,
 nav ul li input.show-exercise {
+  color: #b8babd;
   font-size: 12px;
   height: 28px;
   line-height: 28px;
@@ -114,7 +150,7 @@ nav.exercise ul {
   margin-left: 8px;
   list-style: none;
 }
-nav.exercise li {
+nav.exercise ul li {
   min-height: 28px;
   margin: 4px 0;
 }
@@ -136,13 +172,13 @@ body header h1 {
 }
 body .course {
   background-color: #292a2f;
-  margin-top: 69px;
+  margin-top: 81px;
   position: relative;
   padding-bottom: 30px;
 }
 body .course .header {
   color: #fff;
-  padding-top: 46px;
+  padding-top: 54px;
   text-align: center;
 }
 body .course .header a.by-carbon-five {
@@ -157,12 +193,15 @@ body .course .header a.by-carbon-five {
 }
 body .course .header nav.lesson {
   position: absolute;
-  top: -46px;
+  top: -54px;
   width: 100%;
 }
 body .course .header h2 {
   margin: 0 0 20px 0;
   color: #fff;
+}
+body .course .header h2 .preview {
+  color: #b8babd;
 }
 body .course .exercise-container {
   background-color: #fff;
@@ -179,17 +218,27 @@ body .course .exercise-container .header h3 {
   line-height: 60px;
 }
 body .course .exercise-container .header a.next {
+  color: #fff;
+  line-height: 54px;
+  text-align: left;
+  text-indent: 20px;
+  font-family: 'Open Sans', sans-serif;
   position: absolute;
-  text-indent: 200%;
   display: inline-block;
   background-image: url("/images/button-arrows-next.png");
   width: 90px;
   height: 60px;
   right: 24px;
   top: 24px;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
 }
 body .course .exercise-container .header a.next:hover {
   background-position: 0 -60px;
+  color: #f15d2a;
 }
 body .course .exercise-container .exercise-spot {
   position: relative;
@@ -202,11 +251,18 @@ body .course .exercise-container .exercise-spot {
 body .course .exercise-container .exercise-spot .exercise h4 {
   margin: 20px 0 4px 0;
 }
-body .course .exercise-container .exercise-spot .exercise .instructions {
-  color: #f15d2a;
-}
 body .course .exercise-container .exercise-spot .exercise .instructions h4 {
-  font-size: 16px;
+  font-size: 18px;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  -o-animation: highlightinstructions 8s step-end 2;
+  -ms-animation: highlightinstructions 8s step-end 2;
+  -moz-animation: highlightinstructions 8s step-end 2;
+  -webkit-animation: highlightinstructions 8s step-end 2;
+  animation: highlightinstructions 8s step-end 2;
 }
 body .course .exercise-container .exercise-spot .exercise .instructions ol {
   padding-left: 40px;
@@ -217,15 +273,17 @@ body .course .exercise-container .exercise-spot .exercise .editor {
   height: 150px;
   padding: 0;
   margin: 0 0 8px 0;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
-body .course .exercise-container .exercise-spot .exercise -webkit-transition height 0.2sease -moz-transition height 0.2sease -ms-transition height 0.2sease -o-transition height 0.2sease {
-  transition: height 0.2s ease;
-}
-body .course .exercise-container .exercise-spot .exercise .coffee-syntax-editor,
-body .course .exercise-container .exercise-spot .exercise .js-syntax-editor,
-body .course .exercise-container .exercise-spot .exercise .example-code-editor,
-body .course .exercise-container .exercise-spot .exercise .given-code-editor,
-body .course .exercise-container .exercise-spot .exercise .user-code-editor {
+body .course .exercise-container .exercise-spot .exercise .editor .coffee-syntax-editor,
+body .course .exercise-container .exercise-spot .exercise .editor .js-syntax-editor,
+body .course .exercise-container .exercise-spot .exercise .editor .example-code-editor,
+body .course .exercise-container .exercise-spot .exercise .editor .given-code-editor,
+body .course .exercise-container .exercise-spot .exercise .editor .user-code-editor {
   height: 150px;
   width: 100%;
   margin: auto;
@@ -250,4 +308,49 @@ body .course .exercise-container nav.exercise {
 }
 body .course .exercise-container nav.exercise p.section-name {
   text-align: center;
+}
+@-moz-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@-webkit-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@-o-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@-ms-keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
+}
+@keyframes highlightinstructions {
+  0%, 100% {
+    color: #292a2f;
+  }
+
+  85% {
+    color: #f15d2a;
+  }
 }

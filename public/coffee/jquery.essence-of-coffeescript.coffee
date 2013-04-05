@@ -61,9 +61,11 @@ $.fn.autoAdjustAceEditorHeight = (aceEditor, options)->
     lineHeight = aceEditor.renderer.lineHeight
     lineHeight = 12 if lineHeight < 8
     scrollBarWidth = aceEditor.renderer.scrollBar.getWidth()
+    padding = parseInt(@find('.ace_scroller').css('padding'))
     h = screenLength * lineHeight + scrollBarWidth
     h = options.minHeight if h < options.minHeight
     h = maxHeight if options.maxHeight? and h > options.maxHeight
+    h = h + (2 * padding)
     h
 
   autoAdjustHeightFunctor = (e)=>
