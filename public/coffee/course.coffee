@@ -29,6 +29,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
     @$exercisesNavbar = @$('nav.exercise')
     @lessonPlans = []
+    @previewIndex = null
     @loadLessonPlans()
     setTimeout @monitorConsole, 5000
 
@@ -109,7 +110,13 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
     event.preventDefault()
     idx =  parseInt $(event.target).data('idx')
     @$lessonTitle.html "<span class='preview'>#{@findLessonPlan(idx)?.title}</span>"
+    @previewIndex = idx
 
   hiQuitPreviewLesson: (event)=>
     event.preventDefault()
-    @$lessonTitle.html @currentLessonPlan.title
+    revertPreview = =>
+      idx =  parseInt $(event.target).data('idx')
+      if idx == @previewIndex
+        @$lessonTitle.html @currentLessonPlan.title if idx == @previewIndex
+        @previewIndex = null
+    setTimeout revertPreview, 250
