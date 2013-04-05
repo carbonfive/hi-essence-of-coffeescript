@@ -1,0 +1,254 @@
+font-family-base = 'Bitter', serif
+font-family-section-name = 'Open Sans', sans-serif
+font-family-header = 'Bitter', serif
+color-light-grey = #b8babd
+color-medium-grey = #64666f
+color-dark-grey = #292a2f
+color-c5-orange = #f15d2a
+
+
+@-o-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@-ms-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@-moz-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@-webkit-keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+@keyframes highlightinstructions
+  0%, 100% { color: color-dark-grey }
+  85% { color color-c5-orange }
+
+ease-transitions()
+  -webkit-transition all 0.2s ease
+  -moz-transition all 0.2s ease
+  -ms-transition all 0.2s ease
+  -o-transition all 0.2s ease
+  transition all 0.2s ease
+
+ease-color-transitions()
+  -webkit-transition color 0.2s ease
+  -moz-transition color 0.2s ease
+  -ms-transition color 0.2s ease
+  -o-transition color 0.2s ease
+  transition color 0.2s ease
+
+.markup
+  display none
+
+body, p, ol, ul, li
+  margin 0
+  padding 0
+
+body
+  min-height 1500px
+  font-family font-family-base
+  font-weight normal
+
+.ace_gutter, .ace_scroller
+  padding 8px 0
+
+.centered
+  margin 0 auto
+  max-width 2000px
+  min-width 960px
+  width 80%
+
+.section-name
+  font-family font-family-section-name
+  font-size 12px
+  text-transform uppercase
+
+h1, h2, h3, h4
+  font-family font-family-header
+
+h1
+  font-size 36px
+h2
+  font-size 32px
+  font-weight normal
+h3
+  font-size 24px
+h4
+  font-size 14px
+
+nav ol li, nav ul li
+  input[type=submit]
+    background-color color-medium-grey
+    border 2px solid white
+    -o-border-radius 50%
+    -ms-border-radius 50%
+    -moz-border-radius 50%
+    -webkit-border-radius 50%
+    border-radius 50%
+    ease-transitions()
+
+    font-weight bold
+    &:hover
+      background-color color-c5-orange
+    &.active
+      color white
+      background-color color-c5-orange
+    &.active:hover
+      color white
+      background-color color-c5-orange
+
+  input.show-lesson
+    color color-light-grey
+    font-size 16px
+    height 40px
+    line-height 40px
+    margin-right 4px
+    min-width 40px
+    padding 0 4px
+  input.show-exercise
+    color color-light-grey
+    font-size 12px
+    height 28px
+    line-height 28px
+    margin-right 4px
+    min-width 28px
+    padding 0 2px
+
+nav.lesson
+  margin-top 8px
+  ol
+    margin-top 8px
+    li
+      display inline-block
+
+nav.exercise
+  padding 16px 0
+  ul
+    margin-left 8px
+    list-style none
+    li
+      min-height 28px
+      margin 4px 0
+
+
+body
+  background-image url('/images/background-mac.jpg')
+  border 0
+  margin 0
+  padding 50px
+  header
+    text-align center
+    p.section-name
+      color white
+    h1
+      color white
+      margin 4px 0 80px 0
+  .course
+    background-color color-dark-grey
+    lesson-nav-offset = 54px
+    margin-top (1.5 * lesson-nav-offset)
+    position relative
+    padding-bottom 30px
+    .header
+      color white
+      padding-top lesson-nav-offset
+      text-align center
+      a.by-carbon-five
+        text-indent 200%
+        position absolute
+        display inline-block
+        background-image url('/images/c5-logo.png')
+        logo-size = 60px
+        width logo-size
+        height logo-size
+        top -(logo-size / 2)
+        right -(logo-size / 2)
+      nav.lesson
+        position absolute
+        top - (lesson-nav-offset)
+        width 100%          
+      h2
+        margin 0 0 20px 0
+        color white
+        .preview
+          color color-light-grey
+    .exercise-container
+      exercise-spacing = 24px
+      background-color white
+      position relative
+      overflow hidden
+      .header
+        exercise-header-height = 60px
+        color color-dark-grey
+        padding exercise-spacing 0
+        h3
+          margin 0
+          color color-dark-grey
+          line-height exercise-header-height
+        a.next
+          color white
+          line-height 54px
+          text-align left
+          text-indent 20px          
+          font-family font-family-section-name
+          position absolute        
+          display inline-block
+          background-image url('/images/button-arrows-next.png')
+          width 90px
+          height exercise-header-height
+          right exercise-spacing
+          top exercise-spacing
+          ease-color-transitions()
+          &:hover
+            background-position 0 -60px
+            color color-c5-orange
+      .exercise-spot
+        position relative
+        top -40px
+        width 60%
+        float left
+        margin-left exercise-spacing
+        padding-bottom exercise-spacing
+        .exercise
+          h4
+            margin 20px 0 4px 0
+          .instructions
+            h4
+              font-size 18px
+              ease-color-transitions()
+              -o-animation:  highlightinstructions 8s step-end 2
+              -ms-animation:  highlightinstructions 8s step-end 2
+              -moz-animation:  highlightinstructions 8s step-end 2
+              -webkit-animation: highlightinstructions 8s step-end 2
+              animation: highlightinstructions 8s step-end 2
+            ol
+              padding-left 40px
+          .editor
+            position relative
+            width 100%
+            height 150px
+            padding 0
+            margin 0 0 8px 0
+            ease-transitions()
+            .coffee-syntax-editor, .js-syntax-editor, .example-code-editor, .given-code-editor, .user-code-editor
+              height 150px
+              width 100%
+              margin auto
+          .user-console 
+            height 180px
+            width 100%
+            position relative
+            font-family 'Source Code Pro', monospace
+            background-color #0B202A
+            color #526870
+            border 2px solid #526870
+            margin-top 8px
+      nav.exercise
+        position relative
+        background-color color-light-grey
+        float right
+        margin-right exercise-spacing
+        padding-bottom exercise-spacing
+        width 30%
+        p.section-name
+          text-align center
