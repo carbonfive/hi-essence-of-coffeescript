@@ -6,7 +6,12 @@ html(lang="en")
     script(type="text/javascript", src="./js/vendor/jquery.js")
     script(type="text/javascript", src="./js/vendor/underscore.min.js")
     script(type="text/javascript", src="./js/vendor/backbone.min.js")
+    link(rel="stylesheet", type="text/css", media="all", href="./css/wp-content/themes/carbonfive/blog.css")
     block head
 
   body
-    block content
+    #wrapper.hfeed'
+      #main
+        #container
+          #content(role='main')
+            block content

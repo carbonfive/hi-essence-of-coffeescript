@@ -21,7 +21,16 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
 
     @$widgetEl = $(widgetEl)
     widgetEl = @$widgetEl[0]
+    @active = false
     @launch options, displaySettings
+
+  activate: ()=> 
+    console.log 'activating console'
+    @active = true
+
+  deactivate: ()=> 
+    console.log 'deactivating console'
+    @active = false
 
   compileCoffeeScript: (sourceCode)=> '' + CoffeeScript.compile sourceCode, bare: on
 
@@ -41,9 +50,16 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
     @jqconsole.RegisterMatching '(', ')', 'paran'
     @jqconsole.RegisterMatching '[', ']', 'bracket'
 
+    $('html').on('log', @listenToConsoleLog)
+
     @jqconsoleHandler()
   
-  clearCodeEditors: ()-> @codeEditors = []
+  listenToConsoleLog: (event, { args })=>
+    event.stopPropagation()
+    @Write args...
+
+  clearCodeEditors: ()=> @codeEditors = []
+
   addCodeEditor: (editors...)=>
     @getCodeEditors().push editor for editor in editors when editor.runCode?
 
@@ -52,13 +68,14 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
     @codeEditors
 
   Write: (args...)=> 
+    return unless @active
     for result in args
 
       output = switch typeof result
         when 'undefined' then 'undefined'
         when 'function' then '[Function]'
         when 'string' then result
-        when 'object' then JSON.stringify result, null, 0
+        # when 'object' then JSON.stringify result, null, 0
         else JSON.stringify result, null, 1
       @jqconsole.Write '' + output
     @jqconsole.Write '\n'

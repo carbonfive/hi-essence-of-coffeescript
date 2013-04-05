@@ -1,8 +1,11 @@
 extends layout
 
-block content
+block head
+  link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Open+Sans:700')
+  link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic')
+  link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Source+Code+Pro')
   link(rel='stylesheet', type='text/css', href='./css/jq-console/jq.css')
-  link(rel='stylesheet', type='text/css', href='./css/essence-of-coffeescript.css')
+  link(rel='stylesheet', type='text/css', href='./css/style.css')
 
   script(type='text/javascript', src="./js/vendor/jqconsole.min.js")
   script(type="text/javascript", src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js", charset="utf-8")
@@ -17,56 +20,66 @@ block content
   script(type='text/coffeescript', src='./coffee/lesson-plan.coffee')
   script(type='text/coffeescript', src='./coffee/course.coffee')
 
+block content
   script(type='text/template', id='course-template')
-   .course 
-    h1 Essence of CoffeeScript: Syntax Shortcuts
-     .lesson-navbar 
-      ol
-      h2.lesson-title
-    .exercise-navbar
-    .realization
-    .course-content 
-     .exercise 
-       p.description
+    section
+      header.centered
+        p.section-name - tutorial -
+        h1 Essence of CoffeeScript: Syntax Shortcuts
+      .course.centered
+        .header
+          a.by-carbon-five c5
+          nav.lesson
+            p.section-name - lessons -
+            ol
+          h2.lesson
 
-       #js-syntax
-         h3 Syntax - JavaScript 
-         .editor 
-           #js-syntax-editor
-                 
-       #coffee-syntax
-         h3 Syntax - CoffeeScript
-         .editor 
-           #coffee-syntax-editor
-       
-       #example-code 
-         h3 Example - CoffeeScript
-         .editor 
-           #example-code-editor   
-       
-       .instructions 
-         h3 Interactive Practice:
-         ol
-       
-       #given-code 
-         h3 Given the following code
-         .editor 
-           #given-code-editor
-       
-       #user-code 
-         h3 Interactive Editor - CoffeeScript
-         .editor 
-           #user-code-editor
-         
-         #user-code-error 
-       
-       #user-console
-     
-    input.next-exercise(type='submit', value='Next')
+        .exercise-container
+          .header
+            h3.realization Punctuation is optional, so skip it ;}),
+            a.next Next
+          nav.exercise
+            p.section-name - exercises -
+            ul     
+          section.exercise-spot 
+
+  script(type='text/template', id='exercise-template')
+    .exercise
+      .js-syntax
+       h4 JavaScript Syntax
+       .editor 
+         .js-syntax-editor
+               
+      .coffee-syntax
+       h4 CoffeeScript Syntax
+       .editor 
+         .coffee-syntax-editor
+
+      .example-code 
+       h4 Example CoffeeScript
+       .editor 
+         .example-code-editor   
+
+      .instructions 
+       h4 Practice These Steps:
+       ol
+
+      .given-code 
+       h4 Given the following code
+       .editor 
+         .given-code-editor
+
+      .user-code 
+       h4 Interactive Editor - CoffeeScript
+       .editor 
+         .user-code-editor
+
+      .user-console
 
   include course/course
 
   #course-spot
+
 
   script(type='text/coffeescript')
     $ = jQuery
