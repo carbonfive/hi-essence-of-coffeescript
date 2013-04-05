@@ -93,11 +93,11 @@ nav ul li input[type=submit] {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
   font-weight: bold;
 }
 nav ol li input[type=submit]:hover,
@@ -230,11 +230,11 @@ body .course .exercise-container .header a.next {
   height: 60px;
   right: 24px;
   top: 24px;
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  -moz-transition: color 0.1s ease;
+  -ms-transition: color 0.1s ease;
+  -o-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 body .course .exercise-container .header a.next:hover {
   background-position: 0 -60px;
@@ -253,11 +253,11 @@ body .course .exercise-container .exercise-spot .exercise h4 {
 }
 body .course .exercise-container .exercise-spot .exercise .instructions h4 {
   font-size: 18px;
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+  -moz-transition: color 0.1s ease;
+  -ms-transition: color 0.1s ease;
+  -o-transition: color 0.1s ease;
+  transition: color 0.1s ease;
   -o-animation: highlightinstructions 8s step-end 2;
   -ms-animation: highlightinstructions 8s step-end 2;
   -moz-animation: highlightinstructions 8s step-end 2;
@@ -273,11 +273,11 @@ body .course .exercise-container .exercise-spot .exercise .editor {
   height: 150px;
   padding: 0;
   margin: 0 0 8px 0;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 body .course .exercise-container .exercise-spot .exercise .editor .coffee-syntax-editor,
 body .course .exercise-container .exercise-spot .exercise .editor .js-syntax-editor,

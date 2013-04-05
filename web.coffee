@@ -8,6 +8,6 @@ allowCORS = (request, response, next)-> response.header('Access-Control-Allow-Or
 app.configure ->
   app.use express.logger()
   app.use allowCORS
-  app.use express.static 'public'
+  app.use express.static "#{__dirname}/public"
 
 app.listen port, -> console.log "Listening on " + port
