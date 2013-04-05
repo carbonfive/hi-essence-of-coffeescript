@@ -25,11 +25,9 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
     @launch options, displaySettings
 
   activate: ()=> 
-    console.log 'activating console'
     @active = true
 
   deactivate: ()=> 
-    console.log 'deactivating console'
     @active = false
 
   compileCoffeeScript: (sourceCode)=> '' + CoffeeScript.compile sourceCode, bare: on
