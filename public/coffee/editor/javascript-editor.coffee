@@ -22,14 +22,15 @@ class EssenceOfCoffeeScript.JavaScriptEditor extends EssenceOfCoffeeScript.Edito
       @captureParseError (e)
       @onParseException?(e.message)
 
-  runCode: =>
-    return if @evaluated
+  runCode: (options)=>
+    return if @evaluated and options?.force isnt true
     @parseCode()
     clearTimeout(@timer2IndicateParseError) if @timer2IndicateParseError?
     @clearAllAnnotations()
     @showParseError() if @parseErrorExists()
-    eval.call window, @javascriptSourceCode()
+    result = eval.call window, @javascriptSourceCode()
     @evaluated = true
+    result
 
   clearParseError: ()=>
     @parseError =

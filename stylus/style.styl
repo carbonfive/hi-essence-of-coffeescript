@@ -76,6 +76,23 @@ h3
 h4
   font-size 14px
 
+input.run-users-hack
+  background-color white
+  border 2px solid color-c5-orange
+  color color-c5-orange
+  font-size 18px
+  line-height 32px
+  min-width 80px
+  -o-border-radius 8px
+  -ms-border-radius 8px
+  -moz-border-radius 8px
+  -webkit-border-radius 8px
+  border-radius 8px
+  font-weight bold
+  ease-transitions()
+  &:hover
+    font-size 20px
+
 nav ol li, nav ul li
   input[type=submit]
     background-color color-medium-grey
@@ -129,6 +146,10 @@ nav.exercise
     li
       min-height 28px
       margin 4px 0
+      max-width 95%
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;      
 
 
 body

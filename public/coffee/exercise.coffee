@@ -3,6 +3,16 @@ $ = $ || jQuery
 class EssenceOfCoffeeScript.Exercise extends Backbone.View
   elTemplate: '#exercise-template'
 
+  events:
+    'click .run-users-hack': 'hiRunUsersHack'
+
+  hiRunUsersHack: (event)-> 
+    try
+      hackOutput = @userCodeEditor.runCode force:true
+      @jqconsole.Write hackOutput if hackOutput?
+    catch e
+      @jqconsole.Write 'ERROR: ' + e.message + '\n'
+
   initialize: (attributes)=>
     super attributes
     _.extend @options, EssenceOfCoffeeScript.options
@@ -79,15 +89,15 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @renderEditor @coffeeScriptSyntaxEditor, @model.get('coffee-syntax')
     @renderEditor @exampleCodeEditor, @model.get('example-code')
     @renderEditor @givenCodeEditor, @model.get('given-code')
-    @renderEditor @userCodeEditor, @model.get('user-code')
+    @renderEditor @userCodeEditor, (@model.get('user-code') || ''), force:true
     @jqconsole.activate()
 
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
     @
 
-  renderEditor: (editor, code)-> 
-    if code? then editor?.show(code) else editor?.hide()
+  renderEditor: (editor, code, options)-> 
+    if code? or options?.force then editor?.show(code) else editor?.hide()
 
   deactivate: ()=>
     @$el.hide()

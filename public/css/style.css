@@ -84,6 +84,28 @@ h3 {
 h4 {
   font-size: 14px;
 }
+input.run-users-hack {
+  background-color: #fff;
+  border: 2px solid #f15d2a;
+  color: #f15d2a;
+  font-size: 18px;
+  line-height: 32px;
+  min-width: 80px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+input.run-users-hack:hover {
+  font-size: 20px;
+}
 nav ol li input[type=submit],
 nav ul li input[type=submit] {
   background-color: #64666f;
@@ -153,6 +175,10 @@ nav.exercise ul {
 nav.exercise ul li {
   min-height: 28px;
   margin: 4px 0;
+  max-width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 body {
   background-image: url("/images/background-mac.jpg");
