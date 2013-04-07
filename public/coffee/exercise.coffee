@@ -126,7 +126,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       el: @.$ '.coffee-syntax-editor'
       widgetEl: @.$ '.coffee-syntax'
       options:
-        theme: 'solarized_light'
+        theme: 'solarized_dark'
         readOnlyMode: true
 
   launchExampleCodeEditor: ()=>
@@ -134,7 +134,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       el: @.$ '.example-code-editor'
       widgetEl: @.$ '.example-code'
       options:
-        theme: 'solarized_light'
+        theme: 'solarized_dark'
         readOnlyMode: true
 
   launchGivenCodeEditor: ()=>
