@@ -65,6 +65,25 @@ body {
   font-size: 12px;
   text-transform: uppercase;
 }
+a.next {
+  color: #fff;
+  line-height: 54px;
+  text-align: left;
+  text-indent: 20px;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("/images/button-arrows-next.png");
+  width: 90px;
+  height: 60px;
+  -webkit-transition: background-color 0.15s ease, color 0.5s ease;
+  -moz-transition: background-color 0.15s ease, color 0.5s ease;
+  -ms-transition: background-color 0.15s ease, color 0.5s ease;
+  -o-transition: background-color 0.15s ease, color 0.5s ease;
+  transition: background-color 0.15s ease, color 0.5s ease;
+}
+a.next:hover {
+  background-position: 0 -60px;
+  color: #f15d2a;
+}
 h1,
 h2,
 h3,
@@ -97,11 +116,11 @@ input.run-users-hack {
   -webkit-border-radius: 8px;
   border-radius: 8px;
   font-weight: bold;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 input.run-users-hack:hover {
   font-size: 20px;
@@ -115,11 +134,11 @@ nav ul li input[type=submit] {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
+  -webkit-transition: background-color 0.15s ease, color 0.5s ease;
+  -moz-transition: background-color 0.15s ease, color 0.5s ease;
+  -ms-transition: background-color 0.15s ease, color 0.5s ease;
+  -o-transition: background-color 0.15s ease, color 0.5s ease;
+  transition: background-color 0.15s ease, color 0.5s ease;
   font-weight: bold;
 }
 nav ol li input[type=submit]:hover,
@@ -200,7 +219,6 @@ body .course {
   background-color: #292a2f;
   margin-top: 81px;
   position: relative;
-  padding-bottom: 30px;
 }
 body .course .header {
   color: #fff;
@@ -244,27 +262,10 @@ body .course .exercise-container .header h3 {
   line-height: 60px;
 }
 body .course .exercise-container .header a.next {
-  color: #fff;
-  line-height: 54px;
-  text-align: left;
-  text-indent: 20px;
-  font-family: 'Open Sans', sans-serif;
   position: absolute;
   display: inline-block;
-  background-image: url("/images/button-arrows-next.png");
-  width: 90px;
-  height: 60px;
   right: 24px;
   top: 24px;
-  -webkit-transition: color 0.1s ease;
-  -moz-transition: color 0.1s ease;
-  -ms-transition: color 0.1s ease;
-  -o-transition: color 0.1s ease;
-  transition: color 0.1s ease;
-}
-body .course .exercise-container .header a.next:hover {
-  background-position: 0 -60px;
-  color: #f15d2a;
 }
 body .course .exercise-container .exercise-spot {
   position: relative;
@@ -279,11 +280,11 @@ body .course .exercise-container .exercise-spot .exercise h4 {
 }
 body .course .exercise-container .exercise-spot .exercise .instructions h4 {
   font-size: 18px;
-  -webkit-transition: color 0.1s ease;
-  -moz-transition: color 0.1s ease;
-  -ms-transition: color 0.1s ease;
-  -o-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: background-color 0.15s ease, color 0.5s ease;
+  -moz-transition: background-color 0.15s ease, color 0.5s ease;
+  -ms-transition: background-color 0.15s ease, color 0.5s ease;
+  -o-transition: background-color 0.15s ease, color 0.5s ease;
+  transition: background-color 0.15s ease, color 0.5s ease;
   -o-animation: highlightinstructions 8s step-end 2;
   -ms-animation: highlightinstructions 8s step-end 2;
   -moz-animation: highlightinstructions 8s step-end 2;
@@ -299,11 +300,11 @@ body .course .exercise-container .exercise-spot .exercise .editor {
   height: 150px;
   padding: 0;
   margin: 0 0 8px 0;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 body .course .exercise-container .exercise-spot .exercise .editor .coffee-syntax-editor,
 body .course .exercise-container .exercise-spot .exercise .editor .js-syntax-editor,
@@ -334,6 +335,12 @@ body .course .exercise-container nav.exercise {
 }
 body .course .exercise-container nav.exercise p.section-name {
   text-align: center;
+}
+body .course .footer a.next {
+  position: relative;
+  display: inline-block;
+  top: -58px;
+  left: 20px;
 }
 @-moz-keyframes highlightinstructions {
   0%, 100% {
