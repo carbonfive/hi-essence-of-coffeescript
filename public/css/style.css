@@ -315,7 +315,7 @@ body .course .exercise-container .exercise-spot .exercise .editor .user-code-edi
   margin: auto;
 }
 body .course .exercise-container .exercise-spot .exercise .user-console {
-  height: 180px;
+  height: 80px;
   width: 100%;
   position: relative;
   font-family: 'Source Code Pro', monospace;
