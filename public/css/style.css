@@ -85,7 +85,7 @@ body {
 }
 a.next {
   color: #fff;
-  line-height: 54px;
+  line-height: 57px;
   text-align: left;
   text-indent: 20px;
   font-family: 'Open Sans', sans-serif;
@@ -97,10 +97,11 @@ a.next {
   -ms-transition: background-color 0.15s ease, color 0.5s ease;
   -o-transition: background-color 0.15s ease, color 0.5s ease;
   transition: background-color 0.15s ease, color 0.5s ease;
+  text-transform: uppercase;
 }
 a.next:hover {
   background-position: 0 -60px;
-  color: #f15d2a;
+  color: #fff;
 }
 h1,
 h2,
@@ -120,6 +121,8 @@ h3 {
 }
 h4 {
   font-size: 16px;
+  text-transform: uppercase;
+  font-weight: normal;
 }
 input.run-users-hack {
   background-color: #fff;
@@ -157,11 +160,12 @@ nav ul li input[type=submit] {
   -ms-transition: background-color 0.15s ease, color 0.5s ease;
   -o-transition: background-color 0.15s ease, color 0.5s ease;
   transition: background-color 0.15s ease, color 0.5s ease;
+  color: #fff;
   font-weight: bold;
 }
 nav ol li input[type=submit]:hover,
 nav ul li input[type=submit]:hover {
-  background-color: #f15d2a;
+  background-color: #b8babd;
 }
 nav ol li input[type=submit].active,
 nav ul li input[type=submit].active {
@@ -175,7 +179,6 @@ nav ul li input[type=submit].active:hover {
 }
 nav ol li input.show-lesson,
 nav ul li input.show-lesson {
-  color: #b8babd;
   font-size: 16px;
   height: 40px;
   line-height: 40px;
@@ -185,7 +188,6 @@ nav ul li input.show-lesson {
 }
 nav ol li input.show-exercise,
 nav ul li input.show-exercise {
-  color: #b8babd;
   font-size: 12px;
   height: 28px;
   line-height: 28px;
@@ -205,8 +207,12 @@ nav.lesson ol li {
 nav.exercise {
   padding: 16px 0;
 }
+nav.exercise .section-name {
+  margin-top: 8px;
+}
 nav.exercise ul {
   margin-left: 8px;
+  margin-top: 12px;
   list-style: none;
 }
 nav.exercise ul li {
@@ -310,7 +316,7 @@ body .course .exercise-container .exercise-spot .exercise .instructions h4 {
   animation: highlightinstructions 8s step-end 1;
 }
 body .course .exercise-container .exercise-spot .exercise .instructions ol {
-  padding-left: 40px;
+  padding-left: 24px;
 }
 body .course .exercise-container .exercise-spot .exercise .editor {
   position: relative;
@@ -345,7 +351,7 @@ body .course .exercise-container .exercise-spot .exercise .user-console {
 }
 body .course .exercise-container nav.exercise {
   position: relative;
-  background-color: #b8babd;
+  background-color: #d4d4d4;
   float: right;
   margin-right: 24px;
   padding-bottom: 24px;

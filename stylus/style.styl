@@ -2,6 +2,7 @@ font-family-base = 'Bitter', serif
 font-family-section-name = 'Open Sans', sans-serif
 font-family-header = 'Bitter', serif
 font-family-code = 'SourceCode Pro', monospace
+color-faint-grey = #D4D4D4
 color-light-grey = #b8babd
 color-medium-grey = #64666f
 color-dark-grey = #292a2f
@@ -85,7 +86,7 @@ body
 
 a.next
   color white
-  line-height 54px
+  line-height 57px
   text-align left
   text-indent 20px          
   font-family font-family-section-name
@@ -93,9 +94,10 @@ a.next
   width 90px
   height: 60px
   ease-color-transitions()
+  text-transform uppercase
   &:hover
     background-position 0 -60px
-    color color-c5-orange
+    color white
 
 h1, h2, h3, h4
   font-family font-family-header
@@ -109,6 +111,8 @@ h3
   font-size 24px
 h4
   font-size 16px
+  text-transform uppercase
+  font-weight normal
 
 input.run-users-hack
   background-color white
@@ -138,9 +142,10 @@ nav ol li, nav ul li
     border-radius 50%
     ease-color-transitions()
 
+    color white
     font-weight bold
     &:hover
-      background-color color-c5-orange
+      background-color #B8BABD
     &.active
       color white
       background-color color-c5-orange
@@ -149,7 +154,6 @@ nav ol li, nav ul li
       background-color color-c5-orange
 
   input.show-lesson
-    color color-light-grey
     font-size 16px
     height 40px
     line-height 40px
@@ -157,7 +161,6 @@ nav ol li, nav ul li
     min-width 40px
     padding 0 4px
   input.show-exercise
-    color color-light-grey
     font-size 12px
     height 28px
     line-height 28px
@@ -174,8 +177,11 @@ nav.lesson
 
 nav.exercise
   padding 16px 0
+  .section-name
+    margin-top 8px
   ul
     margin-left 8px
+    margin-top  12px
     list-style none
     li
       min-height 28px
@@ -265,7 +271,7 @@ body
               -webkit-animation: highlightinstructions 8s step-end 1
               animation: highlightinstructions 8s step-end 1
             ol
-              padding-left 40px
+              padding-left 24px
           .editor
             position relative
             width 100%
@@ -288,7 +294,7 @@ body
             margin-top 8px
       nav.exercise
         position relative
-        background-color color-light-grey
+        background-color color-faint-grey
         float right
         margin-right exercise-spacing
         padding-bottom exercise-spacing

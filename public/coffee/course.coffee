@@ -27,7 +27,7 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
 
     @$lessonPlansNavbar = @$('nav.lesson')
 
-    @$exercisesNavbar = @$('nav.exercise')
+    @$exercisesNavbar = @$('nav.exercise ul')
     @lessonPlans = []
     @previewIndex = null
     @loadLessonPlans()
