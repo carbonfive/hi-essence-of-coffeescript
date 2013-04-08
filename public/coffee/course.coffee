@@ -70,11 +70,11 @@ class EssenceOfCoffeeScript.Course extends Backbone.View
   activate: (activateFunctor)=>
     @$('.show-exercise').removeClass('active')    
     @deactivateContent()
-    # @scrollToTop()
+    @scrollToTop()
     setTimeout activateFunctor, 200
     setTimeout @activateContent, 800
 
-  scrollToTop: ()=> $('html, body').animate {scrollTop: @$el.offset().top - 10}
+  scrollToTop: ()=> $('html, body').animate { scrollTop: 0}
   activateContent: ()=> @$content.removeClass('deactivated')
   deactivateContent: ()=> @$content.addClass('deactivated')
 
