@@ -1,0 +1,36 @@
+data.exercise 
+  data.realization.
+    Object literals are all over the place
+  data.js-syntax.
+    var options = { readonly: true, theme: 'solarized' }
+
+    var theme = {
+      color: {
+        text: 'blue',
+        background: 'white'
+      },
+      font: {
+        family: 'SourceCode Pro',
+        size: '16px'
+      }
+    }
+  data.example-code.
+    options = readonly: true, theme: 'solarized'
+
+    theme =
+      color:
+        text: 'blue'
+        background: 'white'
+      font:
+        family: 'SourceCode Pro'
+        size: '16px'
+
+    console.log 'options are ', options
+    console.log 'colorTheme is ', theme.color
+    console.log 'font family is ', theme.font.family
+
+  data.instruction Become familiar with an object literal (or hash) without its puncuation.
+  data.instruction The <code>:</code> indicates a key: value pair.
+  data.instruction Key value pairs need to be separated with a comma when on the same line.
+  data.instruction Key value pairs don't need comma separation when on their own line.
+  data.instruction Key value pairs that belong to the same hash ar indented at the same level.

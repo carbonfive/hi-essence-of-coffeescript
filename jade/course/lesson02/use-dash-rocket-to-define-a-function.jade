@@ -1,12 +1,9 @@
 data.exercise 
   data.realization Use dash rocket <code> -> </code> to define a function
   data.js-syntax.
-    var reportStatus = function(msg){
-      console.log('Status:', msg);
-    };
+    var reportStatus = function(msg){ console.log('Status:', msg); };
   data.example-code.
-    reportStatus = (msg)->
-      console.log 'Status: ', msg
-  data.instruction Define the reportStatus function in the editor.
-  data.instruction Call it using the console.
-  data.user-code yes
+    reportStatus = (msg)-> console.log 'Status: ', msg
+    reportStatus 'ok'
+  data.instruction When defining a function: <br><nobr><strong>send (arguments...) into -> function body</strong></nobr>
+  data.instruction Define the reportStatus function (as in the example above) and call it.
