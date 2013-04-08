@@ -7,6 +7,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     'click .run-users-hack': 'hiRunUsersHack'
 
   hiRunUsersHack: (event)-> 
+    event.preventDefault()
     try
       hackOutput = @userCodeEditor.runCode force:true
       @jqconsole.Write hackOutput if hackOutput?
@@ -94,6 +95,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
 
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
+    @delegateEvents()
     @
 
   renderEditor: (editor, code, options)-> 
@@ -114,6 +116,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @
 
   launchJavaScriptSyntaxEditor: ()=>
+    return @.$('.js-syntax').hide() unless @model.get('js-syntax')?.length > 0
     @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
       el: @.$('.js-syntax-editor')
       widgetEl: @.$('.js-syntax')
@@ -122,6 +125,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
         readOnlyMode: true
 
   launchCoffeeScriptSyntaxEditor: ()=>
+    return @.$('.coffee-syntax').hide() unless @model.get('coffee-syntax')?.length > 0
     @coffeeScriptSyntaxEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: @.$ '.coffee-syntax-editor'
       widgetEl: @.$ '.coffee-syntax'
@@ -130,6 +134,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
         readOnlyMode: true
 
   launchExampleCodeEditor: ()=>
+    return @.$('.example-code').hide() unless @model.get('example-code')?.length > 0
     @exampleCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: @.$ '.example-code-editor'
       widgetEl: @.$ '.example-code'
@@ -138,6 +143,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
         readOnlyMode: true
 
   launchGivenCodeEditor: ()=>
+    return @.$('.given-code').hide() unless @model.get('given-code')?.length > 0
     @givenCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: @.$ '.given-code-editor'
       widgetEl: @.$ '.given-code'
@@ -154,4 +160,4 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
   launchUserConsole: ()=>
     @jqconsole = new EssenceOfCoffeeScript.Console
       el: @$ '.user-console'  
-    @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
+    # @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
