@@ -3,6 +3,17 @@ $ = $ || jQuery
 class EssenceOfCoffeeScript.Exercise extends Backbone.View
   elTemplate: '#exercise-template'
 
+  events:
+    'click .run-users-hack': 'hiRunUsersHack'
+
+  hiRunUsersHack: (event)-> 
+    event.preventDefault()
+    try
+      hackOutput = @userCodeEditor.runCode force:true
+      @jqconsole.Write hackOutput if hackOutput?
+    catch e
+      @jqconsole.Write 'ERROR: ' + e.message + '\n'
+
   initialize: (attributes)=>
     super attributes
     _.extend @options, EssenceOfCoffeeScript.options
@@ -79,15 +90,16 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @renderEditor @coffeeScriptSyntaxEditor, @model.get('coffee-syntax')
     @renderEditor @exampleCodeEditor, @model.get('example-code')
     @renderEditor @givenCodeEditor, @model.get('given-code')
-    @renderEditor @userCodeEditor, @model.get('user-code')
+    @renderEditor @userCodeEditor, (@model.get('user-code') || ''), force:true
     @jqconsole.activate()
 
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
+    @delegateEvents()
     @
 
-  renderEditor: (editor, code)-> 
-    if code? then editor?.show(code) else editor?.hide()
+  renderEditor: (editor, code, options)-> 
+    if code? or options?.force then editor?.show(code) else editor?.hide()
 
   deactivate: ()=>
     @$el.hide()
@@ -104,6 +116,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @
 
   launchJavaScriptSyntaxEditor: ()=>
+    return @.$('.js-syntax').hide() unless @model.get('js-syntax')?.length > 0
     @javaScriptSyntaxEditor = new EssenceOfCoffeeScript.JavaScriptEditor 
       el: @.$('.js-syntax-editor')
       widgetEl: @.$('.js-syntax')
@@ -112,22 +125,25 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
         readOnlyMode: true
 
   launchCoffeeScriptSyntaxEditor: ()=>
+    return @.$('.coffee-syntax').hide() unless @model.get('coffee-syntax')?.length > 0
     @coffeeScriptSyntaxEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: @.$ '.coffee-syntax-editor'
       widgetEl: @.$ '.coffee-syntax'
       options:
-        theme: 'solarized_light'
+        theme: 'solarized_dark'
         readOnlyMode: true
 
   launchExampleCodeEditor: ()=>
+    return @.$('.example-code').hide() unless @model.get('example-code')?.length > 0
     @exampleCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: @.$ '.example-code-editor'
       widgetEl: @.$ '.example-code'
       options:
-        theme: 'solarized_light'
+        theme: 'solarized_dark'
         readOnlyMode: true
 
   launchGivenCodeEditor: ()=>
+    return @.$('.given-code').hide() unless @model.get('given-code')?.length > 0
     @givenCodeEditor = new EssenceOfCoffeeScript.CoffeeScriptEditor 
       el: @.$ '.given-code-editor'
       widgetEl: @.$ '.given-code'
@@ -144,4 +160,4 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
   launchUserConsole: ()=>
     @jqconsole = new EssenceOfCoffeeScript.Console
       el: @$ '.user-console'  
-    @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
+    # @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor

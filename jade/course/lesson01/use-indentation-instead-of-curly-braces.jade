@@ -1,7 +1,7 @@
 data.exercise 
   data.realization Use indentation instead of { } curly braces
   data.js-syntax.
-    date= new Date()
+    date = new Date()
     hour = date.getHours()
     if (hour > 17) {
       now = 'night'
@@ -10,12 +10,13 @@ data.exercise
       now = 'day'
     }
   data.example-code.
-    date= new Date()
+    date = new Date()
     hour = date.getHours()
     if hour > 17
       now = 'night'
     else
       now = 'day'
-  data.instruction Enter the example code above into your editor below.
-  data.instruction View the values for <code>hour</code> and <code>now</code> with <code>console.log hour</code> and <code>console.log now</code>
-  data.user-code yes
+    console.log "It is now \#{now} time."
+  data.instruction Write an if/else statement using indentation.
+  data.instruction Notice that the structure of the code contains valuable information.
+  data.instruction This is very similar to the way python works. Or haml. Or sass.

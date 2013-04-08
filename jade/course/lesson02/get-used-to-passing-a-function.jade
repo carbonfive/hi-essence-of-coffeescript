@@ -1,8 +1,8 @@
 data.exercise 
-  data.realization Get Used to Passing a Function
+  data.realization Get used to passing a function
   data.example-code.
-    quoteURL = 'https://api.github.com/zen'
     quoteCallback = (quote)-> console.log quote
-    jQuery.get quoteURL, quoteCallback
-  data.instruction Enter the example code into the console to get a github zen coding quote.
-  data.instruction Pair with someone to either teach them, or learn from them, what each line means.
+    apiEndpoint = 'https://api.github.com/zen'
+    jQuery.get apiEndpoint, quoteCallback
+  data.instruction Get a zen coding quote from the Github API using the example code.
+  data.instruction Pair with someone to understand the significance of each line.

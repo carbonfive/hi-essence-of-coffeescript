@@ -32,12 +32,14 @@ pre {
 }
 
 .jqconsole-cursor {
-  background-color: #E9DFCA;
+  background-color: #2274cb;
+/*
   -o-animation:  blink 1s step-end infinite;
   -ms-animation:  blink 1s step-end infinite;
   -moz-animation:  blink 1s step-end infinite;
   -webkit-animation: blink 1s step-end infinite;
   animation: blink 1s step-end infinite;
+*/
 }
 
 @-o-keyframes blink-blurred {

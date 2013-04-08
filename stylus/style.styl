@@ -1,44 +1,65 @@
 font-family-base = 'Bitter', serif
 font-family-section-name = 'Open Sans', sans-serif
 font-family-header = 'Bitter', serif
+font-family-code = 'SourceCode Pro', monospace
+color-faint-grey = #D4D4D4
 color-light-grey = #b8babd
 color-medium-grey = #64666f
 color-dark-grey = #292a2f
 color-c5-orange = #f15d2a
-
+color-code-background= #073642
 
 @-o-keyframes highlightinstructions
   0%, 100% { color: color-dark-grey }
-  85% { color color-c5-orange }
+  80% { color color-c5-orange }
 @-ms-keyframes highlightinstructions
   0%, 100% { color: color-dark-grey }
-  85% { color color-c5-orange }
+  80% { color color-c5-orange }
 @-moz-keyframes highlightinstructions
   0%, 100% { color: color-dark-grey }
-  85% { color color-c5-orange }
+  80% { color color-c5-orange }
 @-webkit-keyframes highlightinstructions
   0%, 100% { color: color-dark-grey }
-  85% { color color-c5-orange }
+  80% { color color-c5-orange }
 @keyframes highlightinstructions
   0%, 100% { color: color-dark-grey }
-  85% { color color-c5-orange }
+  80% { color color-c5-orange }
 
 ease-transitions()
-  -webkit-transition all 0.1s ease
-  -moz-transition all 0.1s ease
-  -ms-transition all 0.1s ease
-  -o-transition all 0.1s ease
-  transition all 0.1s ease
+  -webkit-transition all 0.2s ease
+  -moz-transition all 0.2s ease
+  -ms-transition all 0.2s ease
+  -o-transition all 0.2s ease
+  transition all 0.2s ease
 
 ease-color-transitions()
-  -webkit-transition color 0.1s ease
-  -moz-transition color 0.1s ease
-  -ms-transition color 0.1s ease
-  -o-transition color 0.1s ease
-  transition color 0.1s ease
+  -webkit-transition background-color .15s ease, color .5s ease
+  -moz-transition background-color .15s ease, color .5s ease
+  -ms-transition background-color .15s ease, color .5s ease
+  -o-transition background-color .15s ease, color .5s ease
+  transition background-color .15s ease, color .5s ease
 
 .markup
   display none
+
+code
+  font-family font-family-code
+  background-color color-code-background
+  color color-light-grey
+  padding 0 3px
+  font-size 14px
+
+h3
+  code
+    font-size 24px
+
+html, body
+  -webkit-transition top 0.8s ease
+  -moz-transition top 0.8s ease
+  -ms-transition top 0.8s ease
+  -o-transition top 0.8s ease
+  transition top 0.8s ease
+
 
 body, p, ol, ul, li
   margin 0
@@ -63,6 +84,21 @@ body
   font-size 12px
   text-transform uppercase
 
+a.next
+  color white
+  line-height 57px
+  text-align left
+  text-indent 20px          
+  font-family font-family-section-name
+  background-image url('/images/button-arrows-next.png')
+  width 90px
+  height: 60px
+  ease-color-transitions()
+  text-transform uppercase
+  &:hover
+    background-position 0 -60px
+    color white
+
 h1, h2, h3, h4
   font-family font-family-header
 
@@ -74,7 +110,26 @@ h2
 h3
   font-size 24px
 h4
-  font-size 14px
+  font-size 16px
+  text-transform uppercase
+  font-weight normal
+
+input.run-users-hack
+  background-color white
+  border 2px solid color-c5-orange
+  color color-c5-orange
+  font-size 18px
+  line-height 32px
+  min-width 80px
+  -o-border-radius 8px
+  -ms-border-radius 8px
+  -moz-border-radius 8px
+  -webkit-border-radius 8px
+  border-radius 8px
+  font-weight bold
+  ease-transitions()
+  &:hover
+    font-size 20px
 
 nav ol li, nav ul li
   input[type=submit]
@@ -85,11 +140,12 @@ nav ol li, nav ul li
     -moz-border-radius 50%
     -webkit-border-radius 50%
     border-radius 50%
-    ease-transitions()
+    ease-color-transitions()
 
+    color white
     font-weight bold
     &:hover
-      background-color color-c5-orange
+      background-color #B8BABD
     &.active
       color white
       background-color color-c5-orange
@@ -98,7 +154,6 @@ nav ol li, nav ul li
       background-color color-c5-orange
 
   input.show-lesson
-    color color-light-grey
     font-size 16px
     height 40px
     line-height 40px
@@ -106,7 +161,6 @@ nav ol li, nav ul li
     min-width 40px
     padding 0 4px
   input.show-exercise
-    color color-light-grey
     font-size 12px
     height 28px
     line-height 28px
@@ -123,12 +177,19 @@ nav.lesson
 
 nav.exercise
   padding 16px 0
+  .section-name
+    margin-top 8px
   ul
     margin-left 8px
+    margin-top  12px
     list-style none
     li
       min-height 28px
       margin 4px 0
+      max-width 95%
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;      
 
 
 body
@@ -148,10 +209,9 @@ body
     lesson-nav-offset = 54px
     margin-top (1.5 * lesson-nav-offset)
     position relative
-    padding-bottom 30px
     .header
       color white
-      padding-top lesson-nav-offset
+      padding-top 30px
       text-align center
       a.by-carbon-five
         text-indent 200%
@@ -175,6 +235,7 @@ body
     .exercise-container
       exercise-spacing = 24px
       background-color white
+      padding-bottom 20px
       position relative
       overflow hidden
       .header
@@ -186,22 +247,10 @@ body
           color color-dark-grey
           line-height exercise-header-height
         a.next
-          color white
-          line-height 54px
-          text-align left
-          text-indent 20px          
-          font-family font-family-section-name
           position absolute        
           display inline-block
-          background-image url('/images/button-arrows-next.png')
-          width 90px
-          height exercise-header-height
           right exercise-spacing
           top exercise-spacing
-          ease-color-transitions()
-          &:hover
-            background-position 0 -60px
-            color color-c5-orange
       .exercise-spot
         position relative
         top -40px
@@ -214,15 +263,15 @@ body
             margin 20px 0 4px 0
           .instructions
             h4
-              font-size 18px
+              // font-size 18px
               ease-color-transitions()
-              -o-animation:  highlightinstructions 8s step-end 2
-              -ms-animation:  highlightinstructions 8s step-end 2
-              -moz-animation:  highlightinstructions 8s step-end 2
-              -webkit-animation: highlightinstructions 8s step-end 2
-              animation: highlightinstructions 8s step-end 2
+              -o-animation:  highlightinstructions 8s step-end 1
+              -ms-animation:  highlightinstructions 8s step-end 1
+              -moz-animation:  highlightinstructions 8s step-end 1
+              -webkit-animation: highlightinstructions 8s step-end 1
+              animation: highlightinstructions 8s step-end 1
             ol
-              padding-left 40px
+              padding-left 24px
           .editor
             position relative
             width 100%
@@ -234,7 +283,7 @@ body
               height 150px
               width 100%
               margin auto
-          .user-console 
+          .user-console
             height 180px
             width 100%
             position relative
@@ -245,10 +294,16 @@ body
             margin-top 8px
       nav.exercise
         position relative
-        background-color color-light-grey
+        background-color color-faint-grey
         float right
         margin-right exercise-spacing
         padding-bottom exercise-spacing
         width 30%
         p.section-name
           text-align center
+    .footer
+      a.next
+        position relative
+        display inline-block
+        top -68px
+        left 22px

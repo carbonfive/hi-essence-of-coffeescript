@@ -3,7 +3,7 @@
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -12,7 +12,7 @@
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -21,7 +21,7 @@
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -30,12 +30,30 @@
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
 .markup {
   display: none;
+}
+code {
+  font-family: 'SourceCode Pro', monospace;
+  background-color: #073642;
+  color: #b8babd;
+  padding: 0 3px;
+  font-size: 14px;
+}
+h3 code {
+  font-size: 24px;
+}
+html,
+body {
+  -webkit-transition: top 0.8s ease;
+  -moz-transition: top 0.8s ease;
+  -ms-transition: top 0.8s ease;
+  -o-transition: top 0.8s ease;
+  transition: top 0.8s ease;
 }
 body,
 p,
@@ -65,6 +83,26 @@ body {
   font-size: 12px;
   text-transform: uppercase;
 }
+a.next {
+  color: #fff;
+  line-height: 57px;
+  text-align: left;
+  text-indent: 20px;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("/images/button-arrows-next.png");
+  width: 90px;
+  height: 60px;
+  -webkit-transition: background-color 0.15s ease, color 0.5s ease;
+  -moz-transition: background-color 0.15s ease, color 0.5s ease;
+  -ms-transition: background-color 0.15s ease, color 0.5s ease;
+  -o-transition: background-color 0.15s ease, color 0.5s ease;
+  transition: background-color 0.15s ease, color 0.5s ease;
+  text-transform: uppercase;
+}
+a.next:hover {
+  background-position: 0 -60px;
+  color: #fff;
+}
 h1,
 h2,
 h3,
@@ -82,7 +120,31 @@ h3 {
   font-size: 24px;
 }
 h4 {
-  font-size: 14px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+input.run-users-hack {
+  background-color: #fff;
+  border: 2px solid #f15d2a;
+  color: #f15d2a;
+  font-size: 18px;
+  line-height: 32px;
+  min-width: 80px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+input.run-users-hack:hover {
+  font-size: 20px;
 }
 nav ol li input[type=submit],
 nav ul li input[type=submit] {
@@ -93,16 +155,17 @@ nav ul li input[type=submit] {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
+  -webkit-transition: background-color 0.15s ease, color 0.5s ease;
+  -moz-transition: background-color 0.15s ease, color 0.5s ease;
+  -ms-transition: background-color 0.15s ease, color 0.5s ease;
+  -o-transition: background-color 0.15s ease, color 0.5s ease;
+  transition: background-color 0.15s ease, color 0.5s ease;
+  color: #fff;
   font-weight: bold;
 }
 nav ol li input[type=submit]:hover,
 nav ul li input[type=submit]:hover {
-  background-color: #f15d2a;
+  background-color: #b8babd;
 }
 nav ol li input[type=submit].active,
 nav ul li input[type=submit].active {
@@ -116,7 +179,6 @@ nav ul li input[type=submit].active:hover {
 }
 nav ol li input.show-lesson,
 nav ul li input.show-lesson {
-  color: #b8babd;
   font-size: 16px;
   height: 40px;
   line-height: 40px;
@@ -126,7 +188,6 @@ nav ul li input.show-lesson {
 }
 nav ol li input.show-exercise,
 nav ul li input.show-exercise {
-  color: #b8babd;
   font-size: 12px;
   height: 28px;
   line-height: 28px;
@@ -146,13 +207,21 @@ nav.lesson ol li {
 nav.exercise {
   padding: 16px 0;
 }
+nav.exercise .section-name {
+  margin-top: 8px;
+}
 nav.exercise ul {
   margin-left: 8px;
+  margin-top: 12px;
   list-style: none;
 }
 nav.exercise ul li {
   min-height: 28px;
   margin: 4px 0;
+  max-width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 body {
   background-image: url("/images/background-mac.jpg");
@@ -174,11 +243,10 @@ body .course {
   background-color: #292a2f;
   margin-top: 81px;
   position: relative;
-  padding-bottom: 30px;
 }
 body .course .header {
   color: #fff;
-  padding-top: 54px;
+  padding-top: 30px;
   text-align: center;
 }
 body .course .header a.by-carbon-five {
@@ -205,6 +273,7 @@ body .course .header h2 .preview {
 }
 body .course .exercise-container {
   background-color: #fff;
+  padding-bottom: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -218,27 +287,10 @@ body .course .exercise-container .header h3 {
   line-height: 60px;
 }
 body .course .exercise-container .header a.next {
-  color: #fff;
-  line-height: 54px;
-  text-align: left;
-  text-indent: 20px;
-  font-family: 'Open Sans', sans-serif;
   position: absolute;
   display: inline-block;
-  background-image: url("/images/button-arrows-next.png");
-  width: 90px;
-  height: 60px;
   right: 24px;
   top: 24px;
-  -webkit-transition: color 0.1s ease;
-  -moz-transition: color 0.1s ease;
-  -ms-transition: color 0.1s ease;
-  -o-transition: color 0.1s ease;
-  transition: color 0.1s ease;
-}
-body .course .exercise-container .header a.next:hover {
-  background-position: 0 -60px;
-  color: #f15d2a;
 }
 body .course .exercise-container .exercise-spot {
   position: relative;
@@ -252,20 +304,19 @@ body .course .exercise-container .exercise-spot .exercise h4 {
   margin: 20px 0 4px 0;
 }
 body .course .exercise-container .exercise-spot .exercise .instructions h4 {
-  font-size: 18px;
-  -webkit-transition: color 0.1s ease;
-  -moz-transition: color 0.1s ease;
-  -ms-transition: color 0.1s ease;
-  -o-transition: color 0.1s ease;
-  transition: color 0.1s ease;
-  -o-animation: highlightinstructions 8s step-end 2;
-  -ms-animation: highlightinstructions 8s step-end 2;
-  -moz-animation: highlightinstructions 8s step-end 2;
-  -webkit-animation: highlightinstructions 8s step-end 2;
-  animation: highlightinstructions 8s step-end 2;
+  -webkit-transition: background-color 0.15s ease, color 0.5s ease;
+  -moz-transition: background-color 0.15s ease, color 0.5s ease;
+  -ms-transition: background-color 0.15s ease, color 0.5s ease;
+  -o-transition: background-color 0.15s ease, color 0.5s ease;
+  transition: background-color 0.15s ease, color 0.5s ease;
+  -o-animation: highlightinstructions 8s step-end 1;
+  -ms-animation: highlightinstructions 8s step-end 1;
+  -moz-animation: highlightinstructions 8s step-end 1;
+  -webkit-animation: highlightinstructions 8s step-end 1;
+  animation: highlightinstructions 8s step-end 1;
 }
 body .course .exercise-container .exercise-spot .exercise .instructions ol {
-  padding-left: 40px;
+  padding-left: 24px;
 }
 body .course .exercise-container .exercise-spot .exercise .editor {
   position: relative;
@@ -273,11 +324,11 @@ body .course .exercise-container .exercise-spot .exercise .editor {
   height: 150px;
   padding: 0;
   margin: 0 0 8px 0;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 body .course .exercise-container .exercise-spot .exercise .editor .coffee-syntax-editor,
 body .course .exercise-container .exercise-spot .exercise .editor .js-syntax-editor,
@@ -300,7 +351,7 @@ body .course .exercise-container .exercise-spot .exercise .user-console {
 }
 body .course .exercise-container nav.exercise {
   position: relative;
-  background-color: #b8babd;
+  background-color: #d4d4d4;
   float: right;
   margin-right: 24px;
   padding-bottom: 24px;
@@ -309,12 +360,18 @@ body .course .exercise-container nav.exercise {
 body .course .exercise-container nav.exercise p.section-name {
   text-align: center;
 }
+body .course .footer a.next {
+  position: relative;
+  display: inline-block;
+  top: -68px;
+  left: 22px;
+}
 @-moz-keyframes highlightinstructions {
   0%, 100% {
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -323,7 +380,7 @@ body .course .exercise-container nav.exercise p.section-name {
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -332,7 +389,7 @@ body .course .exercise-container nav.exercise p.section-name {
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -341,7 +398,7 @@ body .course .exercise-container nav.exercise p.section-name {
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }
@@ -350,7 +407,7 @@ body .course .exercise-container nav.exercise p.section-name {
     color: #292a2f;
   }
 
-  85% {
+  80% {
     color: #f15d2a;
   }
 }

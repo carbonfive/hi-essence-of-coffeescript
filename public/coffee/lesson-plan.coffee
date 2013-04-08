@@ -50,7 +50,7 @@ class EssenceOfCoffeeScript.LessonPlan extends Backbone.View
       @exercises.push exerciseView
 
   activate: ()=>
-    @course.$exercisesNavbar.html @$navbar 
+    @course.$exercisesNavbar.html @$navbar
     @course.$lessonTitle.html @model.get 'title'
     @currentExercise.activate()
     @
