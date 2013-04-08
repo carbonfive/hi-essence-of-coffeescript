@@ -1,7 +1,7 @@
 data.exercise 
   data.realization Use unless to flip an if else
   data.coffee-syntax.
-    now = 'play time' unless 11 < (new Date).getHours() < 12
+    timeOfDay = 'night' unless hour < 11
   data.example-code.
     askForGeoLocation = ->
       return alert 'Seriously? You gotta update your browser!' unless navigator.geolocation
@@ -10,7 +10,7 @@ data.exercise
 
     positionCallback = (position)->
       point = position.coords
-      alert "Lat: \#{point.latitude}, Lng: \#{point.longitude}"
+      console.log "Lat: \#{point.latitude}, Lng: \#{point.longitude}"
 
     askForGeoLocation()
   data.instruction Get the geo location of your browser using the example code.

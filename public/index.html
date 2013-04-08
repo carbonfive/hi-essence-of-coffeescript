@@ -52,8 +52,7 @@ console.log getHostname()</data><data class="instruction">Enter the code above i
   
 reportRootURL()</data><data class="instruction">Define the reportRootURL function and call it.</data></data><data class="exercise"> <data class="realization">Get used to passing a function</data><data class="example-code">quoteCallback = (quote)-> console.log quote
 apiEndpoint = 'https://api.github.com/zen'
-jQuery.get apiEndpoint, quoteCallback</data><data class="instruction">Get a zen coding quote from the Github API using the example code.</data><data class="instruction">Pair with someone to understand the significance of each line.</data></data></data><data class="lessonplan"><data class="title">Some Conditional Love</data><data class="exercise"> <data class="realization">The body of an if can come first</data><data class="coffee-syntax">timeOfDay = 'morning' if hour < 11
-timeOfDay = 'night' if hour > 17</data><data class="user-code">getTimeOfDay = (hour)->
+jQuery.get apiEndpoint, quoteCallback</data><data class="instruction">Get a zen coding quote from the Github API using the example code.</data><data class="instruction">Pair with someone to understand the significance of each line.</data></data></data><data class="lessonplan"><data class="title">Some Conditional Love</data><data class="exercise"> <data class="realization">The body of an if can come first</data><data class="coffee-syntax">timeOfDay = 'morning' if hour < 11</data><data class="user-code">getTimeOfDay = (hour)->
   timeOfDay = 'morning' if hour < 11
   # +++ ToDo set timeOfDay = 'AFTERNOON' 
   timeOfDay = 'night' if hour > 17
@@ -65,21 +64,21 @@ reportTimeOfDayForHour = (hour) ->
 reportTimeOfDayForHour 9
 reportTimeOfDayForHour 12
 reportTimeOfDayForHour 20
-</data><data class="instruction">Run the given code and notice that timeOfDay is undefined at 12</data><data class="instruction">Complete the function <code>getTimeOfDay</code> to return 'AFTERNOON' when hour is 12</data><data class="instruction">Run the corrected code.</data><data class="instruction">Why is <code>timeOfDay</code> the last line of the <code>getTimeOfDay</code> function?</data></data><data class="exercise"> <data class="realization">Use unless to flip an if else</data><data class="coffee-syntax">now = 'play time' unless 11 < (new Date).getHours() < 12</data><data class="example-code">askForGeoLocation = ->
+</data><data class="instruction">Run the given code and notice that timeOfDay is undefined at 12</data><data class="instruction">Complete the function <code>getTimeOfDay</code> to return 'AFTERNOON' when hour is 12</data><data class="instruction">Run the corrected code.</data><data class="instruction">Why is <code>timeOfDay</code> the last line of the <code>getTimeOfDay</code> function?</data></data><data class="exercise"> <data class="realization">Use unless to flip an if else</data><data class="coffee-syntax">timeOfDay = 'night' unless hour < 11</data><data class="example-code">askForGeoLocation = ->
   return alert 'Seriously? You gotta update your browser!' unless navigator.geolocation
   alert 'Your browser is about to ask you to allow geolocation'
   navigator.geolocation.getCurrentPosition positionCallback
   
 positionCallback = (position)->
   point = position.coords
-  alert "Lat: #{point.latitude}, Lng: #{point.longitude}"
+  console.log "Lat: #{point.latitude}, Lng: #{point.longitude}"
   
-askForGeoLocation()</data><data class="instruction">Get the geo location of your browser using the example code.</data></data></data><data class="lessonplan"> <data class="title">The Existential <code>?</code> Operator</data><data class="exercise"> <data class="realization">Use <code>?</code> to check if something exists</data><data class="example-code">console.log 'unicorns are real!' if unicornsExist
-console.log 'unicorns are real!' if unicornsExist?
+askForGeoLocation()</data><data class="instruction">Get the geo location of your browser using the example code.</data></data></data><data class="lessonplan"> <data class="title">The Existential <code>?</code> Operator</data><data class="exercise"> <data class="realization">Use <code>?</code> to check if something exists</data><data class="example-code">console.log 'unicorns are not real!' unless unicornsExist
+console.log 'unicorns are not real!' unless unicornsExist?
 
 unicornsExist = false
 console.log 'unicorns are real!' if unicornsExist
-console.log 'unicorns are real!' if unicornsExist?</data><data class="instruction">The existential operator is one of the coolest features in CoffeeScript.</data><data class="instruction">Run each of the above lines one at a time (in order).</data><data class="instruction">Notice that the existential operator can be used to check if something exists.</data><data class="instruction">Observe which statements create errors.</data><data class="instruction">Observe that <code>?</code> can be used to avoid errors al together.</data><data class="instruction">Observe that the <code>?</code> operator is not a replace for boolean logic.</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to set default values</data><data class="description"></data><data class="example-code">setProfile = (profile)->
+console.log 'unicorns are real!' if unicornsExist?</data><data class="instruction">The existential operator is one of the coolest features in CoffeeScript.</data><data class="instruction">Run each of the above lines one at a time.</data><data class="instruction">Notice that the existential operator can be used to check if something exists.</data><data class="instruction">Observe which statements create errors.</data><data class="instruction">Observe that <code>?</code> can be used to avoid errors all together.</data><data class="instruction">Observe that the <code>?</code> operator is not a replace for boolean logic.</data><data class="instruction">Observe that last to be a bug.</data></data><data class="exercise"> <data class="realization">Use <code>?</code> to set default values</data><data class="description"></data><data class="example-code">setProfile = (profile)->
   profile ?= {}
   profile.name ?= 'guest'
   console.log 'profile:', profile
