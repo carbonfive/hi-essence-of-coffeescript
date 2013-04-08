@@ -5,8 +5,21 @@ data.exercise
     timeOfDay = 'night' if hour > 17
   data.user-code.
     getTimeOfDay = (hour)->
+      timeOfDay = 'morning' if hour < 11
+      # +++ ToDo set timeOfDay = 'AFTERNOON' 
+      timeOfDay = 'night' if hour > 17
+      timeOfDay
 
-  data.instruction Complete the function getTimeOfDay - using ifs on the same line.
-  data.instruction Have it conditionally return 'morning', 'night' or 'AFTERNOON' based on the hour.
-  data.instruction Test it in the console by calling it with different values of hour.
-  data.instruction Make sure the final the function returns the value you want.
+    reportTimeOfDayForHour = (hour) -> 
+      console.log "at \#{hour}, it is \#{getTimeOfDay hour}"
+
+    reportTimeOfDayForHour 9
+    reportTimeOfDayForHour 12
+    reportTimeOfDayForHour 20
+
+  data.instruction Run the given code and notice that timeOfDay is undefined at 12
+  data.instruction Complete the function <code>getTimeOfDay</code> to return 'AFTERNOON' when hour is 12
+  data.instruction Run the corrected code.
+  data.instruction Why is <code>timeOfDay</code> the last line of the <code>getTimeOfDay</code> function?
+  
+

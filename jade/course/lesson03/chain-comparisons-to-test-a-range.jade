@@ -1,0 +1,19 @@
+data.exercise 
+  data.realization Chain comparisons to test within a range
+  data.coffee-syntax.
+      timeOfDay = 'AFTERNOON' if 11 <= hour < 17
+  data.user-code.
+    getTimeOfDay = (hour)->
+      timeOfDay = 'morning' if hour < 11
+      # timeOfDay = 'AFTERNOON' if 11 <= hour < 17
+      timeOfDay = 'night' if hour > 17
+      timeOfDay
+
+    reportTimeOfDayForHour = (hour) -> 
+      console.log "at \#{hour}, it is \#{getTimeOfDay hour}"
+
+    reportTimeOfDayForHour 9
+    reportTimeOfDayForHour 12
+    reportTimeOfDayForHour 20
+
+  data.instruction Uncomment the line to set timeOfDay = 'AFTERNOON'.

@@ -1,12 +1,15 @@
 data.exercise 
-  data.realization Use <code>?</code> to do some error handling
+  data.realization Use <code>?</code> to check if something exists
   data.example-code.
     console.log 'unicorns are real!' if unicornsExist
     console.log 'unicorns are real!' if unicornsExist?
 
     unicornsExist = false
-    console.log 'uncorns are real!' if unicornsExist
-    console.log 'uncorns are real!' if unicornsExist?
-  data.instruction Enter each of the lines (in order) from the example code above into the console.
+    console.log 'unicorns are real!' if unicornsExist
+    console.log 'unicorns are real!' if unicornsExist?
+  data.instruction The existential operator is one of the coolest features in CoffeeScript.
+  data.instruction Run each of the above lines one at a time (in order).
+  data.instruction Notice that the existential operator can be used to check if something exists.
   data.instruction Observe which statements create errors.
+  data.instruction Observe that <code>?</code> can be used to avoid errors al together.
   data.instruction Observe that the <code>?</code> operator is not a replace for boolean logic.
