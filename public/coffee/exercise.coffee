@@ -10,9 +10,10 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     event.preventDefault()
     try
       hackOutput = @userCodeEditor.runCode force:true
-      @jqconsole.Write hackOutput if hackOutput?
+      output = hackOutput ? ''
+      @jqconsole.Write output
     catch e
-      @jqconsole.Write 'ERROR: ' + e.message + '\n'
+      @jqconsole.Write 'ERROR: ' + e.message
 
   initialize: (attributes)=>
     super attributes
@@ -156,6 +157,8 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       widgetEl: @.$ '.user-code'
       displaySettings: minHeight: 100
       autoParse: true
+    @userCodeEditor.aceEditor.on 'change', (event)=>
+      @model.set 'user-code', @userCodeEditor.aceEditor.getValue()
 
   launchUserConsole: ()=>
     @jqconsole = new EssenceOfCoffeeScript.Console
