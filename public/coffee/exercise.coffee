@@ -157,6 +157,8 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       widgetEl: @.$ '.user-code'
       displaySettings: minHeight: 100
       autoParse: true
+    @userCodeEditor.aceEditor.on 'change', (event)=>
+      @model.set 'user-code', @userCodeEditor.aceEditor.getValue()
 
   launchUserConsole: ()=>
     @jqconsole = new EssenceOfCoffeeScript.Console
