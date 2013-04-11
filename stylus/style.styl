@@ -9,6 +9,13 @@ color-dark-grey = #292a2f
 color-c5-orange = #f15d2a
 color-code-background= #073642
 
+color-console-background = #082933
+color-console-error = #D4191E
+color-console-output = #1A74CB
+color-console-dim = #526870
+
+
+
 @-o-keyframes highlightinstructions
   0%, 100% { color: color-dark-grey }
   80% { color color-c5-orange }
@@ -284,14 +291,26 @@ body
               width 100%
               margin auto
           .user-console
-            height 180px
+            padding 8px
+            min-height 80px
+            max-height 280px
+            overflow auto
             width 100%
             position relative
             font-family 'Source Code Pro', monospace
-            background-color #0B202A
+            background-color color-console-background
             color #526870
             border 2px solid #526870
             margin-top 8px
+            .error
+              color color-console-error
+            .output 
+              color color-console-output
+              &.dim
+                color color-console-dim
+            div:last-child
+              margin-top 4px
+              border-bottom 1px dotted color-console-dim
       nav.exercise
         position relative
         background-color color-faint-grey
