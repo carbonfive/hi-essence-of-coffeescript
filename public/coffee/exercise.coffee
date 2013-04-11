@@ -6,14 +6,6 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
   events:
     'click .run-users-hack': 'hiRunUsersHack'
 
-  hiRunUsersHack: (event)-> 
-    event.preventDefault()
-    try
-      hackOutput = @userCodeEditor.runCode force:true
-      @outputConsole.Write hackOutput
-    catch e
-      @outputConsole.WriteError 'ERROR: ' + e.message
-
   initialize: (attributes)=>
     super attributes
     _.extend @options, EssenceOfCoffeeScript.options
@@ -39,7 +31,6 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @launchEditors()
     @launchUserConsole()
     @deactivate()
-
 
   materializeModel: (@$elExerciseModel)=>
     atts = @$elExerciseModel.pickHTMLValues 'title',
@@ -161,7 +152,24 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @userCodeEditor.aceEditor.on 'change', (event)=>
       @model.set 'user-code', @userCodeEditor.aceEditor.getValue()
 
+    @userCodeEditor.aceEditor.commands.addCommand {
+      name: 'runCode'
+      bindKey: win: "Ctrl-return",  mac: "Command-return"
+      exec: (editor)=> @runUsersHack()
+    }
+
   launchUserConsole: ()=>
     @outputConsole = new EssenceOfCoffeeScript.Console
-      el: @$ '.user-console'  
-    # @outputConsole.addCodeEditor @userCodeEditor, @givenCodeEditor
+      el: @$ '.user-console'
+
+  runUsersHack: ()-> 
+    try
+      hackOutput = @userCodeEditor.runCode force:true
+      @outputConsole.Write hackOutput
+    catch e
+      @outputConsole.WriteError 'ERROR: ' + e.message
+
+  hiRunUsersHack: (event)-> 
+    event.preventDefault()
+    @runUsersHack()
+    
