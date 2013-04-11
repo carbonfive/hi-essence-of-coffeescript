@@ -2,11 +2,11 @@ doctype 5
 html(lang="en")
   head
     title Essence of CoffeeScript
-    meta(name="robots", content="noindex")
     script(type="text/javascript", src="./js/vendor/jquery.js")
     script(type="text/javascript", src="./js/vendor/underscore.min.js")
     script(type="text/javascript", src="./js/vendor/backbone.min.js")
     block head
 
   body
+    include ./social/facebook/fb-init
     block content
