@@ -96,6 +96,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
     @delegateEvents()
+    @outputConsole.scrollToEnd()
     @userCodeEditor.aceEditor.focus()
     @
 

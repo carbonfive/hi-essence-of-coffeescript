@@ -35,8 +35,10 @@ class EssenceOfCoffeeScript.Console extends Backbone.View
         # when 'object' then JSON.stringify result, null, 0
         else JSON.stringify arg, null, 1
       @$el.append "<div class='#{css}'>#{output}</div>"
-    @$el.animate { scrollTop: @$el[0].scrollHeight}, 80
+    @scrollToEnd()
 
   hide: ()=> @$widgetEl.fadeOut()
 
   show: (code)=> @$widgetEl.delay(100).fadeIn()
+
+  scrollToEnd: ()=> @$el.animate { scrollTop: @$el[0].scrollHeight}, 80
