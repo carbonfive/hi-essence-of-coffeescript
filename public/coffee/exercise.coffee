@@ -10,9 +10,9 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     event.preventDefault()
     try
       hackOutput = @userCodeEditor.runCode force:true
-      @jqconsole.Write hackOutput
+      @outputConsole.Write hackOutput
     catch e
-      @jqconsole.WriteError 'ERROR: ' + e.message
+      @outputConsole.WriteError 'ERROR: ' + e.message
 
   initialize: (attributes)=>
     super attributes
@@ -91,11 +91,12 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     @renderEditor @exampleCodeEditor, @model.get('example-code')
     @renderEditor @givenCodeEditor, @model.get('given-code')
     @renderEditor @userCodeEditor, (@model.get('user-code') || ''), force:true
-    @jqconsole.activate()
+    @outputConsole.activate()
 
     @lessonPlan.$navbarButton.addClass('active')
     @$navbarButton.addClass('active')
     @delegateEvents()
+    @userCodeEditor.aceEditor.focus()
     @
 
   renderEditor: (editor, code, options)-> 
@@ -103,7 +104,7 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
 
   deactivate: ()=>
     @$el.hide()
-    @jqconsole.deactivate()
+    @outputConsole.deactivate()
     @$navbarButton.removeClass('active')
 
   launchEditors: ()=>
@@ -160,6 +161,6 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
       @model.set 'user-code', @userCodeEditor.aceEditor.getValue()
 
   launchUserConsole: ()=>
-    @jqconsole = new EssenceOfCoffeeScript.Console
+    @outputConsole = new EssenceOfCoffeeScript.Console
       el: @$ '.user-console'  
-    # @jqconsole.addCodeEditor @userCodeEditor, @givenCodeEditor
+    # @outputConsole.addCodeEditor @userCodeEditor, @givenCodeEditor
