@@ -10,10 +10,9 @@ class EssenceOfCoffeeScript.Exercise extends Backbone.View
     event.preventDefault()
     try
       hackOutput = @userCodeEditor.runCode force:true
-      output = hackOutput ? ''
-      @jqconsole.Write output
+      @jqconsole.Write hackOutput
     catch e
-      @jqconsole.Write 'ERROR: ' + e.message
+      @jqconsole.WriteError 'ERROR: ' + e.message
 
   initialize: (attributes)=>
     super attributes

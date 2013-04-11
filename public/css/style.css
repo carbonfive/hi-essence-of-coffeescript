@@ -340,14 +340,30 @@ body .course .exercise-container .exercise-spot .exercise .editor .user-code-edi
   margin: auto;
 }
 body .course .exercise-container .exercise-spot .exercise .user-console {
-  height: 180px;
+  padding: 8px;
+  min-height: 80px;
+  max-height: 280px;
+  overflow: auto;
   width: 100%;
   position: relative;
   font-family: 'Source Code Pro', monospace;
-  background-color: #0b202a;
+  background-color: #082933;
   color: #526870;
   border: 2px solid #526870;
   margin-top: 8px;
+}
+body .course .exercise-container .exercise-spot .exercise .user-console .error {
+  color: #d4191e;
+}
+body .course .exercise-container .exercise-spot .exercise .user-console .output {
+  color: #1a74cb;
+}
+body .course .exercise-container .exercise-spot .exercise .user-console .output.dim {
+  color: #526870;
+}
+body .course .exercise-container .exercise-spot .exercise .user-console div:last-child {
+  margin-top: 4px;
+  border-bottom: 1px dotted #526870;
 }
 body .course .exercise-container nav.exercise {
   position: relative;
