@@ -382,6 +382,18 @@ body .course .footer a.next {
   top: -68px;
   left: 22px;
 }
+#social-toolbar {
+  position: relative;
+  top: -42px;
+}
+#social-toolbar .facebook {
+  padding: 0 24px;
+  float: left;
+}
+#social-toolbar .twitter {
+  padding: 0 2px;
+  float: right;
+}
 @-moz-keyframes highlightinstructions {
   0%, 100% {
     color: #292a2f;
